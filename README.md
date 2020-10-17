@@ -10,6 +10,8 @@
 
 `problems` ディレクトリに Markdown ファイルを格納します。
 
+- [star_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/problems/20201028/star_quiz.md)
+
 ## 解答方法
 
 ### あなた専用のローカルブランチを作成する
@@ -54,10 +56,12 @@ git push origin {あなたのブランチ名}
 
 ## 模範解答
 
-- `htdocs/answer` にプログラムを格納します
+`htdocs/answer` にプログラムを格納します
 
 解答はあくまで一例です。
 もっと効率的な方法がないか考えてみてください。
+
+- [star_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/htdocs/answer/20201028/star_quiz.php)
 
 # 情報更新
 
