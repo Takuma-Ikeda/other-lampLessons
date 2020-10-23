@@ -4,7 +4,7 @@
  * [ブラウザ]
  * http://localhost/answer/20201028/star_quiz.php
  * [コンテナパス]
- * /var/www/html/answer/20201028/star_quiz.php
+ * /var/www/html/answer/20201028
  *  php star_quiz.php で実行可能
  */
 
