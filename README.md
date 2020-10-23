@@ -11,6 +11,7 @@
 `problems` ディレクトリに Markdown ファイルを格納します。
 
 - [star_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/problems/20201028/star_quiz.md)
+- [table_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/problems/20201104/table_quiz.md)
 
 ## 解答方法
 
@@ -61,7 +62,8 @@ git push origin {あなたのブランチ名}
 解答はあくまで一例です。
 もっと効率的な方法がないか考えてみてください。
 
-- [star_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/htdocs/answer/20201028/star_quiz.php)
+- [star_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/tree/master/htdocs/answer/20201028)
+- [table_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/tree/master/htdocs/answer/20201104)
 
 # 情報更新
 
