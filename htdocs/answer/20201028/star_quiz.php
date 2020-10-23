@@ -8,7 +8,7 @@
  *  php star_quiz.php で実行可能
  */
 
- // グローバル変数
+// グローバル変数
 $isBrowser = true;
 
 function problem01() {
