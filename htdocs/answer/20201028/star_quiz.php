@@ -103,9 +103,9 @@ function problem06() {
 function printNewLine($str) {
     global $isBrowser;
     if ($isBrowser) {
-        echo nl2br($str . "\n");
+        echo nl2br($str . PHP_EOL);
     } else {
-        echo $str . "\n";
+        echo $str . PHP_EOL;
     }
 }
 
@@ -116,9 +116,9 @@ function printNewLine($str) {
 function printDotLine() {
     global $isBrowser;
     if ($isBrowser) {
-        echo nl2br("------------------------------------" . "\n");
+        echo nl2br("------------------------------------" . PHP_EOL);
     } else {
-        echo "------------------------------------" . "\n";
+        echo "------------------------------------" . PHP_EOL;
     }
 }
 
