@@ -31,47 +31,48 @@ $num = count($students);
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-    <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>名前</th>
-                <th>国語</th>
-                <th>算数</th>
-                <th>社会</th>
-                <th>理科</th>
-                <th>英語</th>
-                <th>プログラミング</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php for ($i = 0; $i < $num; $i++) { ?>
-                <?php if ($i % 2 == 0) { // 偶数 ?>
-                    <tr class="even">
-                        <td><?php echo $students[$i]['id'] ?></td>
-                        <td><?php echo $students[$i]['name'] ?></td>
-                        <td><?php echo $students[$i]['japanese'] ?></td>
-                        <td><?php echo $students[$i]['math'] ?></td>
-                        <td><?php echo $students[$i]['society'] ?></td>
-                        <td><?php echo $students[$i]['science'] ?></td>
-                        <td><?php echo $students[$i]['english'] ?></td>
-                        <td><?php echo $students[$i]['programming'] ?></td>
-                    </tr>
-                <?php } else { // 奇数 ?>
-                    <tr class="odd">
-                        <td><?php echo $students[$i]['id'] ?></td>
-                        <td><?php echo $students[$i]['name'] ?></td>
-                        <td><?php echo $students[$i]['japanese'] ?></td>
-                        <td><?php echo $students[$i]['math'] ?></td>
-                        <td><?php echo $students[$i]['society'] ?></td>
-                        <td><?php echo $students[$i]['science'] ?></td>
-                        <td><?php echo $students[$i]['english'] ?></td>
-                        <td><?php echo $students[$i]['programming'] ?></td>
-                    </tr>
+        <h1>問題 4 おまけ</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>名前</th>
+                    <th>国語</th>
+                    <th>算数</th>
+                    <th>社会</th>
+                    <th>理科</th>
+                    <th>英語</th>
+                    <th>プログラミング</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php for ($i = 0; $i < $num; $i++) { ?>
+                    <?php if ($i % 2 == 0) { // 偶数 ?>
+                        <tr class="even">
+                            <td><?php echo $students[$i]['id'] ?></td>
+                            <td><?php echo $students[$i]['name'] ?></td>
+                            <td><?php echo $students[$i]['japanese'] ?></td>
+                            <td><?php echo $students[$i]['math'] ?></td>
+                            <td><?php echo $students[$i]['society'] ?></td>
+                            <td><?php echo $students[$i]['science'] ?></td>
+                            <td><?php echo $students[$i]['english'] ?></td>
+                            <td><?php echo $students[$i]['programming'] ?></td>
+                        </tr>
+                    <?php } else { // 奇数 ?>
+                        <tr class="odd">
+                            <td><?php echo $students[$i]['id'] ?></td>
+                            <td><?php echo $students[$i]['name'] ?></td>
+                            <td><?php echo $students[$i]['japanese'] ?></td>
+                            <td><?php echo $students[$i]['math'] ?></td>
+                            <td><?php echo $students[$i]['society'] ?></td>
+                            <td><?php echo $students[$i]['science'] ?></td>
+                            <td><?php echo $students[$i]['english'] ?></td>
+                            <td><?php echo $students[$i]['programming'] ?></td>
+                        </tr>
+                    <?php } ?>
                 <?php } ?>
-            <?php } ?>
-        </tbody>
-    </table>
+            </tbody>
+        </table>
     </body>
 </html>
 

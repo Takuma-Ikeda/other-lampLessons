@@ -8,7 +8,7 @@
  *  php table_quiz_06.php で実行可能
  */
 
-function getStudentById($ids) {
+function getStudentsByIds($ids) {
     $students = [
         ['id' => 1, 'name' => '池田', 'japanese' => 0, 'math' => 0, 'society' => 0, 'science' => 0, 'english' => 0, 'programming' => 100],
         ['id' => 2, 'name' => '斉藤', 'japanese' => 80, 'math' => 80, 'society' => 80, 'science' => 80, 'english' => 80, 'programming' => 80],
@@ -36,7 +36,7 @@ function getStudentById($ids) {
 }
 
 // 好きな id を配列で渡すことができる
-$students = getStudentById([1, 2, 3, 4]);
+$students = getStudentsByIds([1, 2, 3, 4]);
 
 // 存在しない id を渡すと ERROR になる
 // $students = getStudentById([1, 2, 3, 99]);
@@ -49,34 +49,35 @@ $students = getStudentById([1, 2, 3, 4]);
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-    <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>名前</th>
-                <th>国語</th>
-                <th>算数</th>
-                <th>社会</th>
-                <th>理科</th>
-                <th>英語</th>
-                <th>プログラミング</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($students as $student) { ?>
+        <h1>問題 6</h1>
+        <table>
+            <thead>
                 <tr>
-                    <td><?php echo $student['id'] ?></td>
-                    <td><?php echo $student['name'] ?></td>
-                    <td><?php echo $student['japanese'] ?></td>
-                    <td><?php echo $student['math'] ?></td>
-                    <td><?php echo $student['society'] ?></td>
-                    <td><?php echo $student['science'] ?></td>
-                    <td><?php echo $student['english'] ?></td>
-                    <td><?php echo $student['programming'] ?></td>
+                    <th>id</th>
+                    <th>名前</th>
+                    <th>国語</th>
+                    <th>算数</th>
+                    <th>社会</th>
+                    <th>理科</th>
+                    <th>英語</th>
+                    <th>プログラミング</th>
                 </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach($students as $student) { ?>
+                    <tr>
+                        <td><?php echo $student['id'] ?></td>
+                        <td><?php echo $student['name'] ?></td>
+                        <td><?php echo $student['japanese'] ?></td>
+                        <td><?php echo $student['math'] ?></td>
+                        <td><?php echo $student['society'] ?></td>
+                        <td><?php echo $student['science'] ?></td>
+                        <td><?php echo $student['english'] ?></td>
+                        <td><?php echo $student['programming'] ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </body>
 </html>
 

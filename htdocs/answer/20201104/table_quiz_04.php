@@ -31,34 +31,35 @@ $num = count($students);
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-    <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>名前</th>
-                <th>国語</th>
-                <th>算数</th>
-                <th>社会</th>
-                <th>理科</th>
-                <th>英語</th>
-                <th>プログラミング</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php for ($i = 0; $i < $num; $i++) { // 配列の要素数だけループを回す  ?>
+        <h1>問題 4</h1>
+        <table>
+            <thead>
                 <tr>
-                    <td><?php echo $students[$i]['id'] ?></td>
-                    <td><?php echo $students[$i]['name'] ?></td>
-                    <td><?php echo $students[$i]['japanese'] ?></td>
-                    <td><?php echo $students[$i]['math'] ?></td>
-                    <td><?php echo $students[$i]['society'] ?></td>
-                    <td><?php echo $students[$i]['science'] ?></td>
-                    <td><?php echo $students[$i]['english'] ?></td>
-                    <td><?php echo $students[$i]['programming'] ?></td>
+                    <th>id</th>
+                    <th>名前</th>
+                    <th>国語</th>
+                    <th>算数</th>
+                    <th>社会</th>
+                    <th>理科</th>
+                    <th>英語</th>
+                    <th>プログラミング</th>
                 </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php for ($i = 0; $i < $num; $i++) { // 配列の要素数だけループを回す  ?>
+                    <tr>
+                        <td><?php echo $students[$i]['id'] ?></td>
+                        <td><?php echo $students[$i]['name'] ?></td>
+                        <td><?php echo $students[$i]['japanese'] ?></td>
+                        <td><?php echo $students[$i]['math'] ?></td>
+                        <td><?php echo $students[$i]['society'] ?></td>
+                        <td><?php echo $students[$i]['science'] ?></td>
+                        <td><?php echo $students[$i]['english'] ?></td>
+                        <td><?php echo $students[$i]['programming'] ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </body>
 </html>
 

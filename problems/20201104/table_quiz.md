@@ -59,7 +59,7 @@ PHP の `getStudents()` 関数を実行すると、多重連想配列データ�
 
 ## 問題 6
 
-関数 `getStudents()` が引数 `$ids` を受け取れるように変更して、関数名を `getStudentById($ids)` に変更してください。
+関数 `getStudents()` が引数 `$ids` を受け取れるように変更して、関数名を `getStudentsByIds($ids)` に変更してください。
 引数 `$ids` は配列であり、その要素は生徒の id です。
 
 受け取った id に合致する生徒のデータを複数件、返却してください。
@@ -68,4 +68,4 @@ PHP の `getStudents()` 関数を実行すると、多重連想配列データ�
 ## 問題 7
 
 問題 6 の `.php` ファイルからビジネスロジックを排除してください。
-※ 関数 `getStudentById($ids)` の定義は他の `.php` ファイルに書く、ということです。
+※ 関数 `getStudentsByIds($ids)` の定義は他の `.php` ファイルに書く、ということです。

@@ -28,34 +28,35 @@ $students = getStudents();
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-    <table>
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>名前</th>
-                <th>国語</th>
-                <th>算数</th>
-                <th>社会</th>
-                <th>理科</th>
-                <th>英語</th>
-                <th>プログラミング</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach($students as $student) { ?>
+        <h1>問題 5</h1>
+        <table>
+            <thead>
                 <tr>
-                    <td><?php echo $student['id'] ?></td>
-                    <td><?php echo $student['name'] ?></td>
-                    <td><?php echo $student['japanese'] ?></td>
-                    <td><?php echo $student['math'] ?></td>
-                    <td><?php echo $student['society'] ?></td>
-                    <td><?php echo $student['science'] ?></td>
-                    <td><?php echo $student['english'] ?></td>
-                    <td><?php echo $student['programming'] ?></td>
+                    <th>id</th>
+                    <th>名前</th>
+                    <th>国語</th>
+                    <th>算数</th>
+                    <th>社会</th>
+                    <th>理科</th>
+                    <th>英語</th>
+                    <th>プログラミング</th>
                 </tr>
-            <?php } ?>
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                <?php foreach($students as $student) { ?>
+                    <tr>
+                        <td><?php echo $student['id'] ?></td>
+                        <td><?php echo $student['name'] ?></td>
+                        <td><?php echo $student['japanese'] ?></td>
+                        <td><?php echo $student['math'] ?></td>
+                        <td><?php echo $student['society'] ?></td>
+                        <td><?php echo $student['science'] ?></td>
+                        <td><?php echo $student['english'] ?></td>
+                        <td><?php echo $student['programming'] ?></td>
+                    </tr>
+                <?php } ?>
+            </tbody>
+        </table>
     </body>
 </html>
 

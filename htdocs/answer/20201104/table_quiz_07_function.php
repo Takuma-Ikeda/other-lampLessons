@@ -1,6 +1,6 @@
 <?php
 
-function getStudentById($ids) {
+function getStudentsByIds($ids) {
     $students = [
         ['id' => 1, 'name' => '池田', 'japanese' => 0, 'math' => 0, 'society' => 0, 'science' => 0, 'english' => 0, 'programming' => 100],
         ['id' => 2, 'name' => '斉藤', 'japanese' => 80, 'math' => 80, 'society' => 80, 'science' => 80, 'english' => 80, 'programming' => 80],
