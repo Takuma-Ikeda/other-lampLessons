@@ -2,14 +2,26 @@
 
 /*
  * [ブラウザ]
- * http://localhost/answer/20201104/table_quiz_07.php
+ * http://localhost/answer/20201104/table_quiz_08.php
  * [コンテナパス]
  * /var/www/html/answer/20201104
- *  php table_quiz_07.php で実行可能
+ *  php table_quiz_08.php で実行可能
  */
 
-require "./table_quiz_07_function.php";
-$students = getStudentsByIds([1, 2, 3, 4]);
+require "./table_quiz_08_function.php";
+
+// 生徒数を取得 ※ チェックボックスの個数になる
+$num = count(getStudentsByIds());
+
+// チェックボックス ids 判定
+if (isset($_POST['ids'])) {
+    foreach ($_POST['ids'] as $id) {
+        $ids[] = $id;
+    }
+    $students = getStudentsByIds($ids);
+} else {
+    $students = getStudentsByIds();
+}
 
 ?>
 
@@ -20,7 +32,15 @@ $students = getStudentsByIds([1, 2, 3, 4]);
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <h1>問題 7</h1>
+        <h1>問題 8</h1>
+        <form class="student_id_form" action="table_quiz_08.php" method="post">
+            <p>生徒の id を選択してください</p>
+            <?php for ($i = 1; $i <= $num; $i++) { ?>
+                <?php echo '<input type="checkbox" name="ids[]" value="' . $i . '">' ?>
+                <?php echo $i ?>
+            <?php } ?>
+            <input type="submit" value="送信する">
+        </form>
         <table>
             <thead>
                 <tr>

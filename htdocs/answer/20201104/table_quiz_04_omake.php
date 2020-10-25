@@ -49,27 +49,18 @@ $num = count($students);
                 <?php for ($i = 0; $i < $num; $i++) { ?>
                     <?php if ($i % 2 == 0) { // 偶数 ?>
                         <tr class="even">
-                            <td><?php echo $students[$i]['id'] ?></td>
-                            <td><?php echo $students[$i]['name'] ?></td>
-                            <td><?php echo $students[$i]['japanese'] ?></td>
-                            <td><?php echo $students[$i]['math'] ?></td>
-                            <td><?php echo $students[$i]['society'] ?></td>
-                            <td><?php echo $students[$i]['science'] ?></td>
-                            <td><?php echo $students[$i]['english'] ?></td>
-                            <td><?php echo $students[$i]['programming'] ?></td>
-                        </tr>
                     <?php } else { // 奇数 ?>
                         <tr class="odd">
-                            <td><?php echo $students[$i]['id'] ?></td>
-                            <td><?php echo $students[$i]['name'] ?></td>
-                            <td><?php echo $students[$i]['japanese'] ?></td>
-                            <td><?php echo $students[$i]['math'] ?></td>
-                            <td><?php echo $students[$i]['society'] ?></td>
-                            <td><?php echo $students[$i]['science'] ?></td>
-                            <td><?php echo $students[$i]['english'] ?></td>
-                            <td><?php echo $students[$i]['programming'] ?></td>
-                        </tr>
                     <?php } ?>
+                        <td><?php echo $students[$i]['id'] ?></td>
+                        <td><?php echo $students[$i]['name'] ?></td>
+                        <td><?php echo $students[$i]['japanese'] ?></td>
+                        <td><?php echo $students[$i]['math'] ?></td>
+                        <td><?php echo $students[$i]['society'] ?></td>
+                        <td><?php echo $students[$i]['science'] ?></td>
+                        <td><?php echo $students[$i]['english'] ?></td>
+                        <td><?php echo $students[$i]['programming'] ?></td>
+                    </tr>
                 <?php } ?>
             </tbody>
         </table>

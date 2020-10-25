@@ -18,3 +18,7 @@ thead {
 .odd {
     background-color: #cccccc;
 }
+
+.student_id_form {
+  margin: 32px 16px;
+}

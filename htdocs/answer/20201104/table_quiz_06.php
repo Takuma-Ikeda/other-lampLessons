@@ -64,8 +64,12 @@ $students = getStudentsByIds([1, 2, 3, 4]);
                 </tr>
             </thead>
             <tbody>
-                <?php foreach($students as $student) { ?>
-                    <tr>
+                <?php foreach($students as $index => $student) { ?>
+                    <?php if ($index % 2 == 0) { // 偶数 ?>
+                        <tr class="even">
+                    <?php } else { // 奇数 ?>
+                        <tr class="odd">
+                    <?php } ?>
                         <td><?php echo $student['id'] ?></td>
                         <td><?php echo $student['name'] ?></td>
                         <td><?php echo $student['japanese'] ?></td>
