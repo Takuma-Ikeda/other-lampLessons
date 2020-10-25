@@ -82,6 +82,17 @@ HTML で以下のようなテーブルを作成してください
 
 ## 問題 8
 
-画面にチェックボックスを設置して、複数の id を POST 送信できるようにしてください。
+```html
+<form class="student_id_form" action="table_quiz_08.php" method="post">
+    <p>生徒の id を選択してください</p>
+    <input type="checkbox" name="ids[]" value="1">1
+    <input type="checkbox" name="ids[]" value="2">2
+    <input type="checkbox" name="ids[]" value="3">3
+    <input type="checkbox" name="ids[]" value="4">4
+    <input type="submit" value="送信する">
+</form>
+```
 
-可能であれば、チェックボックスは自動生成してください。
+上記チェックボックスを設置して、複数の id を POST 送信できるようにしてください。
+
+※ 余裕があればチェックボックスを自動生成してみてください。

@@ -1,6 +1,6 @@
 <?php
 
-// 引数にデフォルト値を設定
+// 引数 $ids にデフォルト値 (空っぽの配列) を設定
 function getStudentsByIds($ids = []) {
     $students = [
         ['id' => 1, 'name' => '池田', 'japanese' => 0, 'math' => 0, 'society' => 0, 'science' => 0, 'english' => 0, 'programming' => 100],
@@ -9,8 +9,9 @@ function getStudentsByIds($ids = []) {
         ['id' => 4, 'name' => '小林', 'japanese' => 70, 'math' => 60, 'society' => 80, 'science' => 100, 'english' => 60, 'programming' => 80],
     ];
 
-    // 配列が空っぽだったら
+    // 配列 $ids が空っぽだったら
     if (empty($ids)) {
+        // 全件の $students を返す
         return $students;
     }
 
@@ -26,6 +27,17 @@ function getStudentsByIds($ids = []) {
         } else {
             $result[] = $students[$index];
         }
+    }
+    return $result;
+}
+
+function getCheckbox() {
+    $result = [];
+    // 生徒数を取得 ※ チェックボックスの個数と一致
+    $num = count(getStudentsByIds());
+    for ($i = 1; $i <= $num; $i++) {
+        // value には生徒の id を仕込む
+        $result[] = '<input type="checkbox" name="ids[]" value="' . $i . '">' . $i;
     }
     return $result;
 }

@@ -10,18 +10,19 @@
 
 require "./table_quiz_08_function.php";
 
-// 生徒数を取得 ※ チェックボックスの個数になる
-$num = count(getStudentsByIds());
-
-// チェックボックス ids 判定
+// (チェックボックスの name である) ids を受けとることができた場合
 if (isset($_POST['ids'])) {
     foreach ($_POST['ids'] as $id) {
+        // チェックボックスの value を保存
         $ids[] = $id;
     }
     $students = getStudentsByIds($ids);
 } else {
     $students = getStudentsByIds();
 }
+
+// チェックボックスを配列で取得
+$checkbox = getCheckbox();
 
 ?>
 
@@ -35,10 +36,10 @@ if (isset($_POST['ids'])) {
         <h1>問題 8</h1>
         <form class="student_id_form" action="table_quiz_08.php" method="post">
             <p>生徒の id を選択してください</p>
-            <?php for ($i = 1; $i <= $num; $i++) { ?>
-                <?php echo '<input type="checkbox" name="ids[]" value="' . $i . '">' ?>
-                <?php echo $i ?>
-            <?php } ?>
+            <?php foreach ($checkbox as $c) {
+                // チェックボックス
+                echo $c;
+            } ?>
             <input type="submit" value="送信する">
         </form>
         <table>
