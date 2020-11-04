@@ -10,19 +10,20 @@
 
 require "./table_quiz_08_function.php";
 
-// (チェックボックスの name である) ids を受けとることができた場合
+// フォームから (チェックボックスの name である) ids を受けとった場合
 if (isset($_POST['ids'])) {
     foreach ($_POST['ids'] as $id) {
-        // チェックボックスの value を保存
+        // 送られてきた (チェックボックスの value である) id を保存する
         $ids[] = $id;
     }
-    $students = getStudentsByIds($ids);
+    // id を元に結果を作成する
+    $students = util\getStudentsByIds($ids);
+    // id を元にチェックボックスを作成する
+    $checkbox = util\getCheckbox($ids);
 } else {
-    $students = getStudentsByIds();
+    $students = util\getStudentsByIds();
+    $checkbox = util\getCheckbox();
 }
-
-// チェックボックスを配列で取得
-$checkbox = getCheckbox();
 
 ?>
 
@@ -34,6 +35,7 @@ $checkbox = getCheckbox();
     </head>
     <body>
         <h1>問題 8</h1>
+
         <form class="student_id_form" action="table_quiz_08.php" method="post">
             <p>生徒の id を選択してください</p>
             <?php foreach ($checkbox as $c) {
@@ -42,6 +44,7 @@ $checkbox = getCheckbox();
             } ?>
             <input type="submit" value="送信する">
         </form>
+
         <table>
             <thead>
                 <tr>
