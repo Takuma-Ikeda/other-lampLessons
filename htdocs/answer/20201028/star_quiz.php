@@ -86,9 +86,9 @@ function problem05() {
 
 function problem06() {
     printNewLine('■problem06');
-    for ($i = 5; $i > 0; $i--) {
+    for ($i = 0; $i < 5; $i++) {
         $str = "";
-        for ($j = 0; $j < $i; $j++) {
+        for ($j = 4; $j >= $i; $j--) {
             $str .= "★";
         }
         printNewLine($str);
