@@ -9,7 +9,8 @@
  */
 
 require "./table_quiz_07_function.php";
-$students = util\getStudentsByIds([1, 2, 3, 99]);
+
+$students = quiz7\getStudentsByIds([1, 2, 3, 99]);
 
 ?>
 

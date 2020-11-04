@@ -1,6 +1,6 @@
 <?php
 
-namespace util;
+namespace quiz7;
 
 const ERROR = 'ERROR';
 

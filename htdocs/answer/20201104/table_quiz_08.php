@@ -8,22 +8,11 @@
  *  php table_quiz_08.php で実行可能
  */
 
-require "./table_quiz_08_function.php";
+require "./table_quiz_08_init.php";
 
-// フォームから (チェックボックスの name である) ids を受けとった場合
-if (isset($_POST['ids'])) {
-    foreach ($_POST['ids'] as $id) {
-        // 送られてきた (チェックボックスの value である) id を保存する
-        $ids[] = $id;
-    }
-    // id を元に結果を作成する
-    $students = util\getStudentsByIds($ids);
-    // id を元にチェックボックスを作成する
-    $checkbox = util\getCheckbox($ids);
-} else {
-    $students = util\getStudentsByIds();
-    $checkbox = util\getCheckbox();
-}
+/*
+ * このファイルは $students と $checkbox を表示するだけ
+ */
 
 ?>
 

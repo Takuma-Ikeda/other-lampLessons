@@ -1,6 +1,6 @@
 <?php
 
-namespace util;
+namespace quiz8;
 
 const ERROR = 'ERROR';
 const STUDENT_NUM = 10;
