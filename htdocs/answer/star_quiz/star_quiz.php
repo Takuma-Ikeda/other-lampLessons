@@ -2,9 +2,9 @@
 
 /*
  * [ブラウザ]
- * http://localhost/answer/20201028/star_quiz.php
+ * http://localhost/answer/star_quiz/star_quiz.php
  * [コンテナパス]
- * /var/www/html/answer/20201028
+ * /var/www/html/answer/star_quiz
  *  php star_quiz.php で実行可能
  */
 

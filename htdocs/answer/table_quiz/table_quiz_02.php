@@ -2,9 +2,9 @@
 
 /*
  * [ブラウザ]
- * http://localhost/answer/20201104/table_quiz_02.php
+ * http://localhost/answer/table_quiz/table_quiz_02.php
  * [コンテナパス]
- * /var/www/html/answer/20201104
+ * /var/www/html/answer/table_quiz
  *  php table_quiz_02.php で実行可能
  */
 
