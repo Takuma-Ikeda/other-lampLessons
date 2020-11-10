@@ -10,8 +10,8 @@
 
 `problems` ディレクトリに Markdown ファイルを格納します。
 
-- [star_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/problems/star_quiz/star_quiz.md)
-- [table_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/problems/table_quiz/table_quiz.md)
+- [star_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/problems/star_quiz.md)
+- [table_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/problems/table_quiz.md)
 
 ## 解答方法
 

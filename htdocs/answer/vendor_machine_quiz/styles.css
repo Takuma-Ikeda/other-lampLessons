@@ -1,0 +1,48 @@
+.vendor-machine input {
+    margin: 0 8px;
+}
+
+.vendor-machines {
+    margin: 32px 0;
+}
+
+.vendor-machine {
+    margin: 32px 0;
+    padding: 8px;
+}
+
+.vendor-machine-item {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    width: 70px;
+    height: 100px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vendor-machine-item-btn {
+    width: 70px;
+    height: 25px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drink {
+    background-color: rgb(250, 42, 42);
+}
+
+.ice {
+    background-color: rgb(29, 238, 238);
+}
+.tabacco {
+    background-color: rgb(179, 161, 140);
+}
+
+.news-paper {
+    background-color: rgb(108, 211, 117);
+}
