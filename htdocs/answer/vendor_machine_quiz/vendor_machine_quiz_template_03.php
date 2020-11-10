@@ -1,6 +1,14 @@
 <?php
 
-require "./vendor_machine_quiz_*.php";
+require "./vendor_machine_quiz_class_03.php";
+require "./vendor_machine_quiz_function_03.php";
+
+$user_request = getUserRequest($_POST);
+
+$drink      = new DrinkVendorMachine($user_request);
+$ice        = new IceVendorMachine($user_request);
+$tabacco    = new TabaccoVendorMachine($user_request);
+$news_paper = new NewsPaperVendorMachine($user_request);
 
 ?>
 
@@ -14,8 +22,8 @@ require "./vendor_machine_quiz_*.php";
     </head>
     <body>
         <div class="container">
-            <h1>テンプレート</h1>
-            <form class="vendor-machine-form" action="vendor_machine_quiz_template_*.php" method="post">
+            <h1>問題 3</h1>
+            <form class="vendor-machine-form" action="vendor_machine_quiz_template_03.php" method="post">
                 <div class="row">
                     <div class="col vendor-machines">
                         <div class="container">
@@ -62,9 +70,9 @@ require "./vendor_machine_quiz_*.php";
                                         <button type="submit" value="E" name="item_name" disabled>150</button>
                                     </div>
                                 </div>
-                                <input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">
+                                <?php echo $drink->money_tag; ?>
                                 <input type="submit" name="pay_drink_money" value="お金を入れる">
-                                <input type="text" name="drink_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>
+                                <?php echo $drink->change_tag; ?>
                                 <input type="submit" name="get_drink_change" value="お釣り" disabled>
                             </div>
 
@@ -110,9 +118,9 @@ require "./vendor_machine_quiz_*.php";
                                         <button type="submit" value="J" name="item_name" disabled>160</button>
                                     </div>
                                 </div>
-                                <input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">
+                                <?php echo $ice->money_tag; ?>
                                 <input type="submit" name="pay_ice_money" value="お金を入れる">
-                                <input type="text" name="ice_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>
+                                <?php echo $ice->change_tag; ?>
                                 <input type="submit" name="get_ice_change" value="お釣り" disabled>
                             </div>
                         </div> <!-- .container -->
@@ -163,9 +171,9 @@ require "./vendor_machine_quiz_*.php";
                                         <button type="submit" value="O" name="item_name" disabled>540</button>
                                     </div>
                                 </div>
-                                <input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">
+                                <?php echo $tabacco->money_tag; ?>
                                 <input type="submit" name="pay_tabacco_money" value="お金を入れる">
-                                <input type="text" name="tabacco_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>
+                                <?php echo $tabacco->change_tag; ?>
                                 <input type="submit" name="get_tabacco_change" value="お釣り" disabled>
                             </div>
 
@@ -211,9 +219,9 @@ require "./vendor_machine_quiz_*.php";
                                         <button type="submit" value="T" name="item_name" disabled>180</button>
                                     </div>
                                 </div>
-                                <input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">
+                                <?php echo $news_paper->money_tag; ?>
                                 <input type="submit" name="pay_news_paper_money" value="お金を入れる">
-                                <input type="text" name="news_paper_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>
+                                <?php echo $news_paper->change_tag; ?>
                                 <input type="submit" name="get_news_paper_change" value="お釣り" disabled>
                             </div>
                         </div>

@@ -26,51 +26,181 @@
 |新聞紙|S|150円|
 |新聞紙|T|180円|
 
-HTML のテンプレートファイルを用意しているので、[こちら](https://google.com)を流用してください。
+テンプレートファイルを用意しているので、[こちら](https://google.com)を流用してください。
 
-基本的にブラウザで表示するときは `vendor_machine_quiz_template.php` をそのまま利用して、`require "./vendor_machine_quiz_*.php";` と `<form class="vendor-machine-form" action="vendor_machine_quiz_*.php" method="post">` だけ書き換えてください。
+## 問題 1 - 自動販売機クラスの作成
 
-## 問題 1 - 投入した金額の表示、ボタンの活性化
+クラスだけを定義する `vendor_machine_quiz_class_01.php` ファイルを作成してください。
 
-### 前提条件
-
-- drink-money
-- ice-money
-- tabacco-money
-- news-paper-money
-
-上記 input タグでは、自動販売機に投入するお金を「数値」で入力するようにします。
-
-- pay-drink-money
-- pay-ice-money
-- pay-tabacco-money
-- pay-news-paper-money
-
-上記 input タグの押下によって、そのお金を自動販売機に投入するようにします。
+※ 以降の問題でも `vendor_machine_quiz_class_*.php` ファイルを作成していってください。
 
 ### 問題 1.1
 
-- drink-change
-- ice-change
-- tabacco-change
-- news-paper-change
+抽象クラス VendorMachine を作成してください。
+そして以下のプライベート変数を定義してください。
 
-お金を投入したあと、上記 input タグにその金額を表示するようにしてください。
+- `private $item_name;`
+- `private $money;`
+- `private $change;`
+
+以下の getter メソッド、および setter メソッドも定義してください。
+
+- `setItemName($item_name)`
+- `setMoney($money)`
+- `setChange($change)`
+- `getItemName()`
+- `getMoney()`
+- `getChange()`
 
 ### 問題 1.2
 
-- get-drink-change
-- get-ice-change
-- get-tabacco-change
-- get-news-paper-change
+抽象クラス VendorMachine を継承している以下のクラスを作成してください。
 
-お金を投入したあと、上記 input タグを活性化してください。
+- DrinkVendorMachine
+- IceVendorMachine
+- TabaccoVendorMachine
+- NewsPaperVendorMachine
+
+それぞれのコンストラクタには以下を定義してください。
+
+- DrinkVendorMachine
+    - `$this->change_tag = '<input type="text" name="drink_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';`
+    - `$this->money_tag  = '<input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">';`
+- IceVendorMachine
+    - `$this->change_tag = '<input type="text" name="ice_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';`
+    - `$this->money_tag  = '<input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">';`
+- TabaccoVendorMachine
+    - `$this->change_tag = '<input type="text" name="tabacco_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';`
+    - `$this->money_tag  = '<input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">';`
+- NewsPaperVendorMachine
+    - `$this->change_tag = '<input type="text" name="news_paper_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';`
+    - `$this->money_tag  = '<input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">';`
 
 ### 問題 1.3
 
-- drink-buy
-- ice-buy
-- tabacco-buy
-- news-paper-buy
+問題 1.2 で作成したクラスのインスタンスを用いて、お金を投入する input タグとお釣りを表示する input タグを表示してください。
+
+※ (何も変わらないで) 初期画面が表示できれば OK です
+
+## 問題 2 - リクエストを保持するクラスの作成
+
+関数だけを定義する `vendor_machine_quiz_function_02.php` ファイルを作成してください。
+
+※ 以降の問題でも `vendor_machine_quiz_function_*.php` ファイルを作成していってください。
+
+### 問題 2.1
+
+UserRequest クラスを作成してください。
+そして以下のプライベート変数を定義してください。
+
+- `private $item_name;`
+- `private $drink_money;`
+- `private $drink_change;`
+- `private $ice_money;`
+- `private $ice_change;`
+- `private $tabacco_money;`
+- `private $tabacco_change;`
+- `private $news_paper_money;`
+- `private $news_paper_change;`
+
+以下の getter メソッド、および setter メソッドも定義してください。
+
+- `public function setItemName($item_name)`
+- `public function setDrinkMoney($drink_money)`
+- `public function setDrinkChange($drink_change)`
+- `public function setIceMoney($ice_money)`
+- `public function setIceChange($ice_change)`
+- `public function setTabaccoMoney($tabacco_money)`
+- `public function setTabaccoChange($tabacco_change)`
+- `public function setNewsPaperMoney($news_paper_money)`
+- `public function setNewsPaperChange($news_paper_change)`
+- `public function getItemName()`
+- `public function getDrinkMoney()`
+- `public function getDrinkChange()`
+- `public function getIceMoney()`
+- `public function getIceChange()`
+- `public function getTabaccoMoney()`
+- `public function getTabaccoChange()`
+- `public function getNewsPaperMoney()`
+- `public function getNewsPaperChange()`
+
+### 問題 2.2
+
+POST されたリクエストを処理して、値がセットされた UserRequest オブジェクトを返却する `getUserRequest($_POST)` 関数を作成してください。
+この関数を実行しておき、常に UserRequest にリクエスト値をセットして、値をゲットできるようにしておいてください。
+
+### 問題 2.3
+
+抽象クラス VendorMachine にプライベート変数 `$user_request` を追加してください。
+
+各種自動販売機のコンストラクタの引数に `$user_request;` を渡して、プライベート変数に値を設定してください。
+
+各種自動販売機のインスタンス生成時の引数には UserRequest インスタンスを渡すようにしてください。
+
+### 問題 2.4
+
+各種自動販売機のコンストラクタ内で `$this->user_request;` を利用して、プライベート変数 `$item_name`, `$money`, `$change` に値を設定してください。値を設定するときは抽象クラス内の setter / getter を利用してください。
+
+## 問題 3 - 投入した金額の表示、ボタンの活性化
+
+### 前提条件
+
+- drink_money
+- ice_money
+- tabacco_money
+- news_paper_money
+
+上記 input タグでは、自動販売機に投入するお金を「数値」で入力します。
+
+- pay_drink_money
+- pay_ice_money
+- pay_tabacco_money
+- pay_news_paper_money
+
+上記 input タグの押下によって、そのお金を自動販売機に投入されます。
+
+### 問題 3.1
+
+- drink_change
+- ice_change
+- tabacco_change
+- news_paper_change
+
+お金を投入したあと、`setMoney($money)`, `getMoney()`, `setChange($change)`, `getChange` を用いて、上記 input タグにその金額が表示されるようにしてください。
+
+※ 投入したお金をいきなりお釣りとして表示できれば OK です。
+
+※ このタグは非活性のままです。
+
+### 問題 3.2
+
+- get_drink_change
+- get_ice_change
+- get_tabacco_change
+- get_news_paper_change
+
+お金を投入したあと、上記 input タグを活性化してください。
+
+### 問題 3.3
+
+- item_name
 
 お金を投入したあと、上記 button タグを活性化してください。
+
+### 問題 3.4
+
+- drink_money
+- ice_money
+- tabacco_money
+- news_paper_money
+
+お金を投入したあと、上記 input タグは非活性にしてください。
+
+### 問題 3.5
+
+- pay_drink_money
+- pay_ice_money
+- pay_tabacco_money
+- pay_news_paper_money
+
+お金を投入したあと、上記 input タグは非活性にしてください。
