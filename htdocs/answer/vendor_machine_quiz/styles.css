@@ -22,6 +22,21 @@
     align-items: center;
 }
 
+.vendor-machine-price {
+    color: #ffffff;
+    background-color: black;
+    font-weight: bold;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+    bottom: 32px;
+    left: 6px;
+}
+
 .vendor-machine-item-btn {
     width: 70px;
     height: 25px;
@@ -30,6 +45,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
+    bottom: 16px;
+}
+
+.vendor-machine-item-btn button {
+    width: 48px;
+    height: 32px;
 }
 
 .drink {

@@ -31,40 +31,45 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>A</p>
                                     </div>
+                                    <div class="vendor-machine-price">120</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="A" name="item_name" disabled>120</button>
+                                        <button type="submit" value="A" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>B</p>
                                     </div>
+                                    <div class="vendor-machine-price">120</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="B" name="item_name" disabled>120</button>
+                                        <button type="submit" value="B" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>C</p>
                                     </div>
+                                    <div class="vendor-machine-price">120</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="C" name="item_name" disabled>120</button>
+                                        <button type="submit" value="C" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>D</p>
                                     </div>
+                                    <div class="vendor-machine-price">150</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="D" name="item_name" disabled>150</button>
+                                        <button type="submit" value="D" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>E</p>
                                     </div>
+                                    <div class="vendor-machine-price">150</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="E" name="item_name" disabled>150</button>
+                                        <button type="submit" value="E" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <?php echo $drink->getMoneyTag(); ?>
@@ -79,40 +84,45 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>F</p>
                                     </div>
+                                    <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="F" name="item_name" disabled>130</button>
+                                        <button type="submit" value="F" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>G</p>
                                     </div>
+                                    <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="G" name="item_name" disabled>130</button>
+                                        <button type="submit" value="G" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>H</p>
                                     </div>
+                                    <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="H" name="item_name" disabled>130</button>
+                                        <button type="submit" value="H" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>I</p>
                                     </div>
+                                    <div class="vendor-machine-price">160</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="I" name="item_name" disabled>160</button>
+                                        <button type="submit" value="I" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>J</p>
                                     </div>
+                                    <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="J" name="item_name" disabled>160</button>
+                                        <button type="submit" value="J" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <?php echo $ice->getMoneyTag(); ?>
@@ -132,40 +142,45 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>K</p>
                                     </div>
+                                    <div class="vendor-machine-price">400</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="K" name="item_name" disabled>400</button>
+                                        <button type="submit" value="K" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>L</p>
                                     </div>
+                                    <div class="vendor-machine-price">410</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="L" name="item_name" disabled>410</button>
+                                        <button type="submit" value="L" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>M</p>
                                     </div>
+                                    <div class="vendor-machine-price">450</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="M" name="item_name" disabled>450</button>
+                                        <button type="submit" value="M" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>N</p>
                                     </div>
+                                    <div class="vendor-machine-price">500</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="N" name="item_name" disabled>500</button>
+                                        <button type="submit" value="N" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>O</p>
                                     </div>
+                                    <div class="vendor-machine-price">540</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="O" name="item_name" disabled>540</button>
+                                        <button type="submit" value="O" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <?php echo $tabacco->getMoneyTag(); ?>
@@ -180,40 +195,45 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>P</p>
                                     </div>
+                                    <div class="vendor-machine-price">150</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="P" name="item_name" disabled>150</button>
+                                        <button type="submit" value="P" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>Q</p>
                                     </div>
+                                    <div class="vendor-machine-price">150</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="Q" name="item_name" disabled>150</button>
+                                        <button type="submit" value="Q" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>R</p>
                                     </div>
+                                    <div class="vendor-machine-price">150</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="R" name="item_name" disabled>150</button>
+                                        <button type="submit" value="R" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>S</p>
                                     </div>
+                                    <div class="vendor-machine-price">150</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="S" name="item_name" disabled>150</button>
+                                        <button type="submit" value="S" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
                                         <p>T</p>
                                     </div>
+                                    <div class="vendor-machine-price">180</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="T" name="item_name" disabled>180</button>
+                                        <button type="submit" value="T" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <?php echo $news_paper->getMoneyTag(); ?>

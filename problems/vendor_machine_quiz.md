@@ -72,16 +72,16 @@
 それぞれのコンストラクタには以下 setter メソッドを定義してください。
 
 - DrinkVendorMachine
-    - `$this->setChangeTag('<input type="text" name="drink_change" size="10" maxlength="5" placeholder="お釣り" disabled>');`
+    - `$this->setChangeTag('<input type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
     - `$this->setMoneyTag('<input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">');`
 - IceVendorMachine
-    - `$this->setChangeTag('<input type="text" name="ice_change" size="10" maxlength="5" placeholder="お釣り" disabled>');`
+    - `$this->setChangeTag('<input type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
     - `$this->setMoneyTag('<input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">');`
 - TabaccoVendorMachine
-    - `$this->setChangeTag('<input type="text" name="tabacco_change" size="10" maxlength="5" placeholder="お釣り" disabled>');`
+    - `$this->setChangeTag('<input type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
     - `$this->setMoneyTag('<input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">');`
 - NewsPaperVendorMachine
-    - `$this->setChangeTag('<input type="text" name="news_paper_change" size="10" maxlength="5" placeholder="お釣り" disabled>');`
+    - `$this->setChangeTag('<input type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
     - `$this->setMoneyTag('<input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">');`
 
 ### 問題 1.3
@@ -145,7 +145,7 @@ POST されたリクエストを処理して、値がセットされた UserRequ
 
 問題 2.3 で渡されるインスタンスを利用して、プライベート変数 `$item_name`, `$money`, `$change` に値を設定してください。値を設定するときは抽象クラス内の setter / getter を利用してください。
 
-## 問題 3 - 投入した金額の表示
+## 問題 3 - 投入した金額を表示する
 
 ### 前提条件
 
@@ -170,16 +170,14 @@ POST されたリクエストを処理して、値がセットされた UserRequ
 - tabacco_change
 - news_paper_change
 
-上記 input タグでは、お釣りを「数値」で表示します。
+上記 input タグでは、現在投入されている金額 (お釣り) を「数値」で表示します。
 
 抽象クラスに `createChangeTag` という関数を定義して、動的にこの input タグを作成します。
-一旦、最初のお金を投入したあと、それがお釣りとして全額表示される input タグでよいので生成・表示してください。
+一旦、最初のお金を投入したら (預り金として) 全額を表示する input タグでよいので生成・表示してください。
 
-※ input タグは非活性のままです。
+### 問題 4 - hidden
 
-### 問題 4
-
-複数の自動販売機の「お金を入れる」ボタンを押しても、ちゃんとお釣りのデータを保持するようにします。
+複数の自動販売機の「お金を入れる」ボタンを押しても、それぞれの自動販売機が現在の預り金を保持できている状態にします。
 
 hidden 属性で現在のお釣りの値を仕込んでおいて、常にその値を受け取れるようにしてください。
 
@@ -192,14 +190,19 @@ hidden 属性で現在のお釣りの値を仕込んでおいて、常にその�
 - get_tabacco_change
 - get_news_paper_change
 
-お金を投入したあと、上記 input タグを活性化してください。
-このボタンを押下するとお釣りを返すので、お釣りの表示を 0 にしてください。
+お金を投入したあと、上記 input タグ「お釣り」ボタンを活性化してください。
+このボタンを押下した場合、お釣りの表示を 0 にして非活性に戻すようにしてください。
 
 ### 問題 5.2
 
+各種自動販売機のクラスに定数として、各商品の値段を持たせておいてください。
+
+### 問題 5.3
+
 - item_name
 
-お金を投入したあと、商品の値段以上であれば、該当する上記 button タグを活性化してください。
+上記 button タグは商品購入するときに使います。
+もし商品の値段以上のお金を投入していれば、該当する button タグを活性化させてください。
 
 ## 問題 6 - ボタンの活性・非活性
 

@@ -10,9 +10,9 @@ abstract class VendorMachine {
 
     public function createChangeTag($name, $change) {
         if (is_null($change)) {
-            $this->setChangeTag('<input type="text" name="' . $name . '" size="10" maxlength="5" placeholder="お釣り" disabled>');
+            $this->setChangeTag('<input type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" disabled>');
         } else {
-            $this->setChangeTag('<input type="text" name="' . $name . '" size="10" maxlength="5" placeholder="お釣り" value="' . $change . '" disabled>');
+            $this->setChangeTag('<input type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" value="' . $change . '" disabled>');
         }
     }
 

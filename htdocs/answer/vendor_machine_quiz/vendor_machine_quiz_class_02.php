@@ -58,7 +58,7 @@ abstract class VendorMachine {
 class DrinkVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
-        $this->setChangeTag('<input type="text" name="drink_change" size="10" maxlength="5" placeholder="お釣り" disabled>');
+        $this->setChangeTag('<input type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>');
         $this->setMoneyTag('<input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">');
         $this->setItemName($user_request->getItemName());
         $this->setMoney($user_request->getDrinkMoney());
@@ -69,7 +69,7 @@ class DrinkVendorMachine extends VendorMachine {
 class IceVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
-        $this->setChangeTag('<input type="text" name="ice_change" size="10" maxlength="5" placeholder="お釣り" disabled>');
+        $this->setChangeTag('<input type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>');
         $this->setMoneyTag('<input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">');
         $this->setItemName($user_request->getItemName());
         $this->setMoney($user_request->getIceMoney());
@@ -80,7 +80,7 @@ class IceVendorMachine extends VendorMachine {
 class TabaccoVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
-        $this->setChangeTag('<input type="text" name="tabacco_change" size="10" maxlength="5" placeholder="お釣り" disabled>');
+        $this->setChangeTag('<input type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>');
         $this->setMoneyTag('<input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">');
         $this->setItemName($user_request->getItemName());
         $this->setMoney($user_request->getTabaccoMoney());
@@ -91,7 +91,7 @@ class TabaccoVendorMachine extends VendorMachine {
 class NewsPaperVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
-        $this->setChangeTag('<input type="text" name="news_paper_change" size="10" maxlength="5" placeholder="お釣り" disabled>');
+        $this->setChangeTag('<input type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>');
         $this->setMoneyTag('<input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">');
         $this->setItemName($user_request->getItemName());
         $this->setMoney($user_request->getNewsPaperMoney());
