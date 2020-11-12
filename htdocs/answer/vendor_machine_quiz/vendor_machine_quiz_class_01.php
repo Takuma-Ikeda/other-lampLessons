@@ -6,6 +6,9 @@ abstract class VendorMachine {
     private $money;
     private $change;
 
+    /*
+     * Setter
+     */
     public function setItemName($item_name) {
         $this->item_name = $item_name;
     }
@@ -18,6 +21,9 @@ abstract class VendorMachine {
         $this->change = $change;
     }
 
+    /*
+     * Getter
+     */
     public function getItemName($item_name) {
         return $this->item_name;
     }

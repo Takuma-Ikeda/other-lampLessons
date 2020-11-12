@@ -5,8 +5,10 @@ abstract class VendorMachine {
     private $item_name;
     private $money;
     private $change;
-    private $user_request;
 
+    /*
+     * Setter
+     */
     public function setItemName($item_name) {
         $this->item_name = $item_name;
     }
@@ -19,6 +21,9 @@ abstract class VendorMachine {
         $this->change = $change;
     }
 
+    /*
+     * Getter
+     */
     public function getItemName($item_name) {
         return $this->item_name;
     }
@@ -35,36 +40,44 @@ abstract class VendorMachine {
 class DrinkVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
-        $this->user_request = $user_request;
         $this->change_tag = '<input type="text" name="drink_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';
         $this->money_tag  = '<input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">';
+        $this->item_name  = $this->setItemName($user_request->getItemName());
+        $this->money      = $this->setMoney($user_request->getDrinkMoney());
+        $this->change     = $this->setChange($user_request->getDrinkChange());
     }
 }
 
 class IceVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
-        $this->user_request = $user_request;
         $this->change_tag = '<input type="text" name="ice_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';
         $this->money_tag  = '<input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">';
+        $this->item_name  = $this->setItemName($user_request->getItemName());
+        $this->money      = $this->setMoney($user_request->getIceMoney());
+        $this->change     = $this->setChange($user_request->getIceChange());
     }
 }
 
 class TabaccoVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
-        $this->user_request = $user_request;
         $this->change_tag = '<input type="text" name="tabacco_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';
         $this->money_tag  = '<input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">';
+        $this->item_name  = $this->setItemName($user_request->getItemName());
+        $this->money      = $this->setMoney($user_request->getTabaccoMoney());
+        $this->change     = $this->setChange($user_request->getTabaccoChange());
     }
 }
 
 class NewsPaperVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
-        $this->user_request = $user_request;
         $this->change_tag = '<input type="text" name="news_paper_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';
         $this->money_tag  = '<input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">';
+        $this->item_name  = $this->setItemName($user_request->getItemName());
+        $this->money      = $this->setMoney($user_request->getNewsPaperMoney());
+        $this->change     = $this->setChange($user_request->getNewsPaperChange());
     }
 }
 
@@ -80,6 +93,9 @@ class UserRequest {
     private $news_paper_money;
     private $news_paper_change;
 
+    /*
+     * Setter
+     */
     public function setItemName($item_name) {
         $this->item_name = $item_name;
     }
@@ -116,6 +132,9 @@ class UserRequest {
         $this->news_paper_change = $news_paper_change;
     }
 
+    /*
+     * Getter
+     */
     public function getItemName() {
         return $this->item_name;
     }
