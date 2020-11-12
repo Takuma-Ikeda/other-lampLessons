@@ -1,6 +1,8 @@
 # VENDOR MACHINE QUIZ
 
 これからオブジェクト指向プログラミングを意識して、いくつかの種類の自動販売機実装しようと思います。
+商品の購入ボタンは一度に一回しか押せない仕様とします。
+
 商品情報については以下を参照してください。
 
 |種類|商品名|価格|
@@ -42,15 +44,21 @@
 - `private $item_name;`
 - `private $money;`
 - `private $change;`
+- `private $money_tag;`
+- `private $change_tag;`
 
 以下の getter メソッド、および setter メソッドも定義してください。
 
 - `setItemName($item_name)`
 - `setMoney($money)`
 - `setChange($change)`
+- `setMoneyTag($money_tag)`
+- `setChangeTag($change_tag)`
 - `getItemName()`
 - `getMoney()`
 - `getChange()`
+- `getMoneyTag()`
+- `getChangeTag()`
 
 ### 問題 1.2
 
@@ -61,26 +69,26 @@
 - TabaccoVendorMachine
 - NewsPaperVendorMachine
 
-それぞれのコンストラクタには以下を定義してください。
+それぞれのコンストラクタには以下 setter メソッドを定義してください。
 
 - DrinkVendorMachine
-    - `$this->change_tag = '<input type="text" name="drink_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';`
-    - `$this->money_tag  = '<input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">';`
+    - `$this->setChangeTag('<input type="text" name="drink_change" size="10" maxlength="5" placeholder="お釣り" disabled>');`
+    - `$this->setMoneyTag('<input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">');`
 - IceVendorMachine
-    - `$this->change_tag = '<input type="text" name="ice_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';`
-    - `$this->money_tag  = '<input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">';`
+    - `$this->setChangeTag('<input type="text" name="ice_change" size="10" maxlength="5" placeholder="お釣り" disabled>');`
+    - `$this->setMoneyTag('<input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">');`
 - TabaccoVendorMachine
-    - `$this->change_tag = '<input type="text" name="tabacco_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';`
-    - `$this->money_tag  = '<input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">';`
+    - `$this->setChangeTag('<input type="text" name="tabacco_change" size="10" maxlength="5" placeholder="お釣り" disabled>');`
+    - `$this->setMoneyTag('<input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">');`
 - NewsPaperVendorMachine
-    - `$this->change_tag = '<input type="text" name="news_paper_change" size="10" maxlength="5" placeholder="お釣り" value="0" disabled>';`
-    - `$this->money_tag  = '<input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">';`
+    - `$this->setChangeTag('<input type="text" name="news_paper_change" size="10" maxlength="5" placeholder="お釣り" disabled>');`
+    - `$this->setMoneyTag('<input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">');`
 
 ### 問題 1.3
 
-問題 1.2 で作成したクラスのインスタンスを用いて、お金を投入する input タグとお釣りを表示する input タグを表示してください。
+問題 1.2 で作成したクラスのインスタンスから `getChangeTag()`, `getMoneyTag()` を呼び出して、お金を投入する input タグとお釣りを表示する input タグを表示してください。
 
-※ (何も変わらないで) 初期画面が表示できれば OK です
+※ (何も変わらず) 初期画面が表示できていれば OK です
 
 ## 問題 2 - リクエストを保持するクラスの作成
 
@@ -131,15 +139,13 @@ POST されたリクエストを処理して、値がセットされた UserRequ
 
 ### 問題 2.3
 
-各種自動販売機のコンストラクタの引数に `$user_request;` を渡すようにしてください。
-
-各種自動販売機のインスタンス生成時の引数には UserRequest のインスタンスを渡すようにしてください。
+各種自動販売機のインスタンス生成時の引数に UserRequest のインスタンスを渡すようにしてください。
 
 ### 問題 2.4
 
 問題 2.3 で渡されるインスタンスを利用して、プライベート変数 `$item_name`, `$money`, `$change` に値を設定してください。値を設定するときは抽象クラス内の setter / getter を利用してください。
 
-## 問題 3 - 投入した金額の表示、ボタンの活性化
+## 問題 3 - 投入した金額の表示
 
 ### 前提条件
 
@@ -155,22 +161,31 @@ POST されたリクエストを処理して、値がセットされた UserRequ
 - pay_tabacco_money
 - pay_news_paper_money
 
-上記 input タグの押下によって、そのお金を自動販売機に投入されます。
+上記 input タグ「お金を入れる」ボタン押下によって、入力した数値が自動販売機にお金として投入されます。
 
-### 問題 3.1
+### 問題3.1
 
 - drink_change
 - ice_change
 - tabacco_change
 - news_paper_change
 
-お金を投入したあと、`setMoney($money)`, `getMoney()`, `setChange($change)`, `getChange` を用いて、上記 input タグにその金額が表示されるようにしてください。
+上記 input タグでは、お釣りを「数値」で表示します。
 
-※ 投入したお金をいきなりお釣りとして表示できれば OK です。
+抽象クラスに `createChangeTag` という関数を定義して、動的にこの input タグを作成します。
+一旦、最初のお金を投入したあと、それがお釣りとして全額表示される input タグでよいので生成・表示してください。
 
-※ このタグは非活性のままです。
+※ input タグは非活性のままです。
 
-### 問題 3.2
+### 問題 4
+
+複数の自動販売機の「お金を入れる」ボタンを押しても、ちゃんとお釣りのデータを保持するようにします。
+
+hidden 属性で現在のお釣りの値を仕込んでおいて、常にその値を受け取れるようにしてください。
+
+## 問題 5 - ボタンの活性・非活性
+
+### 問題 5.1
 
 - get_drink_change
 - get_ice_change
@@ -178,23 +193,26 @@ POST されたリクエストを処理して、値がセットされた UserRequ
 - get_news_paper_change
 
 お金を投入したあと、上記 input タグを活性化してください。
+このボタンを押下するとお釣りを返すので、お釣りの表示を 0 にしてください。
 
-### 問題 3.3
+### 問題 5.2
 
 - item_name
 
-お金を投入したあと、上記 button タグを活性化してください。
+お金を投入したあと、商品の値段以上であれば、該当する上記 button タグを活性化してください。
 
-### 問題 3.4
+## 問題 6 - ボタンの活性・非活性
+
+### 問題 6.1
 
 - drink_money
 - ice_money
 - tabacco_money
 - news_paper_money
 
-お金を投入したあと、上記 input タグは非活性にしてください。
+連続でお金を投入したら、上記 input タグの数値を足し算してください。
 
-### 問題 3.5
+### 問題 6.2
 
 - pay_drink_money
 - pay_ice_money

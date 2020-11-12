@@ -10,6 +10,12 @@ $ice        = new IceVendorMachine($user_request);
 $tabacco    = new TabaccoVendorMachine($user_request);
 $news_paper = new NewsPaperVendorMachine($user_request);
 
+// 最初に入れたお金は「お釣り」として全額表示する
+$drink->createChangeTag('drink_change', $drink->getMoney());
+$ice->createChangeTag('ice_change', $ice->getMoney());
+$tabacco->createChangeTag('tabacco_change', $tabacco->getMoney());
+$news_paper->createChangeTag('news_paper_change', $news_paper->getMoney());
+
 ?>
 
 <!DOCTYPE html>
@@ -70,9 +76,9 @@ $news_paper = new NewsPaperVendorMachine($user_request);
                                         <button type="submit" value="E" name="item_name" disabled>150</button>
                                     </div>
                                 </div>
-                                <?php echo $drink->money_tag; ?>
+                                <?php echo $drink->getMoneyTag(); ?>
                                 <input type="submit" name="pay_drink_money" value="お金を入れる">
-                                <?php echo $drink->change_tag; ?>
+                                <?php echo $drink->getChangeTag(); ?>
                                 <input type="submit" name="get_drink_change" value="お釣り" disabled>
                             </div>
 
@@ -118,9 +124,9 @@ $news_paper = new NewsPaperVendorMachine($user_request);
                                         <button type="submit" value="J" name="item_name" disabled>160</button>
                                     </div>
                                 </div>
-                                <?php echo $ice->money_tag; ?>
+                                <?php echo $ice->getMoneyTag(); ?>
                                 <input type="submit" name="pay_ice_money" value="お金を入れる">
-                                <?php echo $ice->change_tag; ?>
+                                <?php echo $ice->getChangeTag(); ?>
                                 <input type="submit" name="get_ice_change" value="お釣り" disabled>
                             </div>
                         </div> <!-- .container -->
@@ -171,9 +177,9 @@ $news_paper = new NewsPaperVendorMachine($user_request);
                                         <button type="submit" value="O" name="item_name" disabled>540</button>
                                     </div>
                                 </div>
-                                <?php echo $tabacco->money_tag; ?>
+                                <?php echo $tabacco->getMoneyTag(); ?>
                                 <input type="submit" name="pay_tabacco_money" value="お金を入れる">
-                                <?php echo $tabacco->change_tag; ?>
+                                <?php echo $tabacco->getChangeTag(); ?>
                                 <input type="submit" name="get_tabacco_change" value="お釣り" disabled>
                             </div>
 
@@ -219,9 +225,9 @@ $news_paper = new NewsPaperVendorMachine($user_request);
                                         <button type="submit" value="T" name="item_name" disabled>180</button>
                                     </div>
                                 </div>
-                                <?php echo $news_paper->money_tag; ?>
+                                <?php echo $news_paper->getMoneyTag(); ?>
                                 <input type="submit" name="pay_news_paper_money" value="お金を入れる">
-                                <?php echo $news_paper->change_tag; ?>
+                                <?php echo $news_paper->getChangeTag(); ?>
                                 <input type="submit" name="get_news_paper_change" value="お釣り" disabled>
                             </div>
                         </div>
