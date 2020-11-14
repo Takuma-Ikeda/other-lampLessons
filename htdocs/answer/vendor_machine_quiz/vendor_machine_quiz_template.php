@@ -26,7 +26,7 @@
                                     <div class="vendor-machine-item">
                                         <p>A</p>
                                     </div>
-                                    <div class="vendor-machine-price">120</div>
+                                    <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="A" name="item_name" disabled></button>
                                     </div>
@@ -35,7 +35,7 @@
                                     <div class="vendor-machine-item">
                                         <p>B</p>
                                     </div>
-                                    <div class="vendor-machine-price">120</div>
+                                    <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="B" name="item_name" disabled></button>
                                     </div>
@@ -44,7 +44,7 @@
                                     <div class="vendor-machine-item">
                                         <p>C</p>
                                     </div>
-                                    <div class="vendor-machine-price">120</div>
+                                    <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="C" name="item_name" disabled></button>
                                     </div>
@@ -53,7 +53,7 @@
                                     <div class="vendor-machine-item">
                                         <p>D</p>
                                     </div>
-                                    <div class="vendor-machine-price">150</div>
+                                    <div class="vendor-machine-price">160</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="D" name="item_name" disabled></button>
                                     </div>
@@ -62,14 +62,14 @@
                                     <div class="vendor-machine-item">
                                         <p>E</p>
                                     </div>
-                                    <div class="vendor-machine-price">150</div>
+                                    <div class="vendor-machine-price">160</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="E" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_drink_money" value="お金を入れる">
-                                <input type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>
+                                <input class="change" type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>
                                 <input type="submit" name="get_drink_change" value="お釣り" disabled>
                             </div>
 
@@ -106,7 +106,7 @@
                                     <div class="vendor-machine-item">
                                         <p>I</p>
                                     </div>
-                                    <div class="vendor-machine-price">160</div>
+                                    <div class="vendor-machine-price">170</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="I" name="item_name" disabled></button>
                                     </div>
@@ -115,14 +115,14 @@
                                     <div class="vendor-machine-item">
                                         <p>J</p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price">170</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="J" name="item_name" disabled></button>
                                     </div>
                                 </div>
                                 <input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_ice_money" value="お金を入れる">
-                                <input type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>
+                                <input class="change"type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>
                                 <input type="submit" name="get_ice_change" value="お釣り" disabled>
                             </div>
                         </div> <!-- .container -->
@@ -180,7 +180,7 @@
                                 </div>
                                 <input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_tabacco_money" value="お金を入れる">
-                                <input type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>
+                                <input class="change" type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>
                                 <input type="submit" name="get_tabacco_change" value="お釣り" disabled>
                             </div>
 
@@ -233,7 +233,7 @@
                                 </div>
                                 <input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_news_paper_money" value="お金を入れる">
-                                <input type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>
+                                <input class="change" type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>
                                 <input type="submit" name="get_news_paper_change" value="お釣り" disabled>
                             </div>
                         </div>

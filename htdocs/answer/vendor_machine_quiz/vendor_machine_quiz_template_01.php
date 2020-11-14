@@ -31,7 +31,7 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>A</p>
                                     </div>
-                                    <div class="vendor-machine-price">120</div>
+                                    <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="A" name="item_name" disabled></button>
                                     </div>
@@ -40,7 +40,7 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>B</p>
                                     </div>
-                                    <div class="vendor-machine-price">120</div>
+                                    <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="B" name="item_name" disabled></button>
                                     </div>
@@ -49,7 +49,7 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>C</p>
                                     </div>
-                                    <div class="vendor-machine-price">120</div>
+                                    <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="C" name="item_name" disabled></button>
                                     </div>
@@ -58,7 +58,7 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>D</p>
                                     </div>
-                                    <div class="vendor-machine-price">150</div>
+                                    <div class="vendor-machine-price">160</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="D" name="item_name" disabled></button>
                                     </div>
@@ -67,12 +67,12 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>E</p>
                                     </div>
-                                    <div class="vendor-machine-price">150</div>
+                                    <div class="vendor-machine-price">160</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="E" name="item_name" disabled></button>
                                     </div>
                                 </div>
-                                <?php echo $drink->getMoneyTag(); ?>
+                                <input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_drink_money" value="お金を入れる">
                                 <?php echo $drink->getChangeTag(); ?>
                                 <input type="submit" name="get_drink_change" value="お釣り" disabled>
@@ -84,7 +84,7 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>F</p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price">140</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="F" name="item_name" disabled></button>
                                     </div>
@@ -93,7 +93,7 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>G</p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price">140</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="G" name="item_name" disabled></button>
                                     </div>
@@ -102,7 +102,7 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>H</p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price">140</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="H" name="item_name" disabled></button>
                                     </div>
@@ -111,7 +111,7 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>I</p>
                                     </div>
-                                    <div class="vendor-machine-price">160</div>
+                                    <div class="vendor-machine-price">170</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="I" name="item_name" disabled></button>
                                     </div>
@@ -120,12 +120,12 @@ $news_paper = new NewsPaperVendorMachine();
                                     <div class="vendor-machine-item">
                                         <p>J</p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price">170</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="J" name="item_name" disabled></button>
                                     </div>
                                 </div>
-                                <?php echo $ice->getMoneyTag(); ?>
+                                <input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_ice_money" value="お金を入れる">
                                 <?php echo $ice->getChangeTag(); ?>
                                 <input type="submit" name="get_ice_change" value="お釣り" disabled>
@@ -183,7 +183,7 @@ $news_paper = new NewsPaperVendorMachine();
                                         <button type="submit" value="O" name="item_name" disabled></button>
                                     </div>
                                 </div>
-                                <?php echo $tabacco->getMoneyTag(); ?>
+                                <input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_tabacco_money" value="お金を入れる">
                                 <?php echo $tabacco->getChangeTag(); ?>
                                 <input type="submit" name="get_tabacco_change" value="お釣り" disabled>
@@ -236,7 +236,7 @@ $news_paper = new NewsPaperVendorMachine();
                                         <button type="submit" value="T" name="item_name" disabled></button>
                                     </div>
                                 </div>
-                                <?php echo $news_paper->getMoneyTag(); ?>
+                                <input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_news_paper_money" value="お金を入れる">
                                 <?php echo $news_paper->getChangeTag(); ?>
                                 <input type="submit" name="get_news_paper_change" value="お釣り" disabled>

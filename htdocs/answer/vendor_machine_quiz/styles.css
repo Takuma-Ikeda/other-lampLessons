@@ -37,6 +37,13 @@
     left: 6px;
 }
 
+.change {
+    color: rgb(252, 56, 56);
+}
+
+.change::placeholder {
+}
+
 .vendor-machine-item-btn {
     width: 70px;
     height: 25px;

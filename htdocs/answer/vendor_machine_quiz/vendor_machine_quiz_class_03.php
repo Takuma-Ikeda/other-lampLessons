@@ -5,14 +5,13 @@ abstract class VendorMachine {
     private $item_name;
     private $money;
     private $change;
-    private $money_tag;
     private $change_tag;
 
     public function createChangeTag($name, $change) {
         if (is_null($change)) {
-            $this->setChangeTag('<input type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" disabled>');
+            $this->setChangeTag('<input class="change" type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" disabled>');
         } else {
-            $this->setChangeTag('<input type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" value="' . $change . '" disabled>');
+            $this->setChangeTag('<input class="change" type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" value="' . $change . '" disabled>');
         }
     }
 
@@ -29,10 +28,6 @@ abstract class VendorMachine {
 
     public function setChange($change) {
         $this->change = $change;
-    }
-
-    public function setMoneyTag($money_tag) {
-        $this->money_tag = $money_tag;
     }
 
     public function setChangeTag($change_tag) {
@@ -54,10 +49,6 @@ abstract class VendorMachine {
         return $this->change;
     }
 
-    public function getMoneyTag() {
-        return $this->money_tag;
-    }
-
     public function getChangeTag() {
         return $this->change_tag;
     }
@@ -70,7 +61,6 @@ class DrinkVendorMachine extends VendorMachine {
     public function __construct($user_request) {
         // 結果的に setChangeTag($change_tag) が実行される
         $this->createChangeTag(self::CHANGE, null);
-        $this->setMoneyTag('<input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">');
         $this->setItemName($user_request->getItemName());
         $this->setMoney($user_request->getDrinkMoney());
         $this->setChange($user_request->getDrinkChange());
@@ -84,7 +74,6 @@ class IceVendorMachine extends VendorMachine {
     public function __construct($user_request) {
         // 結果的に setChangeTag($change_tag) が実行される
         $this->createChangeTag(self::CHANGE, null);
-        $this->setMoneyTag('<input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">');
         $this->setItemName($user_request->getItemName());
         $this->setMoney($user_request->getIceMoney());
         $this->setChange($user_request->getIceChange());
@@ -98,7 +87,6 @@ class TabaccoVendorMachine extends VendorMachine {
     public function __construct($user_request) {
         // 結果的に setChangeTag($change_tag) が実行される
         $this->createChangeTag(self::CHANGE, null);
-        $this->setMoneyTag('<input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">');
         $this->setItemName($user_request->getItemName());
         $this->setMoney($user_request->getTabaccoMoney());
         $this->setChange($user_request->getTabaccoChange());
@@ -112,7 +100,6 @@ class NewsPaperVendorMachine extends VendorMachine {
     public function __construct($user_request) {
         // 結果的に setChangeTag($change_tag) が実行される
         $this->createChangeTag(self::CHANGE, null);
-        $this->setMoneyTag('<input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">');
         $this->setItemName($user_request->getItemName());
         $this->setMoney($user_request->getNewsPaperMoney());
         $this->setChange($user_request->getNewsPaperChange());
