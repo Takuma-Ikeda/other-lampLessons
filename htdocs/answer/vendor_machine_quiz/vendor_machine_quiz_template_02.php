@@ -1,7 +1,7 @@
 <?php
 
-require "./vendor_machine_quiz_class_02.php";
-require "./vendor_machine_quiz_function_02.php";
+require_once "./vendor_machine_quiz_class_02.php";
+require_once "./vendor_machine_quiz_function_02.php";
 
 $user_request = getUserRequest($_POST);
 

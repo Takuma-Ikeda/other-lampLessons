@@ -2,16 +2,18 @@
 
 abstract class VendorMachine {
 
+    const ITEM_NAME = 'item_name';
+
     private $item_name;
     private $money;
     private $change;
     private $change_tag;
 
-    public function createChangeTag($name, $change) {
-        if (is_null($change)) {
+    public function createChangeTag($name, $value) {
+        if (is_null($value)) {
             $this->setChangeTag('<input class="change" type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" disabled>');
         } else {
-            $this->setChangeTag('<input class="change" type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" value="' . $change . '" disabled>');
+            $this->setChangeTag('<input class="change" type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" value="' . $value . '" disabled>');
         }
     }
 
@@ -57,52 +59,56 @@ abstract class VendorMachine {
 class DrinkVendorMachine extends VendorMachine {
 
     const CHANGE = 'drink_change';
+    const MONEY  = 'drink_money';
 
     public function __construct($user_request) {
-        // 結果的に setChangeTag($change_tag) が実行される
-        $this->createChangeTag(self::CHANGE, null);
-        $this->setItemName($user_request->getItemName());
-        $this->setMoney($user_request->getDrinkMoney());
-        $this->setChange($user_request->getDrinkChange());
+        parent::createChangeTag(self::CHANGE, $user_request->getDrinkChange());
+        parent::createChangeTag(self::CHANGE, $user_request->getDrinkChange(), true);
+        parent::setItemName($user_request->getItemName());
+        parent::setMoney($user_request->getDrinkMoney());
+        parent::setChange($user_request->getDrinkChange());
     }
 }
 
 class IceVendorMachine extends VendorMachine {
 
     const CHANGE = 'ice_change';
+    const MONEY  = 'ice_money';
 
     public function __construct($user_request) {
-        // 結果的に setChangeTag($change_tag) が実行される
-        $this->createChangeTag(self::CHANGE, null);
-        $this->setItemName($user_request->getItemName());
-        $this->setMoney($user_request->getIceMoney());
-        $this->setChange($user_request->getIceChange());
+        parent::createChangeTag(self::CHANGE, $user_request->getIceChange());
+        parent::createChangeTag(self::CHANGE, $user_request->getIceChange(), true);
+        parent::setItemName($user_request->getItemName());
+        parent::setMoney($user_request->getIceMoney());
+        parent::setChange($user_request->getIceChange());
     }
 }
 
 class TabaccoVendorMachine extends VendorMachine {
 
     const CHANGE = 'tabacco_change';
+    const MONEY  = 'tabacco_money';
 
     public function __construct($user_request) {
-        // 結果的に setChangeTag($change_tag) が実行される
-        $this->createChangeTag(self::CHANGE, null);
-        $this->setItemName($user_request->getItemName());
-        $this->setMoney($user_request->getTabaccoMoney());
-        $this->setChange($user_request->getTabaccoChange());
+        parent::createChangeTag(self::CHANGE, $user_request->getTabaccoChange());
+        parent::createChangeTag(self::CHANGE, $user_request->getTabaccoChange(), true);
+        parent::setItemName($user_request->getItemName());
+        parent::setMoney($user_request->getTabaccoMoney());
+        parent::setChange($user_request->getTabaccoChange());
     }
 }
 
 class NewsPaperVendorMachine extends VendorMachine {
 
     const CHANGE = 'news_paper_change';
+    const MONEY  = 'news_paper_money';
 
     public function __construct($user_request) {
-        // 結果的に setChangeTag($change_tag) が実行される
-        $this->createChangeTag(self::CHANGE, null);
-        $this->setItemName($user_request->getItemName());
-        $this->setMoney($user_request->getNewsPaperMoney());
-        $this->setChange($user_request->getNewsPaperChange());
+        parent::createChangeTag(self::CHANGE, $user_request->getNewsPaperChange());
+        parent::createChangeTag(self::CHANGE, $user_request->getNewsPaperChange(), true);
+        parent::setItemName($user_request->getItemName());
+        parent::setMoney($user_request->getNewsPaperMoney());
+        parent::setChange($user_request->getNewsPaperChange());
     }
 }
 

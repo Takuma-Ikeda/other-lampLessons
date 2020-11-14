@@ -1,6 +1,6 @@
 <?php
 
-require "./vendor_machine_quiz_class_01.php";
+require_once "./vendor_machine_quiz_class_01.php";
 
 $drink      = new DrinkVendorMachine();
 $ice        = new IceVendorMachine();

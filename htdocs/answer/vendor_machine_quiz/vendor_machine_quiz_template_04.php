@@ -1,7 +1,7 @@
 <?php
 
-require_once "./vendor_machine_quiz_class_03.php";
-require_once "./vendor_machine_quiz_function_03.php";
+require_once "./vendor_machine_quiz_class_04.php";
+require_once "./vendor_machine_quiz_function_04.php";
 
 $user_request = getUserRequest($_POST);
 
@@ -10,11 +10,10 @@ $ice        = new IceVendorMachine($user_request);
 $tabacco    = new TabaccoVendorMachine($user_request);
 $news_paper = new NewsPaperVendorMachine($user_request);
 
-// 投入したお金を「預り金」として表示する
-$drink->createChangeTag(DrinkVendorMachine::CHANGE, $drink->getMoney());
-$ice->createChangeTag(IceVendorMachine::CHANGE, $ice->getMoney());
-$tabacco->createChangeTag(TabaccoVendorMachine::CHANGE, $tabacco->getMoney());
-$news_paper->createChangeTag(NewsPaperVendorMachine::CHANGE, $news_paper->getMoney());
+$drink      = calcChange($drink, DrinkVendorMachine::CHANGE);
+$ice        = calcChange($ice, IceVendorMachine::CHANGE);
+$tabacco    = calcChange($tabacco, TabaccoVendorMachine::CHANGE);
+$news_paper = calcChange($news_paper, NewsPaperVendorMachine::CHANGE);
 
 ?>
 
@@ -28,8 +27,8 @@ $news_paper->createChangeTag(NewsPaperVendorMachine::CHANGE, $news_paper->getMon
     </head>
     <body>
         <div class="container">
-            <h1>問題 3</h1>
-            <form class="vendor-machine-form" action="vendor_machine_quiz_template_03.php" method="post">
+            <h1>問題 4</h1>
+            <form class="vendor-machine-form" action="vendor_machine_quiz_template_04.php" method="post">
                 <div class="row">
                     <div class="col vendor-machines">
                         <div class="container">
@@ -84,6 +83,7 @@ $news_paper->createChangeTag(NewsPaperVendorMachine::CHANGE, $news_paper->getMon
                                 <input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_drink_money" value="お金を入れる">
                                 <?php echo $drink->getChangeTag(); ?>
+                                <?php echo $drink->getHiddenChangeTag(); ?>
                                 <input type="submit" name="get_drink_change" value="お釣り" disabled>
                             </div>
 
@@ -137,6 +137,7 @@ $news_paper->createChangeTag(NewsPaperVendorMachine::CHANGE, $news_paper->getMon
                                 <input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_ice_money" value="お金を入れる">
                                 <?php echo $ice->getChangeTag(); ?>
+                                <?php echo $ice->getHiddenChangeTag(); ?>
                                 <input type="submit" name="get_ice_change" value="お釣り" disabled>
                             </div>
                         </div> <!-- .container -->
@@ -195,6 +196,7 @@ $news_paper->createChangeTag(NewsPaperVendorMachine::CHANGE, $news_paper->getMon
                                 <input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_tabacco_money" value="お金を入れる">
                                 <?php echo $tabacco->getChangeTag(); ?>
+                                <?php echo $tabacco->getHiddenChangeTag(); ?>
                                 <input type="submit" name="get_tabacco_change" value="お釣り" disabled>
                             </div>
 
@@ -248,6 +250,7 @@ $news_paper->createChangeTag(NewsPaperVendorMachine::CHANGE, $news_paper->getMon
                                 <input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_news_paper_money" value="お金を入れる">
                                 <?php echo $news_paper->getChangeTag(); ?>
+                                <?php echo $news_paper->getHiddenChangeTag(); ?>
                                 <input type="submit" name="get_news_paper_change" value="お釣り" disabled>
                             </div>
                         </div>

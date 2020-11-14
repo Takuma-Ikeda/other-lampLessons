@@ -49,28 +49,28 @@ abstract class VendorMachine {
 class DrinkVendorMachine extends VendorMachine {
 
     public function __construct() {
-        $this->setChangeTag('<input class="change" type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>');
+        parent::setChangeTag('<input class="change" type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>');
     }
 }
 
 class IceVendorMachine extends VendorMachine {
 
     public function __construct() {
-        $this->setChangeTag('<input class="change" type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>');
+        parent::setChangeTag('<input class="change" type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>');
     }
 }
 
 class TabaccoVendorMachine extends VendorMachine {
 
     public function __construct() {
-        $this->setChangeTag('<input class="change" type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>');
+        parent::setChangeTag('<input class="change" type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>');
     }
 }
 
 class NewsPaperVendorMachine extends VendorMachine {
 
     public function __construct() {
-        $this->setChangeTag('<input class="change" type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>');
+        parent::setChangeTag('<input class="change" type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>');
     }
 }
 

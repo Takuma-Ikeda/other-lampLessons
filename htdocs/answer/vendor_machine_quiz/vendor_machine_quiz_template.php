@@ -1,6 +1,6 @@
 <?php
 
-// require "./vendor_machine_quiz_*.php";
+// require_once "./vendor_machine_quiz_*.php";
 
 ?>
 

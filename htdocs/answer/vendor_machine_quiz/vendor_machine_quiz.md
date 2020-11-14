@@ -41,21 +41,22 @@
 抽象クラス VendorMachine を作成してください。
 そして以下のプライベート変数を定義してください。
 
-- `private $item_name;`
-- `private $money;`
-- `private $change;`
-- `private $change_tag;`
+- `$item_name;`
+- `$money;`
+- `$change;`
+- `$change_tag;`
 
 以下の getter メソッド、および setter メソッドも定義してください。
 
-- `setItemName($item_name)`
-- `setMoney($money)`
-- `setChange($change)`
-- `setChangeTag($change_tag)`
-- `getItemName()`
-- `getMoney()`
-- `getChange()`
-- `getChangeTag()`
+- `setItemName`
+- `setMoney`
+- `setChange`
+- `setChangeTag`
+
+- `getItemName`
+- `getMoney`
+- `getChange`
+- `getChangeTag`
 
 ### 問題 1.2
 
@@ -66,16 +67,16 @@
 - TabaccoVendorMachine
 - NewsPaperVendorMachine
 
-それぞれのコンストラクタには以下 setter メソッドを定義してください。
+それぞれのコンストラクタで以下 setter メソッドを呼び出してください。
 
 - DrinkVendorMachine
-    - `$this->setChangeTag('<input class="change" type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
+    - `parent::setChangeTag('<input class="change" type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
 - IceVendorMachine
-    - `$this->setChangeTag('<input class="change" type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
+    - `parent::setChangeTag('<input class="change" type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
 - TabaccoVendorMachine
-    - `$this->setChangeTag('<input class="change" type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
+    - `parent::setChangeTag('<input class="change" type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
 - NewsPaperVendorMachine
-    - `$this->setChangeTag('<input class="change" type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
+    - `parent::setChangeTag('<input class="change" type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
 
 ### 問題 1.3
 
@@ -94,36 +95,36 @@
 UserRequest クラスを作成してください。
 そして以下のプライベート変数を定義してください。
 
-- `private $item_name;`
-- `private $drink_money;`
-- `private $drink_change;`
-- `private $ice_money;`
-- `private $ice_change;`
-- `private $tabacco_money;`
-- `private $tabacco_change;`
-- `private $news_paper_money;`
-- `private $news_paper_change;`
+- `$item_name;`
+- `$drink_money;`
+- `$drink_change;`
+- `$ice_money;`
+- `$ice_change;`
+- `$tabacco_money;`
+- `$tabacco_change;`
+- `$news_paper_money;`
+- `$news_paper_change;`
 
 以下の getter メソッド、および setter メソッドも定義してください。
 
-- `public function setItemName($item_name)`
-- `public function setDrinkMoney($drink_money)`
-- `public function setDrinkChange($drink_change)`
-- `public function setIceMoney($ice_money)`
-- `public function setIceChange($ice_change)`
-- `public function setTabaccoMoney($tabacco_money)`
-- `public function setTabaccoChange($tabacco_change)`
-- `public function setNewsPaperMoney($news_paper_money)`
-- `public function setNewsPaperChange($news_paper_change)`
-- `public function getItemName()`
-- `public function getDrinkMoney()`
-- `public function getDrinkChange()`
-- `public function getIceMoney()`
-- `public function getIceChange()`
-- `public function getTabaccoMoney()`
-- `public function getTabaccoChange()`
-- `public function getNewsPaperMoney()`
-- `public function getNewsPaperChange()`
+- `setItemName`
+- `setDrinkMoney`
+- `setDrinkChange`
+- `setIceMoney`
+- `setIceChange`
+- `setTabaccoMoney`
+- `setTabaccoChange`
+- `setNewsPaperMoney`
+- `setNewsPaperChange`
+- `getItemName`
+- `getDrinkMoney`
+- `getDrinkChange`
+- `getIceMoney`
+- `getIceChange`
+- `getTabaccoMoney`
+- `getTabaccoChange`
+- `getNewsPaperMoney`
+- `getNewsPaperChange`
 
 ### 問題 2.2
 
@@ -137,6 +138,29 @@ POST されたリクエストを処理して、値がセットされた UserRequ
 ### 問題 2.4
 
 問題 2.3 で渡されるインスタンスを利用して、プライベート変数 `$item_name`, `$money`, `$change` に値を設定してください。値を設定するときは抽象クラス内の setter / getter を利用してください。
+
+### 問題 2.5
+
+抽象クラスに定数 `ITEM_NAME` を定義してください。
+各種自動販売機のクラスに定数 `CHANGE` と `MONEY` を定義してください。
+
+`ITEM_NAME` には item_name という文字列を持たせてください。
+
+`CHANGE` には以下の文字列を持たせてください。
+
+- drink_money
+- ice_money
+- tabacco_money
+- news_paper_money
+
+`MONEY` には以下の文字列を持たせてください。
+
+- drink_money
+- ice_money
+- tabacco_money
+- news_paper_money
+
+今後、必要に応じてこの定数を参照するようにしてください。
 
 ## 問題 3 - 投入した金額を表示する
 
@@ -166,13 +190,27 @@ POST されたリクエストを処理して、値がセットされた UserRequ
 上記 input タグでは、現在の預り金を「数値」で表示します。
 
 抽象クラスに `createChangeTag` という関数を定義して、動的にこの input タグを作成します。
-一旦、最初のお金を投入したら (預り金として) 全額を表示する input タグでよいので生成・表示してください。
+お金を投入したら、預り金を表示する input タグを生成・表示してください。
 
-### 問題 4 - hidden
+※ 一旦、連続でお金を投入した場合のことは考慮しなくて大丈夫です
+
+## 問題 4 - hidden
+
+### 問題 4.1
 
 複数の自動販売機の「お金を入れる」ボタンを押しても、それぞれの自動販売機が現在の預り金を保持できている状態にします。
 
-hidden 属性で現在の預り金を仕込んでおいて、常にその値を受け取れるようにしてください。
+- drink_money
+- ice_money
+- tabacco_money
+- news_paper_money
+
+disabled が付いたタグは POST されないので hidden 属性を付けたタグを埋め込むようにしてください。
+現在の預り金を `getChange` で取得できたら、上記 input タグにその金額を表示するようにしてください。
+
+### 問題 4.2
+
+連続でお金を投入した場合、前回の預かり金と足し算して、最新の預り金を表示するようにしてください。
 
 ## 問題 5 - ボタンの活性・非活性
 
@@ -200,13 +238,6 @@ hidden 属性で現在の預り金を仕込んでおいて、常にその値を�
 ## 問題 6 - ボタンの活性・非活性
 
 ### 問題 6.1
-
-- drink_money
-- ice_money
-- tabacco_money
-- news_paper_money
-
-連続でお金を投入したら、上記 input タグの数値を足し算してください。
 
 ### 問題 6.2
 

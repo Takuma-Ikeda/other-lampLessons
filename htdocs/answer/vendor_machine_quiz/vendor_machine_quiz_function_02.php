@@ -1,18 +1,20 @@
 <?php
 
+require_once "./vendor_machine_quiz_class_02.php";
+
 function getUserRequest($req) {
 
     $user_request = new UserRequest();
 
-    $user_request->setItemName($req['item_name']);
-    $user_request->setDrinkMoney($req['drink_money']);
-    $user_request->setDrinkChange($req['drink_change']);
-    $user_request->setIceMoney($req['ice_money']);
-    $user_request->setIceChange($req['ice_change']);
-    $user_request->setTabaccoMoney($req['tabacco_money']);
-    $user_request->setTabaccoChange($req['tabacco_change']);
-    $user_request->setNewsPaperMoney($req['news_paper_money']);
-    $user_request->setNewsPaperChange($req['news_paper_change']);
+    $user_request->setItemName($req[VendorMachine::ITEM_NAME]);
+    $user_request->setDrinkMoney($req[DrinkVendorMachine::MONEY]);
+    $user_request->setDrinkChange($req[DrinkVendorMachine::CHANGE]);
+    $user_request->setIceMoney($req[IceVendorMachine::MONEY]);
+    $user_request->setIceChange($req[IceVendorMachine::CHANGE]);
+    $user_request->setTabaccoMoney($req[TabaccoVendorMachine::MONEY]);
+    $user_request->setTabaccoChange($req[TabaccoVendorMachine::CHANGE]);
+    $user_request->setNewsPaperMoney($req[NewsPaperVendorMachine::MONEY]);
+    $user_request->setNewsPaperChange($req[NewsPaperVendorMachine::CHANGE]);
 
     return $user_request;
 }
