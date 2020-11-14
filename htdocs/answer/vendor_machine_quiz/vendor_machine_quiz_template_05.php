@@ -1,7 +1,7 @@
 <?php
 
-require_once "./vendor_machine_quiz_class_02.php";
-require_once "./vendor_machine_quiz_function_02.php";
+require_once "./vendor_machine_quiz_class_05.php";
+require_once "./vendor_machine_quiz_function_05.php";
 
 $user_request = getUserRequest($_POST);
 
@@ -9,6 +9,18 @@ $drink      = new DrinkVendorMachine($user_request);
 $ice        = new IceVendorMachine($user_request);
 $tabacco    = new TabaccoVendorMachine($user_request);
 $news_paper = new NewsPaperVendorMachine($user_request);
+
+$drink      = calcChange($drink, DrinkVendorMachine::CHANGE);
+$ice        = calcChange($ice, IceVendorMachine::CHANGE);
+$tabacco    = calcChange($tabacco, TabaccoVendorMachine::CHANGE);
+$news_paper = calcChange($news_paper, NewsPaperVendorMachine::CHANGE);
+
+$drink      = switchReceiveChangeTag($drink, DrinkVendorMachine::RECEIVE_CHANGE);
+$ice        = switchReceiveChangeTag($ice, IceVendorMachine::RECEIVE_CHANGE);
+$tabacco    = switchReceiveChangeTag($tabacco, TabaccoVendorMachine::RECEIVE_CHANGE);
+$news_paper = switchReceiveChangeTag($news_paper, NewsPaperVendorMachine::RECEIVE_CHANGE);
+
+$message = chooseMessage($drink, $ice, $tabacco, $news_paper);
 
 ?>
 
@@ -22,8 +34,8 @@ $news_paper = new NewsPaperVendorMachine($user_request);
     </head>
     <body>
         <div class="container">
-            <h1>問題 2</h1>
-            <form class="vendor-machine-form" action="vendor_machine_quiz_template_02.php" method="post">
+            <h1>問題 5</h1>
+            <form class="vendor-machine-form" action="vendor_machine_quiz_template_05.php" method="post">
                 <div class="row">
                     <div class="col vendor-machines">
                         <div class="container">
@@ -78,7 +90,8 @@ $news_paper = new NewsPaperVendorMachine($user_request);
                                 <input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_drink_money" value="お金を入れる">
                                 <?php echo $drink->getChangeTag(); ?>
-                                <button type="submit" value="0" name="receive_drink_change" disabled>お釣り</button>
+                                <?php echo $drink->getHiddenChangeTag(); ?>
+                                <?php echo $drink->getRecieveChangeTag(); ?>
                             </div>
 
                             <h2>アイス</h2>
@@ -131,7 +144,8 @@ $news_paper = new NewsPaperVendorMachine($user_request);
                                 <input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_ice_money" value="お金を入れる">
                                 <?php echo $ice->getChangeTag(); ?>
-                                <button type="submit" value="0" name="receive_ice_change" disabled>お釣り</button>
+                                <?php echo $ice->getHiddenChangeTag(); ?>
+                                <?php echo $ice->getRecieveChangeTag(); ?>
                             </div>
                         </div> <!-- .container -->
                     </div> <!-- .col .vendor-machines -->
@@ -189,7 +203,8 @@ $news_paper = new NewsPaperVendorMachine($user_request);
                                 <input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_tabacco_money" value="お金を入れる">
                                 <?php echo $tabacco->getChangeTag(); ?>
-                                <button type="submit" value="0" name="receive_tabacco_change" disabled>お釣り</button>
+                                <?php echo $tabacco->getHiddenChangeTag(); ?>
+                                <?php echo $tabacco->getRecieveChangeTag(); ?>
                             </div>
 
                             <h2>新聞紙</h2>
@@ -242,14 +257,15 @@ $news_paper = new NewsPaperVendorMachine($user_request);
                                 <input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_news_paper_money" value="お金を入れる">
                                 <?php echo $news_paper->getChangeTag(); ?>
-                                <button type="submit" value="0" name="receive_news_paper_change" disabled>お釣り</button>
+                                <?php echo $news_paper->getHiddenChangeTag(); ?>
+                                <?php echo $news_paper->getRecieveChangeTag(); ?>
                             </div>
                         </div>
                     </div>
 
                 </div>
                 <div class="row message">
-                    [メッセージ]
+                    [メッセージ] <?php echo $message; ?>
                 </div>
             </form>
         </div>

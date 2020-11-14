@@ -75,3 +75,13 @@
 .news-paper {
     background-color: rgb(108, 211, 117);
 }
+
+.message {
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #000000;
+    color: #ffffff;
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 2px;
+}

@@ -54,7 +54,7 @@ function createStudentData($id, $name, $japanese, $math, $society, $science, $en
 $students = getStudentsByIds([1, 2, 3, 4]);
 
 // 存在しない id を渡すと ERROR になる
-// $students = getStudentById([1, 2, 3, 99]);
+// $students = getStudentsByIds([1, 2, 3, 99]);
 ?>
 
 <!DOCTYPE html>

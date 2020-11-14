@@ -19,25 +19,28 @@ function getUserRequest($req) {
     return $user_request;
 }
 
-function calcChange($vendor_machine, $type) {
+function calcChange($vendor_machine, $name) {
+
+    $money  = $vendor_machine->getMoney();
+    $change = $vendor_machine->getChange();
+
     // 投入したお金が存在する場合
-    if (!is_null($vendor_machine->getMoney()) && !empty($vendor_machine->getMoney())) {
+    if (!is_null($money) && !empty($money)) {
         // 預り金が存在する場合、それと足し算して「預り金」を表示する
-        if (!is_null($vendor_machine->getChange()) && !empty($vendor_machine->getChange())) {
-            $money      = (int) $vendor_machine->getMoney();
-            $old_change = (int) $vendor_machine->getChange();
+        if (!is_null($change) && !empty($change)) {
+            $money      = (int) $money;
+            $old_change = (int) $change;
             $new_change = $money + $old_change;
-            $vendor_machine->createChangeTag($type, $new_change);
-            $vendor_machine->createChangeTag($type, $new_change, true);
+            $vendor_machine->setChange($new_change);
         // 預り金が存在しない場合、投入したお金を「預り金」として表示する
         } else {
-            $vendor_machine->createChangeTag($type, $vendor_machine->getMoney());
-            $vendor_machine->createChangeTag($type, $vendor_machine->getMoney(), true);
+            $vendor_machine->setChange($money);
         }
-    // 投入したお金が存在しない場合、現在の「預り金」を表示する
-    } else {
-        $vendor_machine->createChangeTag($type, $vendor_machine->getChange());
-        $vendor_machine->createChangeTag($type, $vendor_machine->getChange(), true);
     }
+
+    $change = $vendor_machine->getChange();
+
+    $vendor_machine->setChangeTag('<input class="change" type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" value="' . $change . '" disabled>');
+    $vendor_machine->setHiddenChangeTag('<input class="change" type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" value="' . $change . '" hidden>');
     return $vendor_machine;
 }

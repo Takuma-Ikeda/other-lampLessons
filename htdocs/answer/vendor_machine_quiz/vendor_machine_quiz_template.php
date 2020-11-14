@@ -70,7 +70,7 @@
                                 <input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_drink_money" value="お金を入れる">
                                 <input class="change" type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <input type="submit" name="get_drink_change" value="お釣り" disabled>
+                                <button type="submit" value="0" name="receive_drink_change" disabled>お釣り</button>
                             </div>
 
                             <h2>アイス</h2>
@@ -123,7 +123,7 @@
                                 <input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_ice_money" value="お金を入れる">
                                 <input class="change"type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <input type="submit" name="get_ice_change" value="お釣り" disabled>
+                                <button type="submit" value="0" name="receive_ice_change" disabled>お釣り</button>
                             </div>
                         </div> <!-- .container -->
                     </div> <!-- .col .vendor-machines -->
@@ -181,7 +181,7 @@
                                 <input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_tabacco_money" value="お金を入れる">
                                 <input class="change" type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <input type="submit" name="get_tabacco_change" value="お釣り" disabled>
+                                <button type="submit" value="0" name="receive_tabacco_change" disabled>お釣り</button>
                             </div>
 
                             <h2>新聞紙</h2>
@@ -234,11 +234,14 @@
                                 <input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_news_paper_money" value="お金を入れる">
                                 <input class="change" type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <input type="submit" name="get_news_paper_change" value="お釣り" disabled>
+                                <button type="submit" value="0" name="receive_news_paper_change" disabled>お釣り</button>
                             </div>
                         </div>
                     </div>
 
+                </div>
+                <div class="row message">
+                    [メッセージ]
                 </div>
             </form>
         </div>
