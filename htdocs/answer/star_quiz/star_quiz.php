@@ -2,9 +2,9 @@
 
 /*
  * [ブラウザ]
- * http://localhost/answer/20201028/star_quiz.php
+ * http://localhost/answer/star_quiz/star_quiz.php
  * [コンテナパス]
- * /var/www/html/answer/20201028
+ * /var/www/html/answer/star_quiz
  *  php star_quiz.php で実行可能
  */
 
@@ -86,9 +86,9 @@ function problem05() {
 
 function problem06() {
     printNewLine('■problem06');
-    for ($i = 5; $i > 0; $i--) {
+    for ($i = 0; $i < 5; $i++) {
         $str = "";
-        for ($j = 0; $j < $i; $j++) {
+        for ($j = 4; $j >= $i; $j--) {
             $str .= "★";
         }
         printNewLine($str);

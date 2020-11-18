@@ -2,10 +2,10 @@
 
 /*
  * [ブラウザ]
- * http://localhost/answer/20201104/table_quiz_04.php
+ * http://localhost/answer/table_quiz/table_quiz_05.php
  * [コンテナパス]
- * /var/www/html/answer/20201104
- *  php table_quiz_04.php で実行可能
+ * /var/www/html/answer/table_quiz
+ *  php table_quiz_05.php で実行可能
  */
 
 function getStudents() {
@@ -19,9 +19,6 @@ function getStudents() {
 
 $students = getStudents();
 
-// 配列の要素数を取得
-$num = count($students);
-
 ?>
 
 <!DOCTYPE html>
@@ -31,7 +28,7 @@ $num = count($students);
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <h1>問題 4</h1>
+        <h1>問題 5</h1>
         <table>
             <thead>
                 <tr>
@@ -46,16 +43,16 @@ $num = count($students);
                 </tr>
             </thead>
             <tbody>
-                <?php for ($i = 0; $i < $num; $i++) { // 配列の要素数だけループを回す  ?>
+                <?php foreach($students as $student) { ?>
                     <tr>
-                        <td><?php echo $students[$i]['id'] ?></td>
-                        <td><?php echo $students[$i]['name'] ?></td>
-                        <td><?php echo $students[$i]['japanese'] ?></td>
-                        <td><?php echo $students[$i]['math'] ?></td>
-                        <td><?php echo $students[$i]['society'] ?></td>
-                        <td><?php echo $students[$i]['science'] ?></td>
-                        <td><?php echo $students[$i]['english'] ?></td>
-                        <td><?php echo $students[$i]['programming'] ?></td>
+                        <td><?php echo $student['id'] ?></td>
+                        <td><?php echo $student['name'] ?></td>
+                        <td><?php echo $student['japanese'] ?></td>
+                        <td><?php echo $student['math'] ?></td>
+                        <td><?php echo $student['society'] ?></td>
+                        <td><?php echo $student['science'] ?></td>
+                        <td><?php echo $student['english'] ?></td>
+                        <td><?php echo $student['programming'] ?></td>
                     </tr>
                 <?php } ?>
             </tbody>

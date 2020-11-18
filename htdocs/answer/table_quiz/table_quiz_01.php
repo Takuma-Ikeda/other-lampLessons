@@ -2,9 +2,9 @@
 
 /*
  * [ブラウザ]
- * http://localhost/answer/20201104/table_quiz_01.php
+ * http://localhost/answer/table_quiz/table_quiz_01.php
  * [コンテナパス]
- * /var/www/html/answer/20201104
+ * /var/www/html/answer/table_quiz
  *  php table_quiz_01.php で実行可能
  */
 
@@ -24,7 +24,7 @@
                     <th>id</th>
                     <th>名前</th>
                     <th>国語</th>
-                    <th>算数</th>s
+                    <th>算数</th>
                     <th>社会</th>
                     <th>理科</th>
                     <th>英語</th>

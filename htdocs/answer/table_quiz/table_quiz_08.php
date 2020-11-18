@@ -2,14 +2,17 @@
 
 /*
  * [ブラウザ]
- * http://localhost/answer/20201104/table_quiz_07.php
+ * http://localhost/answer/table_quiz/table_quiz_08.php
  * [コンテナパス]
- * /var/www/html/answer/20201104
- *  php table_quiz_07.php で実行可能
+ * /var/www/html/answer/table_quiz
+ *  php table_quiz_08.php で実行可能
  */
 
-require "./table_quiz_07_function.php";
-$students = getStudentsByIds([1, 2, 3, 4]);
+require "./table_quiz_08_init.php";
+
+/*
+ * このファイルは $students と $checkbox を表示するだけ
+ */
 
 ?>
 
@@ -20,7 +23,17 @@ $students = getStudentsByIds([1, 2, 3, 4]);
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <h1>問題 7</h1>
+        <h1>問題 8</h1>
+
+        <form class="student_id_form" action="table_quiz_08.php" method="post">
+            <p>生徒の id を選択してください</p>
+            <?php foreach ($checkbox as $c) {
+                // チェックボックス
+                echo $c;
+            } ?>
+            <input type="submit" value="送信する">
+        </form>
+
         <table>
             <thead>
                 <tr>

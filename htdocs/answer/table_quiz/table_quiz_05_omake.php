@@ -2,27 +2,22 @@
 
 /*
  * [ブラウザ]
- * http://localhost/answer/20201104/table_quiz_08.php
+ * http://localhost/answer/table_quiz/table_quiz_05_omake.php
  * [コンテナパス]
- * /var/www/html/answer/20201104
- *  php table_quiz_08.php で実行可能
+ * /var/www/html/answer/table_quiz
+ *  php table_quiz_05_omake.php で実行可能
  */
 
-require "./table_quiz_08_function.php";
-
-// (チェックボックスの name である) ids を受けとることができた場合
-if (isset($_POST['ids'])) {
-    foreach ($_POST['ids'] as $id) {
-        // チェックボックスの value を保存
-        $ids[] = $id;
-    }
-    $students = getStudentsByIds($ids);
-} else {
-    $students = getStudentsByIds();
+function getStudents() {
+    return [
+        ['id' => 1, 'name' => '池田', 'japanese' => 0, 'math' => 0, 'society' => 0, 'science' => 0, 'english' => 0, 'programming' => 100],
+        ['id' => 2, 'name' => '斉藤', 'japanese' => 80, 'math' => 80, 'society' => 80, 'science' => 80, 'english' => 80, 'programming' => 80],
+        ['id' => 3, 'name' => '大塚', 'japanese' => 100, 'math' => 70, 'society' => 90, 'science' => 70, 'english' => 60, 'programming' => 80],
+        ['id' => 4, 'name' => '小林', 'japanese' => 70, 'math' => 60, 'society' => 80, 'science' => 100, 'english' => 60, 'programming' => 80],
+    ];
 }
 
-// チェックボックスを配列で取得
-$checkbox = getCheckbox();
+$students = getStudents();
 
 ?>
 
@@ -33,15 +28,7 @@ $checkbox = getCheckbox();
         <link rel="stylesheet" href="./styles.css">
     </head>
     <body>
-        <h1>問題 8</h1>
-        <form class="student_id_form" action="table_quiz_08.php" method="post">
-            <p>生徒の id を選択してください</p>
-            <?php foreach ($checkbox as $c) {
-                // チェックボックス
-                echo $c;
-            } ?>
-            <input type="submit" value="送信する">
-        </form>
+        <h1>問題 5 おまけ</h1>
         <table>
             <thead>
                 <tr>
@@ -76,3 +63,5 @@ $checkbox = getCheckbox();
         </table>
     </body>
 </html>
+
+
