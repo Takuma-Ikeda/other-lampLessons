@@ -2,8 +2,6 @@
 
 abstract class VendorMachine {
 
-    const ITEM_NAME = 'item_name';
-
     private $item_name;
     private $money;
     private $change;
@@ -127,6 +125,7 @@ abstract class VendorMachine {
 
 class DrinkVendorMachine extends VendorMachine {
 
+    const ITEM_NAME      = 'drink_item_name';
     const CHANGE         = 'drink_change';
     const MONEY          = 'drink_money';
     const RECEIVE_CHANGE = 'receive_drink_change';
@@ -143,13 +142,13 @@ class DrinkVendorMachine extends VendorMachine {
         parent::setHiddenChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
         parent::setRecieveChangeTag('<button type="submit" value="0" name="' . self::RECEIVE_CHANGE . '" disabled>お釣り</button>');
         parent::setItemNameTags([
-            self::ITEM_NAME_01 => '<button type="submit" value="' .self::ITEM_NAME_01 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_02 => '<button type="submit" value="' .self::ITEM_NAME_02 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_03 => '<button type="submit" value="' .self::ITEM_NAME_03 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_04 => '<button type="submit" value="' .self::ITEM_NAME_04 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_05 => '<button type="submit" value="' .self::ITEM_NAME_05 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_01 => '<button type="submit" value="' .self::ITEM_NAME_01 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_02 => '<button type="submit" value="' .self::ITEM_NAME_02 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_03 => '<button type="submit" value="' .self::ITEM_NAME_03 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_04 => '<button type="submit" value="' .self::ITEM_NAME_04 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_05 => '<button type="submit" value="' .self::ITEM_NAME_05 . '" name="' . self::ITEM_NAME . '" disabled></button>',
         ]);
-        parent::setItemName($user_request->getItemName());
+        parent::setItemName($user_request->getDrinkItemName());
         parent::setMoney($user_request->getDrinkMoney());
         parent::setChange($user_request->getDrinkChange());
         parent::setPrices([
@@ -169,6 +168,7 @@ class DrinkVendorMachine extends VendorMachine {
 
 class IceVendorMachine extends VendorMachine {
 
+    const ITEM_NAME      = 'ice_item_name';
     const CHANGE         = 'ice_change';
     const MONEY          = 'ice_money';
     const RECEIVE_CHANGE = 'receive_ice_change';
@@ -185,13 +185,13 @@ class IceVendorMachine extends VendorMachine {
         parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
         parent::setRecieveChangeTag('<button type="submit" value="0" name="' . self::RECEIVE_CHANGE . '" disabled>お釣り</button>');
         parent::setItemNameTags([
-            self::ITEM_NAME_01 => '<button type="submit" value="' .self::ITEM_NAME_01 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_02 => '<button type="submit" value="' .self::ITEM_NAME_02 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_03 => '<button type="submit" value="' .self::ITEM_NAME_03 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_04 => '<button type="submit" value="' .self::ITEM_NAME_04 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_05 => '<button type="submit" value="' .self::ITEM_NAME_05 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_01 => '<button type="submit" value="' .self::ITEM_NAME_01 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_02 => '<button type="submit" value="' .self::ITEM_NAME_02 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_03 => '<button type="submit" value="' .self::ITEM_NAME_03 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_04 => '<button type="submit" value="' .self::ITEM_NAME_04 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_05 => '<button type="submit" value="' .self::ITEM_NAME_05 . '" name="' . self::ITEM_NAME . '" disabled></button>',
         ]);
-        parent::setItemName($user_request->getItemName());
+        parent::setItemName($user_request->getIceItemName());
         parent::setMoney($user_request->getIceMoney());
         parent::setChange($user_request->getIceChange());
         parent::setPrices([
@@ -211,6 +211,7 @@ class IceVendorMachine extends VendorMachine {
 
 class TabaccoVendorMachine extends VendorMachine {
 
+    const ITEM_NAME      = 'tabacco_item_name';
     const CHANGE         = 'tabacco_change';
     const MONEY          = 'tabacco_money';
     const RECEIVE_CHANGE = 'receive_tabacco_change';
@@ -230,13 +231,13 @@ class TabaccoVendorMachine extends VendorMachine {
         parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
         parent::setRecieveChangeTag('<button type="submit" value="0" name="' . self::RECEIVE_CHANGE . '" disabled>お釣り</button>');
         parent::setItemNameTags([
-            self::ITEM_NAME_01 => '<button type="submit" value="' .self::ITEM_NAME_01 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_02 => '<button type="submit" value="' .self::ITEM_NAME_02 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_03 => '<button type="submit" value="' .self::ITEM_NAME_03 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_04 => '<button type="submit" value="' .self::ITEM_NAME_04 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_05 => '<button type="submit" value="' .self::ITEM_NAME_05 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_01 => '<button type="submit" value="' .self::ITEM_NAME_01 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_02 => '<button type="submit" value="' .self::ITEM_NAME_02 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_03 => '<button type="submit" value="' .self::ITEM_NAME_03 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_04 => '<button type="submit" value="' .self::ITEM_NAME_04 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_05 => '<button type="submit" value="' .self::ITEM_NAME_05 . '" name="' . self::ITEM_NAME . '" disabled></button>',
         ]);
-        parent::setItemName($user_request->getItemName());
+        parent::setItemName($user_request->getTabaccoItemName());
         parent::setMoney($user_request->getTabaccoMoney());
         parent::setChange($user_request->getTabaccoChange());
         parent::setPrices([
@@ -256,6 +257,7 @@ class TabaccoVendorMachine extends VendorMachine {
 
 class NewsPaperVendorMachine extends VendorMachine {
 
+    const ITEM_NAME      = 'news_paper_item_name';
     const CHANGE         = 'news_paper_change';
     const MONEY          = 'news_paper_money';
     const RECEIVE_CHANGE = 'receive_news_paper_change';
@@ -272,13 +274,13 @@ class NewsPaperVendorMachine extends VendorMachine {
         parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
         parent::setRecieveChangeTag('<button type="submit" value="0" name="' . self::RECEIVE_CHANGE . '" disabled>お釣り</button>');
         parent::setItemNameTags([
-            self::ITEM_NAME_01 => '<button type="submit" value="' .self::ITEM_NAME_01 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_02 => '<button type="submit" value="' .self::ITEM_NAME_02 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_03 => '<button type="submit" value="' .self::ITEM_NAME_03 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_04 => '<button type="submit" value="' .self::ITEM_NAME_04 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
-            self::ITEM_NAME_05 => '<button type="submit" value="' .self::ITEM_NAME_05 . '" name="' . parent::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_01 => '<button type="submit" value="' .self::ITEM_NAME_01 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_02 => '<button type="submit" value="' .self::ITEM_NAME_02 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_03 => '<button type="submit" value="' .self::ITEM_NAME_03 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_04 => '<button type="submit" value="' .self::ITEM_NAME_04 . '" name="' . self::ITEM_NAME . '" disabled></button>',
+            self::ITEM_NAME_05 => '<button type="submit" value="' .self::ITEM_NAME_05 . '" name="' . self::ITEM_NAME . '" disabled></button>',
         ]);
-        parent::setItemName($user_request->getItemName());
+        parent::setItemName($user_request->getNewsPaperItemName());
         parent::setMoney($user_request->getNewsPaperMoney());
         parent::setChange($user_request->getNewsPaperChange());
         parent::setPrices([
@@ -298,16 +300,19 @@ class NewsPaperVendorMachine extends VendorMachine {
 
 class UserRequest {
 
-    private $item_name;
+    private $drink_item_name;
     private $drink_money;
     private $drink_change;
     private $is_receive_drink_change;
+    private $ice_item_name;
     private $ice_money;
     private $ice_change;
     private $is_receive_ice_change;
+    private $tabacco_item_name;
     private $tabacco_money;
     private $tabacco_change;
     private $is_receive_tabacco_change;
+    private $news_paper_item_name;
     private $news_paper_money;
     private $news_paper_change;
     private $is_receive_news_paper_change;
@@ -315,8 +320,8 @@ class UserRequest {
     /*
      * Setter
      */
-    public function setItemName($item_name) {
-        $this->item_name = $item_name;
+    public function setDrinkItemName($drink_item_name) {
+        $this->drink_item_name = $drink_item_name;
     }
 
     public function setDrinkMoney($drink_money) {
@@ -331,6 +336,10 @@ class UserRequest {
         $this->is_receive_drink_change = $is_receive_drink_change;
     }
 
+    public function setIceItemName($ice_item_name) {
+        $this->ice_item_name = $ice_item_name;
+    }
+
     public function setIceMoney($ice_money) {
         $this->ice_money = $ice_money;
     }
@@ -343,6 +352,10 @@ class UserRequest {
         $this->is_receive_ice_change = $is_receive_ice_change;
     }
 
+    public function setTabaccoItemName($tabacco_item_name) {
+        $this->tabacco_item_name = $tabacco_item_name;
+    }
+
     public function setTabaccoMoney($tabacco_money) {
         $this->tabacco_money = $tabacco_money;
     }
@@ -353,6 +366,10 @@ class UserRequest {
 
     public function setIsReceiveTabaccoChange($is_receive_tabacco_change) {
         $this->is_receive_tabacco_change = $is_receive_tabacco_change;
+    }
+
+    public function setNewsPaperItemName($news_paper_item_name) {
+        $this->news_paper_item_name = $news_paper_item_name;
     }
 
     public function setNewsPaperMoney($news_paper_money) {
@@ -370,8 +387,8 @@ class UserRequest {
     /*
      * Getter
      */
-    public function getItemName() {
-        return $this->item_name;
+    public function getDrinkItemName() {
+        return $this->drink_item_name;
     }
 
     public function getDrinkMoney() {
@@ -386,6 +403,10 @@ class UserRequest {
         return $this->is_receive_drink_change;
     }
 
+    public function getIceItemName() {
+        return $this->ice_item_name;
+    }
+
     public function getIceMoney() {
         return $this->ice_money;
     }
@@ -398,6 +419,10 @@ class UserRequest {
         return $this->is_receive_ice_change;
     }
 
+    public function getTabaccoItemName() {
+        return $this->tabacco_item_name;
+    }
+
     public function getTabaccoMoney() {
         return $this->tabacco_money;
     }
@@ -408,6 +433,10 @@ class UserRequest {
 
     public function getIsReceiveTabaccoChange() {
         return $this->is_receive_tabacco_change;
+    }
+
+    public function getNewsPaperItemName() {
+        return $this->drink_item_name;
     }
 
     public function getNewsPaperMoney() {
