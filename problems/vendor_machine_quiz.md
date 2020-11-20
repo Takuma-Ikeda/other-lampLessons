@@ -95,35 +95,44 @@
 UserRequest クラスを作成してください。
 そして以下のプライベート変数を定義してください。
 
-- `$item_name;`
+- `$drink_item_name;`
 - `$drink_money;`
 - `$drink_change;`
+- `$ice_item_name;`
 - `$ice_money;`
 - `$ice_change;`
+- `$tabacco_item_name;`
 - `$tabacco_money;`
 - `$tabacco_change;`
+- `$news_paper_item_name;`
 - `$news_paper_money;`
 - `$news_paper_change;`
 
 以下の Setter / Getter メソッドも定義してください。
 
-- `setItemName`
+- `setDrinkItemName`
 - `setDrinkMoney`
 - `setDrinkChange`
+- `setIceItemName`
 - `setIceMoney`
 - `setIceChange`
+- `setTabaccoItemName`
 - `setTabaccoMoney`
 - `setTabaccoChange`
+- `setNewsPaperItemName`
 - `setNewsPaperMoney`
 - `setNewsPaperChange`
 
-- `getItemName`
+- `getDrinkItemName`
 - `getDrinkMoney`
 - `getDrinkChange`
+- `getIceItemName`
 - `getIceMoney`
 - `getIceChange`
+- `getTabaccoItemName`
 - `getTabaccoMoney`
 - `getTabaccoChange`
+- `getNewsPaperItemName`
 - `getNewsPaperMoney`
 - `getNewsPaperChange`
 
@@ -142,24 +151,23 @@ UserRequest クラスを作成してください。
 
 ### 問題 2.5
 
-抽象クラスに定数 `ITEM_NAME` を定義してください。
-各種自動販売機のクラスに定数 `CHANGE` と `MONEY` を定義してください。
+各種自動販売機のクラスに定数 `ITEM_NAME` と `CHANGE` と `MONEY` を定義してください。
 
-`ITEM_NAME` には item_name という文字列を持たせてください。
-
-`CHANGE` には以下の文字列を持たせてください。
-
-- drink_money
-- ice_money
-- tabacco_money
-- news_paper_money
-
-`MONEY` には以下の文字列を持たせてください。
-
-- drink_money
-- ice_money
-- tabacco_money
-- news_paper_money
+- `ITEM_NAME` には以下の文字列を持たせてください。
+    - drink_item_name
+    - ice_item_name
+    - tabacco_item_name
+    - news_paper_item_name
+- `CHANGE` には以下の文字列を持たせてください。
+    - drink_money
+    - ice_money
+    - tabacco_money
+    - news_paper_money
+- `MONEY` には以下の文字列を持たせてください。
+    - drink_money
+    - ice_money
+    - tabacco_money
+    - news_paper_money
 
 今後、必要に応じてこの定数を参照するようにしてください。
 
@@ -300,12 +308,15 @@ UserRequest クラスに以下のプライベート変数 ( bool 型) を定義�
 
 ### 問題 6.2
 
-- item_name
+- drink_item_name
+- ice_item_name
+- tabacco_item_name
+- news_paper_item_name
 
 上記 button タグは商品購入するときに使います。
 もし商品の値段以上のお金を投入していれば、該当する button タグを活性化するようにします。
 
-抽象クラスにはプライベート変数 `$$item_name_tags` を持たせてください。そして以下の Setter / Getter メソッドを定義してください。
+抽象クラスにはプライベート変数 `$item_name_tags` を持たせてください。そして以下の Setter / Getter メソッドを定義してください。
 
 - `setItemNameTags`
     - 連想配列をセットする

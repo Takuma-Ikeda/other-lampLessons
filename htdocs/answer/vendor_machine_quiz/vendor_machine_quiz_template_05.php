@@ -48,7 +48,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="A" name="item_name" disabled></button>
+                                        <button type="submit" value="A" name="drink_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -57,7 +57,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="B" name="item_name" disabled></button>
+                                        <button type="submit" value="B" name="drink_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -66,7 +66,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">130</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="C" name="item_name" disabled></button>
+                                        <button type="submit" value="C" name="drink_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -75,7 +75,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">160</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="D" name="item_name" disabled></button>
+                                        <button type="submit" value="D" name="drink_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -84,7 +84,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">160</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="E" name="item_name" disabled></button>
+                                        <button type="submit" value="E" name="drink_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">
@@ -102,7 +102,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">140</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="F" name="item_name" disabled></button>
+                                        <button type="submit" value="F" name="ice_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -111,7 +111,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">140</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="G" name="item_name" disabled></button>
+                                        <button type="submit" value="G" name="ice_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -120,7 +120,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">140</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="H" name="item_name" disabled></button>
+                                        <button type="submit" value="H" name="ice_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -129,7 +129,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">170</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="I" name="item_name" disabled></button>
+                                        <button type="submit" value="I" name="ice_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -138,7 +138,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">170</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="J" name="item_name" disabled></button>
+                                        <button type="submit" value="J" name="ice_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">
@@ -161,7 +161,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">400</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="K" name="item_name" disabled></button>
+                                        <button type="submit" value="K" name="tabacco_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -170,7 +170,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">410</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="L" name="item_name" disabled></button>
+                                        <button type="submit" value="L" name="tabacco_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -179,7 +179,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">450</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="M" name="item_name" disabled></button>
+                                        <button type="submit" value="M" name="tabacco_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -188,7 +188,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">500</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="N" name="item_name" disabled></button>
+                                        <button type="submit" value="N" name="tabacco_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -197,7 +197,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">540</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="O" name="item_name" disabled></button>
+                                        <button type="submit" value="O" name="tabacco_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">
@@ -215,7 +215,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">150</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="P" name="item_name" disabled></button>
+                                        <button type="submit" value="P" name="news_paper_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -224,7 +224,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">150</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="Q" name="item_name" disabled></button>
+                                        <button type="submit" value="Q" name="news_paper_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -233,7 +233,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">150</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="R" name="item_name" disabled></button>
+                                        <button type="submit" value="R" name="news_paper_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -242,7 +242,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">150</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="S" name="item_name" disabled></button>
+                                        <button type="submit" value="S" name="news_paper_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <div class="col-sm">
@@ -251,7 +251,7 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
                                     </div>
                                     <div class="vendor-machine-price">180</div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="T" name="item_name" disabled></button>
+                                        <button type="submit" value="T" name="news_paper_item_name" disabled></button>
                                     </div>
                                 </div>
                                 <input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">

@@ -2,8 +2,6 @@
 
 abstract class VendorMachine {
 
-    const ITEM_NAME = 'item_name';
-
     private $item_name;
     private $money;
     private $change;
@@ -50,12 +48,13 @@ abstract class VendorMachine {
 
 class DrinkVendorMachine extends VendorMachine {
 
-    const CHANGE = 'drink_change';
-    const MONEY  = 'drink_money';
+    const ITEM_NAME = 'drink_item_name';
+    const CHANGE    = 'drink_change';
+    const MONEY     = 'drink_money';
 
     public function __construct($user_request) {
         parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" disabled>');
-        parent::setItemName($user_request->getItemName());
+        parent::setItemName($user_request->getDrinkItemName());
         parent::setMoney($user_request->getDrinkMoney());
         parent::setChange($user_request->getDrinkChange());
     }
@@ -63,12 +62,13 @@ class DrinkVendorMachine extends VendorMachine {
 
 class IceVendorMachine extends VendorMachine {
 
-    const CHANGE = 'ice_change';
-    const MONEY  = 'ice_money';
+    const ITEM_NAME = 'ice_item_name';
+    const CHANGE    = 'ice_change';
+    const MONEY     = 'ice_money';
 
     public function __construct($user_request) {
         parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" disabled>');
-        parent::setItemName($user_request->getItemName());
+        parent::setItemName($user_request->getIceItemName());
         parent::setMoney($user_request->getIceMoney());
         parent::setChange($user_request->getIceChange());
     }
@@ -76,12 +76,13 @@ class IceVendorMachine extends VendorMachine {
 
 class TabaccoVendorMachine extends VendorMachine {
 
-    const CHANGE = 'tabacco_change';
-    const MONEY  = 'tabacco_money';
+    const ITEM_NAME = 'tabacco_item_name';
+    const CHANGE    = 'tabacco_change';
+    const MONEY     = 'tabacco_money';
 
     public function __construct($user_request) {
         parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" disabled>');
-        parent::setItemName($user_request->getItemName());
+        parent::setItemName($user_request->getTabaccoItemName());
         parent::setMoney($user_request->getTabaccoMoney());
         parent::setChange($user_request->getTabaccoChange());
     }
@@ -89,12 +90,13 @@ class TabaccoVendorMachine extends VendorMachine {
 
 class NewsPaperVendorMachine extends VendorMachine {
 
-    const CHANGE = 'news_paper_change';
-    const MONEY  = 'news_paper_money';
+    const ITEM_NAME = 'news_paper_item_name';
+    const CHANGE    = 'news_paper_change';
+    const MONEY     = 'news_paper_money';
 
     public function __construct($user_request) {
         parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" disabled>');
-        parent::setItemName($user_request->getItemName());
+        parent::setItemName($user_request->getNewsPaperItemName());
         parent::setMoney($user_request->getNewsPaperMoney());
         parent::setChange($user_request->getNewsPaperChange());
     }
@@ -102,21 +104,24 @@ class NewsPaperVendorMachine extends VendorMachine {
 
 class UserRequest {
 
-    private $item_name;
+    private $drink_item_name;
     private $drink_money;
     private $drink_change;
+    private $ice_item_name;
     private $ice_money;
     private $ice_change;
+    private $tabacco_item_name;
     private $tabacco_money;
     private $tabacco_change;
+    private $news_paper_item_name;
     private $news_paper_money;
     private $news_paper_change;
 
     /*
      * Setter
      */
-    public function setItemName($item_name) {
-        $this->item_name = $item_name;
+    public function setDrinkItemName($drink_item_name) {
+        $this->drink_item_name = $drink_item_name;
     }
 
     public function setDrinkMoney($drink_money) {
@@ -127,6 +132,10 @@ class UserRequest {
         $this->drink_change = $drink_change;
     }
 
+    public function setIceItemName($ice_item_name) {
+        $this->ice_item_name = $ice_item_name;
+    }
+
     public function setIceMoney($ice_money) {
         $this->ice_money = $ice_money;
     }
@@ -135,12 +144,20 @@ class UserRequest {
         $this->ice_change = $ice_change;
     }
 
+    public function setTabaccoItemName($tabacco_item_name) {
+        $this->tabacco_item_name = $tabacco_item_name;
+    }
+
     public function setTabaccoMoney($tabacco_money) {
         $this->tabacco_money = $tabacco_money;
     }
 
     public function setTabaccoChange($tabacco_change) {
         $this->tabacco_change = $tabacco_change;
+    }
+
+    public function setNewsPaperItemName($news_paper_item_name) {
+        $this->news_paper_item_name = $news_paper_item_name;
     }
 
     public function setNewsPaperMoney($news_paper_money) {
@@ -154,8 +171,8 @@ class UserRequest {
     /*
      * Getter
      */
-    public function getItemName() {
-        return $this->item_name;
+    public function getDrinkItemName() {
+        return $this->drink_item_name;
     }
 
     public function getDrinkMoney() {
@@ -166,6 +183,10 @@ class UserRequest {
         return $this->drink_change;
     }
 
+    public function getIceItemName() {
+        return $this->ice_item_name;
+    }
+
     public function getIceMoney() {
         return $this->ice_money;
     }
@@ -174,12 +195,20 @@ class UserRequest {
         return $this->ice_change;
     }
 
+    public function getTabaccoItemName() {
+        return $this->tabacco_item_name;
+    }
+
     public function getTabaccoMoney() {
         return $this->tabacco_money;
     }
 
     public function getTabaccoChange() {
         return $this->tabacco_change;
+    }
+
+    public function getNewsPaperItemName() {
+        return $this->drink_item_name;
     }
 
     public function getNewsPaperMoney() {
