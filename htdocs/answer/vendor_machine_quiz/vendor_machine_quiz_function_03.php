@@ -3,14 +3,14 @@
 require_once "./vendor_machine_quiz_class_03.php";
 
 // 投入したお金を「預り金」として表示する
-function calcChange($vendor_machine, $name) {
+function calcChange($vendor_machine) {
 
     $money = $vendor_machine->getMoney();
 
     if (!is_null($money) && !empty($money)) {
-        $vendor_machine->setChangeTag('<input class="change" type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" value="' . $money . '" disabled>');
+        $vendor_machine->setChangeTag('<input class="change" type="text" name="' . $vendor_machine::CHANGE . '" size="10" maxlength="5" placeholder="預り金" value="' . $money . '" disabled>');
     } else {
-        $vendor_machine->setChangeTag('<input class="change" type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" disabled>');
+        $vendor_machine->setChangeTag('<input class="change" type="text" name="' . $vendor_machine::CHANGE . '" size="10" maxlength="5" placeholder="預り金" disabled>');
     }
     return $vendor_machine;
 }

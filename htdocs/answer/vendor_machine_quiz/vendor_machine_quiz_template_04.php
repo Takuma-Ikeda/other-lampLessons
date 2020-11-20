@@ -10,10 +10,10 @@ $ice        = new IceVendorMachine($user_request);
 $tabacco    = new TabaccoVendorMachine($user_request);
 $news_paper = new NewsPaperVendorMachine($user_request);
 
-$drink      = calcChange($drink, DrinkVendorMachine::CHANGE);
-$ice        = calcChange($ice, IceVendorMachine::CHANGE);
-$tabacco    = calcChange($tabacco, TabaccoVendorMachine::CHANGE);
-$news_paper = calcChange($news_paper, NewsPaperVendorMachine::CHANGE);
+$drink      = calcChange($drink);
+$ice        = calcChange($ice);
+$tabacco    = calcChange($tabacco);
+$news_paper = calcChange($news_paper);
 
 ?>
 

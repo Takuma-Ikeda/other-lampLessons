@@ -10,15 +10,15 @@ $ice        = new IceVendorMachine($user_request);
 $tabacco    = new TabaccoVendorMachine($user_request);
 $news_paper = new NewsPaperVendorMachine($user_request);
 
-$drink      = calcChange($drink, DrinkVendorMachine::CHANGE);
-$ice        = calcChange($ice, IceVendorMachine::CHANGE);
-$tabacco    = calcChange($tabacco, TabaccoVendorMachine::CHANGE);
-$news_paper = calcChange($news_paper, NewsPaperVendorMachine::CHANGE);
+$drink      = calcChange($drink);
+$ice        = calcChange($ice);
+$tabacco    = calcChange($tabacco);
+$news_paper = calcChange($news_paper);
 
-$drink      = switchReceiveChangeTag($drink, DrinkVendorMachine::RECEIVE_CHANGE);
-$ice        = switchReceiveChangeTag($ice, IceVendorMachine::RECEIVE_CHANGE);
-$tabacco    = switchReceiveChangeTag($tabacco, TabaccoVendorMachine::RECEIVE_CHANGE);
-$news_paper = switchReceiveChangeTag($news_paper, NewsPaperVendorMachine::RECEIVE_CHANGE);
+$drink      = switchReceiveChangeTag($drink);
+$ice        = switchReceiveChangeTag($ice);
+$tabacco    = switchReceiveChangeTag($tabacco);
+$news_paper = switchReceiveChangeTag($news_paper);
 
 $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
 

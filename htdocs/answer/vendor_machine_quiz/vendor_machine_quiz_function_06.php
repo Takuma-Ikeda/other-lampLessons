@@ -1,6 +1,6 @@
 <?php
 
-require_once "./vendor_machine_quiz_class_05.php";
+require_once "./vendor_machine_quiz_class_06.php";
 
 function getUserRequest($req) {
 
@@ -104,6 +104,28 @@ function switchReceiveChangeTag($vendor_machine) {
             $vendor_machine->setRecieveChangeTag('<button type="submit" value="' . $value . '" name="' . $vendor_machine::RECEIVE_CHANGE . '">お釣り</button>');
         } else {
             $vendor_machine->setRecieveChangeTag('<button type="submit" value="' . $value . '" name="' . $vendor_machine::RECEIVE_CHANGE . '" disabled>お釣り</button>');
+        }
+    }
+    return $vendor_machine;
+}
+
+function switchItemNameTag($vendor_machine) {
+
+    $change = $vendor_machine->getChange();
+    $prices = $vendor_machine->getPrices();
+
+    foreach($prices as $item_name => $price) {
+        // 預り金がないとき
+        if (is_null($change) || empty($change)) {
+            $vendor_machine->setItemNameTag($item_name, '<button type="submit" value="' . $item_name . '" name="' . $vendor_machine::ITEM_NAME . '" disabled></button>');
+        // 預り金があるとき
+        } else {
+            // 商品の値段以上のときは活性化する
+            if ((int) $change >= (int) $price) {
+                $vendor_machine->setItemNameTag($item_name, '<button type="submit" value="' . $item_name . '" name="' . $vendor_machine::ITEM_NAME . '"></button>');
+            } else {
+                $vendor_machine->setItemNameTag($item_name, '<button type="submit" value="' . $item_name . '" name="' . $vendor_machine::ITEM_NAME . '" disabled></button>');
+            }
         }
     }
     return $vendor_machine;

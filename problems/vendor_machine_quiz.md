@@ -46,7 +46,7 @@
 - `$change;`
 - `$change_tag;`
 
-以下の getter メソッド、および setter メソッドも定義してください。
+以下の Setter / Getter メソッドも定義してください。
 
 - `setItemName`
 - `setMoney`
@@ -67,7 +67,7 @@
 - TabaccoVendorMachine
 - NewsPaperVendorMachine
 
-それぞれのコンストラクタで以下 setter メソッドを呼び出してください。
+それぞれのコンストラクタで以下 Setter メソッドを呼び出してください。
 
 - DrinkVendorMachine
     - `parent::setChangeTag('<input class="change" type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
@@ -105,7 +105,7 @@ UserRequest クラスを作成してください。
 - `$news_paper_money;`
 - `$news_paper_change;`
 
-以下の getter メソッド、および setter メソッドも定義してください。
+以下の Setter / Getter メソッドも定義してください。
 
 - `setItemName`
 - `setDrinkMoney`
@@ -138,7 +138,7 @@ UserRequest クラスを作成してください。
 
 ### 問題 2.4
 
-問題 2.3 で渡されるインスタンスを利用して、プライベート変数 `$item_name`, `$money`, `$change` に値を設定してください。値を設定するときは抽象クラス内の Setter / Getter を利用してください。
+問題 2.3 で渡されるインスタンスを利用して、プライベート変数 `$item_name`, `$money`, `$change` に値を設定してください。値を設定するときは抽象クラス内の Setter / Getter メソッドを利用してください。
 
 ### 問題 2.5
 
@@ -238,7 +238,7 @@ UserRequest クラスに以下のプライベート変数 ( bool 型) を定義�
 - `$is_receive_tabacco_change;`
 - `$is_receive_news_paper_change;`
 
-以下の getter メソッド、および setter メソッドも定義してください。
+まず、以下の Setter / Getter メソッドを定義してください。
 
 - `setIsReceiveDrinkChange`
 - `setIsReceiveIceChange`
@@ -254,9 +254,23 @@ UserRequest クラスに以下のプライベート変数 ( bool 型) を定義�
 
 ### 問題 5.3
 
+以下、関数を定義してください。
+
+- isDrink
+- isIce
+- isTabacco
+- isNewsPaper
+
+この関数を実行すれば、オブジェクトがその自動販売機クラスに属しているのか真偽値で得られるものとします。
+
+### 問題 5.4
+
 抽象クラスにプライベート変数 `$message` を宣言して、Setter `setMessage`, Getter `getMessage` の定義をしてください。
 
-お釣りを返すときは `$message` に「●円のお釣りを返しました」を設定します。
+- お金を入れたときは `$message` に「■の自動販売機に●円を入れました」を設定します
+    - 「ドリンクの自動販売機に130円を入れました」
+- お釣りを返すときは `$message` に「■の自動販売機から●円のお釣りをもらいました」を設定します
+    - 「130円のお釣りを返しました」を設定します
 
 `chooseMessage($drink, $ice, $tabacco, $news_paper)` 関数を作成して、どれかひとつの自動販売機がメッセージを持っている場合、その値を return するようにしてください。
 
@@ -264,14 +278,50 @@ UserRequest クラスに以下のプライベート変数 ( bool 型) を定義�
 
 ### 問題 6.1
 
-各種自動販売機のクラスに定数で各商品の値段を持たせておいてください。
+各種自動販売機のクラスに定数で商品名、値段を持たせてください。
+
+抽象クラスにはプライベート変数 `$prices` を持たせてください。そして以下の Setter / Getter メソッドを定義してください。
+
+- setPrices
+    - 自動販売機の場合は `{A => 130, B => 130, C => 130, D => 160, E => 160 }` の連想配列を保存すること
+    - コンストラクタの初期値設定で使ってください
+
+- getPrices
+    - 自動販売機の場合は `{A => 130, B => 130, C => 130, D => 160, E => 160 }` の連想配列を返却すること
+- getPrice
+    - 引数に `A` などの商品名を受け取ること
+    - 自動販売機の場合は `130` という数値を返却すること
+
+各種自動販売機のクラスのコンストラクタでは setPrices を実行しておいてください。
+
+### 問題 6.2
+
+テンプレートで使っている商品名・値段は定数を使うか、Getter 経由で表示するようにしてください。
 
 ### 問題 6.2
 
 - item_name
 
 上記 button タグは商品購入するときに使います。
-もし商品の値段以上のお金を投入していれば、該当する button タグを活性化させてください。
+もし商品の値段以上のお金を投入していれば、該当する button タグを活性化するようにします。
+
+抽象クラスにはプライベート変数 `$$item_name_tags` を持たせてください。そして以下の Setter / Getter メソッドを定義してください。
+
+- `setItemNameTags`
+    - 連想配列をセットする
+       - キーは商品名
+       - 値は button タグの文字列
+    - コンストラクタの初期値設定で使ってください
+- `setItemNameTag`
+    - キーと値を渡して、連想配列に対して要素を 1 つセットする
+
+- `getItemNameTags`
+    - 連想配列をゲットする
+- `getItemNameTag`
+    - 引数に `A` などの商品名を受け取ること
+    - button タグの文字列をゲットする
+
+getPrices で取得した連想配列と setItemNameTag で取得した預り金を利用して、setItemNameTag で button タグをセットしてください。表示するときは getItemNameTag を利用してください。
 
 ## 問題 7 - 商品の購入
 

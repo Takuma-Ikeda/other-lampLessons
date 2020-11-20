@@ -19,7 +19,7 @@ function getUserRequest($req) {
     return $user_request;
 }
 
-function calcChange($vendor_machine, $name) {
+function calcChange($vendor_machine) {
 
     $money  = $vendor_machine->getMoney();
     $change = $vendor_machine->getChange();
@@ -40,7 +40,7 @@ function calcChange($vendor_machine, $name) {
 
     $change = $vendor_machine->getChange();
 
-    $vendor_machine->setChangeTag('<input class="change" type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" value="' . $change . '" disabled>');
-    $vendor_machine->setHiddenChangeTag('<input class="change" type="text" name="' . $name . '" size="10" maxlength="5" placeholder="預り金" value="' . $change . '" hidden>');
+    $vendor_machine->setChangeTag('<input class="change" type="text" name="' . $vendor_machine::CHANGE . '" size="10" maxlength="5" placeholder="預り金" value="' . $change . '" disabled>');
+    $vendor_machine->setHiddenChangeTag('<input class="change" type="text" name="' . $vendor_machine::CHANGE . '" size="10" maxlength="5" placeholder="預り金" value="' . $change . '" hidden>');
     return $vendor_machine;
 }
