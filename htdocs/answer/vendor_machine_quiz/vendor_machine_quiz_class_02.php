@@ -31,7 +31,7 @@ abstract class VendorMachine {
     /*
      * Getter
      */
-    public function getItemName($item_name) {
+    public function getItemName() {
         return $this->item_name;
     }
 
