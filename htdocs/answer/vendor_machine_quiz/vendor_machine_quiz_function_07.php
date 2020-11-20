@@ -103,7 +103,7 @@ function calcChange($vendor_machine) {
         $msg .= $vendor_machine->isIce()       ? 'アイス'   : '';
         $msg .= $vendor_machine->isTabacco()   ? 'タバコ'   : '';
         $msg .= $vendor_machine->isNewsPaper() ? '新聞紙'   : '';
-        $msg .= 'の自動販売機の' . $item_name . 'を購入しました';
+        $msg .= 'の自動販売機の' . $item_name . ' (' . $vendor_machine->getPrice($item_name) . '円) を購入しました';
         $vendor_machine->setMessage($msg);
 
         $price = $vendor_machine->getPrice($item_name);
