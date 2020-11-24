@@ -63,7 +63,7 @@ class DrinkVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
         parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" disabled>');
-        parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
+        parent::setHiddenChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
         parent::setItemName($user_request->getDrinkItemName());
         parent::setMoney($user_request->getDrinkMoney());
         parent::setChange($user_request->getDrinkChange());
@@ -78,7 +78,7 @@ class IceVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
         parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" disabled>');
-        parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
+        parent::setHiddenChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
         parent::setItemName($user_request->getIceItemName());
         parent::setMoney($user_request->getIceMoney());
         parent::setChange($user_request->getIceChange());
@@ -93,7 +93,7 @@ class TabaccoVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
         parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" disabled>');
-        parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
+        parent::setHiddenChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
         parent::setItemName($user_request->getTabaccoItemName());
         parent::setMoney($user_request->getTabaccoMoney());
         parent::setChange($user_request->getTabaccoChange());
@@ -108,7 +108,7 @@ class NewsPaperVendorMachine extends VendorMachine {
 
     public function __construct($user_request) {
         parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" disabled>');
-        parent::setChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
+        parent::setHiddenChangeTag('<input class="change" type="text" name="' . self::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
         parent::setItemName($user_request->getNewsPaperItemName());
         parent::setMoney($user_request->getNewsPaperMoney());
         parent::setChange($user_request->getNewsPaperChange());

@@ -191,6 +191,15 @@ function chooseMessage($drink, $ice, $tabacco, $news_paper) {
     return '';
 }
 
+function resetVendorMachine($vendor_machine, $error) {
+    $vendor_machine->setMessage($error->getMessage());
+    $vendor_machine->setMoney('0');
+    $vendor_machine->setChange('0');
+    $vendor_machine->setChangeTag('<input class="change" type="text" name="' . $vendor_machine::CHANGE . '" size="10" maxlength="5" placeholder="預り金" disabled>');
+    $vendor_machine->setHiddenChangeTag('<input class="change" type="text" name="' . $vendor_machine::CHANGE . '" size="10" maxlength="5" placeholder="預り金" hidden>');
+    return $vendor_machine;
+}
+
 function isInt($data) {
     if (!is_null($data) && !empty($data)) {
         if (!preg_match('/^[0-9]+$/', $data)) {
@@ -204,5 +213,5 @@ function getFraction($data) {
     if ('0' != substr($data, -1)) {
         return substr($data, -1);
     }
-    return 0;
+    return '0';
 }

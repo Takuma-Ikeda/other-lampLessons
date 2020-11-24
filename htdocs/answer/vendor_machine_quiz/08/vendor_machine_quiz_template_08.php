@@ -1,56 +1,16 @@
 <?php
 
-require_once "./vendor_machine_quiz_class_07.php";
-require_once "./vendor_machine_quiz_function_07.php";
+/**
+ * テンプレートファイル
+ *
+ * [ブラウザ]
+ * http://localhost/answer/vendor_machine_quiz/08/vendor_machine_quiz_template_08.php
+ *
+ * @author Takuma Ikeda <eeeeg.takuma.ikeda@gmail.com>
+ * @copyright Copyright © EeeeG, Inc.
+ */
 
-$user_request = getUserRequest($_POST);
-
-$drink      = new DrinkVendorMachine($user_request);
-$ice        = new IceVendorMachine($user_request);
-$tabacco    = new TabaccoVendorMachine($user_request);
-$news_paper = new NewsPaperVendorMachine($user_request);
-
-try {
-    isInt($drink->getMoney());
-    $drink = calcChange($drink);
-    $drink = switchReceiveChangeTag($drink);
-    $drink = switchItemNameTag($drink);
-} catch (NotIntgerException $e) {
-    $drink->setMoney('0');
-    $drink->setMessage($e->getMessage());
-}
-
-try {
-    isInt($ice->getMoney());
-    $ice = calcChange($ice);
-    $ice = switchReceiveChangeTag($ice);
-    $ice = switchItemNameTag($ice);
-} catch (NotIntgerException $e) {
-    $ice->setMoney('0');
-    $ice->setMessage($e->getMessage());
-}
-
-try {
-    isInt($tabacco->getMoney());
-    $tabacco = calcChange($tabacco);
-    $tabacco = switchReceiveChangeTag($tabacco);
-    $tabacco = switchItemNameTag($tabacco);
-} catch (NotIntgerException $e) {
-    $tabacco->setMoney('0');
-    $tabacco->setMessage($e->getMessage());
-}
-
-try {
-    isInt($news_paper->getMoney());
-    $news_paper = calcChange($news_paper);
-    $news_paper = switchReceiveChangeTag($news_paper);
-    $news_paper = switchItemNameTag($news_paper);
-} catch (NotIntgerException $e) {
-    $news_paper->setMoney('0');
-    $news_paper->setMessage($e->getMessage());
-}
-
-$message = chooseMessage($drink, $ice, $tabacco, $news_paper);
+require_once dirname(__FILE__) . "/vendor_machine_quiz_init_08.php";
 
 ?>
 
@@ -64,8 +24,8 @@ $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
     </head>
     <body>
         <div class="container">
-            <h1>問題 7</h1>
-            <form class="vendor-machine-form" action="vendor_machine_quiz_template_07.php" method="post">
+            <h1>問題 8</h1>
+            <form class="vendor-machine-form" action="vendor_machine_quiz_template_08.php" method="post">
                 <div class="row">
                     <div class="col vendor-machines">
                         <div class="container">

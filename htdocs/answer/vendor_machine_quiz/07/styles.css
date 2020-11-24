@@ -1,0 +1,87 @@
+.vendor-machine input {
+    margin: 0 8px;
+}
+
+.vendor-machines {
+    margin: 32px 0;
+}
+
+.vendor-machine {
+    margin: 32px 0;
+    padding: 8px;
+}
+
+.vendor-machine-item {
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    width: 70px;
+    height: 100px;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.vendor-machine-price {
+    color: #ffffff;
+    background-color: black;
+    font-weight: bold;
+    width: 60px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: relative;
+    bottom: 32px;
+    left: 6px;
+}
+
+.change {
+    color: rgb(252, 56, 56);
+}
+
+.change::placeholder {
+}
+
+.vendor-machine-item-btn {
+    width: 70px;
+    height: 25px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    bottom: 16px;
+}
+
+.vendor-machine-item-btn button {
+    width: 48px;
+    height: 32px;
+}
+
+.drink {
+    background-color: rgb(250, 42, 42);
+}
+
+.ice {
+    background-color: rgb(29, 238, 238);
+}
+.tabacco {
+    background-color: rgb(179, 161, 140);
+}
+
+.news-paper {
+    background-color: rgb(108, 211, 117);
+}
+
+.message {
+    padding-left: 15px;
+    padding-right: 15px;
+    background-color: #000000;
+    color: #ffffff;
+    height: 40px;
+    line-height: 40px;
+    letter-spacing: 2px;
+}
