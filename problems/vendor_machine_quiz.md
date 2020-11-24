@@ -364,3 +364,12 @@ getPrices で取得した連想配列と setItemNameTag で取得した預り金
     - 外部ファイル名はクラス名と一致させてください
 - template ファイルからビジネスロジックを排除してください
 - 各ファイルに PHP Doc による説明を付けてください (任意)
+
+## 問題 9 - リファクタリング (おまけ)
+
+- HTML タグの編集は 1 箇所の関数で行うようにしましょう
+    - 関数名は以下のようにしてください
+        - createChangeTag
+        - createRecieveChangeTag
+        - createItemNameTag
+
