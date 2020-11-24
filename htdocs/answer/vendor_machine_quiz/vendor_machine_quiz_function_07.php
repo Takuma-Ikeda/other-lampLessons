@@ -72,6 +72,16 @@ function calcChange($vendor_machine) {
         $msg .= $vendor_machine->isTabacco()   ? 'タバコ'   : '';
         $msg .= $vendor_machine->isNewsPaper() ? '新聞紙'   : '';
         $msg .= 'の自動販売機に' . $money . '円を入れました';
+
+        // 端数
+        $fraction = getFraction($money);
+
+        if ('0' != $fraction) {
+            $msg .= 'が、一円玉・五円玉は使えないため' . $fraction . '円を返却します';
+            $money = substr($money, 0, -1) . '0';
+            $vendor_machine->setMoney($money);
+        }
+
         $vendor_machine->setMessage($msg);
 
         // 預り金が存在する場合、それと足し算して「預り金」を表示する
@@ -99,6 +109,7 @@ function calcChange($vendor_machine) {
 
     // 購入ボタンが押された場合
     if (!is_null($item_name) && !empty($item_name)) {
+
         $msg .= $vendor_machine->isDrink()     ? 'ドリンク' : '';
         $msg .= $vendor_machine->isIce()       ? 'アイス'   : '';
         $msg .= $vendor_machine->isTabacco()   ? 'タバコ'   : '';
@@ -178,4 +189,20 @@ function chooseMessage($drink, $ice, $tabacco, $news_paper) {
         return $news_paper->getMessage();
     }
     return '';
+}
+
+function isInt($data) {
+    if (!is_null($data) && !empty($data)) {
+        if (!preg_match('/^[0-9]+$/', $data)) {
+            throw new NotIntgerException('お金は数値で入力してください');
+        }
+    }
+    return true;
+}
+
+function getFraction($data) {
+    if ('0' != substr($data, -1)) {
+        return substr($data, -1);
+    }
+    return 0;
 }

@@ -10,20 +10,45 @@ $ice        = new IceVendorMachine($user_request);
 $tabacco    = new TabaccoVendorMachine($user_request);
 $news_paper = new NewsPaperVendorMachine($user_request);
 
-$drink      = calcChange($drink);
-$ice        = calcChange($ice);
-$tabacco    = calcChange($tabacco);
-$news_paper = calcChange($news_paper);
+try {
+    isInt($drink->getMoney());
+    $drink = calcChange($drink);
+    $drink = switchReceiveChangeTag($drink);
+    $drink = switchItemNameTag($drink);
+} catch (NotIntgerException $e) {
+    $drink->setMoney('0');
+    $drink->setMessage($e->getMessage());
+}
 
-$drink      = switchReceiveChangeTag($drink);
-$ice        = switchReceiveChangeTag($ice);
-$tabacco    = switchReceiveChangeTag($tabacco);
-$news_paper = switchReceiveChangeTag($news_paper);
+try {
+    isInt($ice->getMoney());
+    $ice = calcChange($ice);
+    $ice = switchReceiveChangeTag($ice);
+    $ice = switchItemNameTag($ice);
+} catch (NotIntgerException $e) {
+    $ice->setMoney('0');
+    $ice->setMessage($e->getMessage());
+}
 
-$drink      = switchItemNameTag($drink);
-$ice        = switchItemNameTag($ice);
-$tabacco    = switchItemNameTag($tabacco);
-$news_paper = switchItemNameTag($news_paper);
+try {
+    isInt($tabacco->getMoney());
+    $tabacco = calcChange($tabacco);
+    $tabacco = switchReceiveChangeTag($tabacco);
+    $tabacco = switchItemNameTag($tabacco);
+} catch (NotIntgerException $e) {
+    $tabacco->setMoney('0');
+    $tabacco->setMessage($e->getMessage());
+}
+
+try {
+    isInt($news_paper->getMoney());
+    $news_paper = calcChange($news_paper);
+    $news_paper = switchReceiveChangeTag($news_paper);
+    $news_paper = switchItemNameTag($news_paper);
+} catch (NotIntgerException $e) {
+    $news_paper->setMoney('0');
+    $news_paper->setMessage($e->getMessage());
+}
 
 $message = chooseMessage($drink, $ice, $tabacco, $news_paper);
 

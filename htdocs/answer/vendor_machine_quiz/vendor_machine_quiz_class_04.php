@@ -221,7 +221,7 @@ class UserRequest {
     }
 
     public function getNewsPaperItemName() {
-        return $this->drink_item_name;
+        return $this->news_paper_item_name;
     }
 
     public function getNewsPaperMoney() {
