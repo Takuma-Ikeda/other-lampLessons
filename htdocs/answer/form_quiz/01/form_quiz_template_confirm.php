@@ -2,10 +2,18 @@
 
 /*
  * [ブラウザ]
- * http://localhost/answer/form_quiz/form_quiz_template_confirm.php
+ * http://localhost/answer/form_quiz/01/form_quiz_template_confirm.php
  */
 
-// require_once "./form_quiz_*.php";
+require_once "./UserRequest.php";
+
+session_start();
+$user_request = $_SESSION['user_request'];
+
+if (is_null($user_request)) {
+    unset($_SESSION['user_request']);
+    header("Location: form_quiz_template.php");
+}
 
 ?>
 
@@ -32,31 +40,33 @@
                 <div>
                     <div>
                         <label>氏名</label>
-                        <p><?php // 氏名 ?></p>
+                        <p><?php echo $user_request->getName() ?></p>
                     </div>
                     <div>
                         <label>ふりがな</label>
-                        <p><?php // ふりがな ?></p>
+                        <p><?php echo $user_request->getFurigana() ?></p>
                     </div>
                     <div>
                         <label>メールアドレス</label>
-                        <p><?php // メールアドレス ?></p>
+                        <p><?php echo $user_request->getEmail() ?></p>
                     </div>
                     <div>
                         <label>電話番号</label>
-                        <p><?php // 電話番号 ?></p>
+                        <p><?php echo $user_request->getTel() ?></p>
                     </div>
                     <div>
                         <label>性別</label>
-                        <p><?php // 性別 ?></p>
+                        <p><?php if ($user_request->getSex() == '0') echo '男性' ?></p>
+                        <p><?php if ($user_request->getSex() == '1') echo '女性' ?></p>
+                        <p><?php if ($user_request->getSex() == '2') echo '未回答' ?></p>
                     </div>
                     <div>
                         <label>お問い合わせ項目</label>
-                        <p><?php // お問い合わせ項目 ?></p>
+                        <p><?php echo $user_request->getItem() ?></p>
                     </div>
                     <div>
                         <label>お問い合わせ内容</label>
-                        <p><?php // お問い合わせ内容 ?></p>
+                        <p><?php echo $user_request->getContent() ?></p>
                     </div>
                 </div>
 
@@ -66,4 +76,3 @@
         </div>
     </body>
 </html>
-

@@ -28,7 +28,7 @@
 |新聞紙|S|150円|
 |新聞紙|T|180円|
 
-テンプレートファイルを用意しているので、[こちら](https://google.com)を流用してください。
+テンプレートファイルを用意しているので、[こちら](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/htdocs/answer/vendor_machine_quiz/vendor_machine_quiz_template.php)を流用してください。
 
 ## 問題 1 - 自動販売機クラスの作成
 
