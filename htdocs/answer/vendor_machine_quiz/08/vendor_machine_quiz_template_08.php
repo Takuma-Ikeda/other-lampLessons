@@ -1,6 +1,16 @@
 <?php
 
-// require_once "./vendor_machine_quiz_*.php";
+/**
+ * テンプレートファイル
+ *
+ * [ブラウザ]
+ * http://localhost/answer/vendor_machine_quiz/08/vendor_machine_quiz_template_08.php
+ *
+ * @author Takuma Ikeda <eeeeg.takuma.ikeda@gmail.com>
+ * @copyright Copyright © EeeeG, Inc.
+ */
+
+require_once dirname(__FILE__) . "/vendor_machine_quiz_init_08.php";
 
 ?>
 
@@ -14,8 +24,8 @@
     </head>
     <body>
         <div class="container">
-            <h1>テンプレート</h1>
-            <form class="vendor-machine-form" action="vendor_machine_quiz_template_*.php" method="post">
+            <h1>問題 8</h1>
+            <form class="vendor-machine-form" action="vendor_machine_quiz_template_08.php" method="post">
                 <div class="row">
                     <div class="col vendor-machines">
                         <div class="container">
@@ -24,106 +34,108 @@
                             <div class="row vendor-machine drink">
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>A</p>
+                                        <p><?php echo $drink::ITEM_NAME_01; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price"><?php echo $drink->getPrice($drink::ITEM_NAME_01); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="A" name="drink_item_name" disabled></button>
+                                        <?php echo $drink->getItemNameTag($drink::ITEM_NAME_01); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>B</p>
+                                        <p><?php echo $drink::ITEM_NAME_02; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price"><?php echo $drink->getPrice($drink::ITEM_NAME_02); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="B" name="drink_item_name" disabled></button>
+                                        <?php echo $drink->getItemNameTag($drink::ITEM_NAME_02); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>C</p>
+                                        <p><?php echo $drink::ITEM_NAME_03; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price"><?php echo $drink->getPrice($drink::ITEM_NAME_03); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="C" name="drink_item_name" disabled></button>
+                                        <?php echo $drink->getItemNameTag($drink::ITEM_NAME_03); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>D</p>
+                                        <p><?php echo $drink::ITEM_NAME_04; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">160</div>
+                                    <div class="vendor-machine-price"><?php echo $drink->getPrice($drink::ITEM_NAME_04); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="D" name="drink_item_name" disabled></button>
+                                        <?php echo $drink->getItemNameTag($drink::ITEM_NAME_04); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>E</p>
+                                        <p><?php echo $drink::ITEM_NAME_05; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">160</div>
+                                    <div class="vendor-machine-price"><?php echo $drink->getPrice($drink::ITEM_NAME_05); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="E" name="drink_item_name" disabled></button>
+                                        <?php echo $drink->getItemNameTag($drink::ITEM_NAME_05); ?>
                                     </div>
                                 </div>
                                 <input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_drink_money" value="お金を入れる">
-                                <input class="change" type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <button type="submit" value="0" name="receive_drink_change" disabled>お釣り</button>
+                                <?php echo $drink->getChangeTag(); ?>
+                                <?php echo $drink->getHiddenChangeTag(); ?>
+                                <?php echo $drink->getRecieveChangeTag(); ?>
                             </div>
 
                             <h2>アイス</h2>
                             <div class="row vendor-machine ice">
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>F</p>
+                                        <p><?php echo $ice::ITEM_NAME_01; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price"><?php echo $ice->getPrice($ice::ITEM_NAME_01); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="F" name="ice_item_name" disabled></button>
+                                        <?php echo $ice->getItemNameTag($ice::ITEM_NAME_01); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>G</p>
+                                        <p><?php echo $ice::ITEM_NAME_02; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price"><?php echo $ice->getPrice($ice::ITEM_NAME_02); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="G" name="ice_item_name" disabled></button>
+                                        <?php echo $ice->getItemNameTag($ice::ITEM_NAME_02); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>H</p>
+                                        <p><?php echo $ice::ITEM_NAME_03; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price"><?php echo $ice->getPrice($ice::ITEM_NAME_03); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="H" name="ice_item_name" disabled></button>
+                                        <?php echo $ice->getItemNameTag($ice::ITEM_NAME_03); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>I</p>
+                                        <p><?php echo $ice::ITEM_NAME_04; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">170</div>
+                                    <div class="vendor-machine-price"><?php echo $ice->getPrice($ice::ITEM_NAME_04); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="I" name="ice_item_name" disabled></button>
+                                        <?php echo $ice->getItemNameTag($ice::ITEM_NAME_04); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>J</p>
+                                        <p><?php echo $ice::ITEM_NAME_05; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">170</div>
+                                    <div class="vendor-machine-price"><?php echo $ice->getPrice($ice::ITEM_NAME_05); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="J" name="ice_item_name" disabled></button>
+                                        <?php echo $ice->getItemNameTag($ice::ITEM_NAME_05); ?>
                                     </div>
                                 </div>
                                 <input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_ice_money" value="お金を入れる">
-                                <input class="change"type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <button type="submit" value="0" name="receive_ice_change" disabled>お釣り</button>
+                                <?php echo $ice->getChangeTag(); ?>
+                                <?php echo $ice->getHiddenChangeTag(); ?>
+                                <?php echo $ice->getRecieveChangeTag(); ?>
                             </div>
                         </div> <!-- .container -->
                     </div> <!-- .col .vendor-machines -->
@@ -135,113 +147,115 @@
                             <div class="row vendor-machine tabacco">
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>K</p>
+                                        <p><?php echo $tabacco::ITEM_NAME_01; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">400</div>
+                                    <div class="vendor-machine-price"><?php echo $tabacco->getPrice($tabacco::ITEM_NAME_01); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="K" name="tabacco_item_name" disabled></button>
+                                        <?php echo $tabacco->getItemNameTag($tabacco::ITEM_NAME_01); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>L</p>
+                                        <p><?php echo $tabacco::ITEM_NAME_02; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">410</div>
+                                    <div class="vendor-machine-price"><?php echo $tabacco->getPrice($tabacco::ITEM_NAME_02); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="L" name="tabacco_item_name" disabled></button>
+                                        <?php echo $tabacco->getItemNameTag($tabacco::ITEM_NAME_02); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>M</p>
+                                        <p><?php echo $tabacco::ITEM_NAME_03; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">450</div>
+                                    <div class="vendor-machine-price"><?php echo $tabacco->getPrice($tabacco::ITEM_NAME_03); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="M" name="tabacco_item_name" disabled></button>
+                                        <?php echo $tabacco->getItemNameTag($tabacco::ITEM_NAME_03); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>N</p>
+                                        <p><?php echo $tabacco::ITEM_NAME_04; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">500</div>
+                                    <div class="vendor-machine-price"><?php echo $tabacco->getPrice($tabacco::ITEM_NAME_04); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="N" name="tabacco_item_name" disabled></button>
+                                        <?php echo $tabacco->getItemNameTag($tabacco::ITEM_NAME_04); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>O</p>
+                                        <p><?php echo $tabacco::ITEM_NAME_05; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">540</div>
+                                    <div class="vendor-machine-price"><?php echo $tabacco->getPrice($tabacco::ITEM_NAME_05); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="O" name="tabacco_item_name" disabled></button>
+                                        <?php echo $tabacco->getItemNameTag($tabacco::ITEM_NAME_05); ?>
                                     </div>
                                 </div>
                                 <input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_tabacco_money" value="お金を入れる">
-                                <input class="change" type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <button type="submit" value="0" name="receive_tabacco_change" disabled>お釣り</button>
+                                <?php echo $tabacco->getChangeTag(); ?>
+                                <?php echo $tabacco->getHiddenChangeTag(); ?>
+                                <?php echo $tabacco->getRecieveChangeTag(); ?>
                             </div>
 
                             <h2>新聞紙</h2>
                             <div class="row vendor-machine news-paper">
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>P</p>
+                                        <p><?php echo $news_paper::ITEM_NAME_01; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">150</div>
+                                    <div class="vendor-machine-price"><?php echo $news_paper->getPrice($news_paper::ITEM_NAME_01); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="P" name="news_paper_item_name" disabled></button>
+                                        <?php echo $news_paper->getItemNameTag($news_paper::ITEM_NAME_01); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>Q</p>
+                                        <p><?php echo $news_paper::ITEM_NAME_02; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">150</div>
+                                    <div class="vendor-machine-price"><?php echo $news_paper->getPrice($news_paper::ITEM_NAME_02); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="Q" name="news_paper_item_name" disabled></button>
+                                        <?php echo $news_paper->getItemNameTag($news_paper::ITEM_NAME_02); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>R</p>
+                                        <p><?php echo $news_paper::ITEM_NAME_03; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">150</div>
+                                    <div class="vendor-machine-price"><?php echo $news_paper->getPrice($news_paper::ITEM_NAME_03); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="R" name="news_paper_item_name" disabled></button>
+                                        <?php echo $news_paper->getItemNameTag($news_paper::ITEM_NAME_03); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>S</p>
+                                        <p><?php echo $news_paper::ITEM_NAME_04; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">150</div>
+                                    <div class="vendor-machine-price"><?php echo $news_paper->getPrice($news_paper::ITEM_NAME_04); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="S" name="news_paper_item_name" disabled></button>
+                                        <?php echo $news_paper->getItemNameTag($news_paper::ITEM_NAME_04); ?>
                                     </div>
                                 </div>
                                 <div class="col-sm">
                                     <div class="vendor-machine-item">
-                                        <p>T</p>
+                                        <p><?php echo $news_paper::ITEM_NAME_05; ?></p>
                                     </div>
-                                    <div class="vendor-machine-price">180</div>
+                                    <div class="vendor-machine-price"><?php echo $news_paper->getPrice($news_paper::ITEM_NAME_05); ?></div>
                                     <div class="vendor-machine-item-btn">
-                                        <button type="submit" value="T" name="news_paper_item_name" disabled></button>
+                                        <?php echo $news_paper->getItemNameTag($news_paper::ITEM_NAME_05); ?>
                                     </div>
                                 </div>
                                 <input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_news_paper_money" value="お金を入れる">
-                                <input class="change" type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <button type="submit" value="0" name="receive_news_paper_change" disabled>お釣り</button>
+                                <?php echo $news_paper->getChangeTag(); ?>
+                                <?php echo $news_paper->getHiddenChangeTag(); ?>
+                                <?php echo $news_paper->getRecieveChangeTag(); ?>
                             </div>
                         </div>
                     </div>
 
                 </div>
                 <div class="row message">
-                    [メッセージ]
+                    [メッセージ] <?php echo $message; ?>
                 </div>
             </form>
         </div>

@@ -1,6 +1,26 @@
 <?php
 
-// require_once "./vendor_machine_quiz_*.php";
+require_once "./vendor_machine_quiz_class_05.php";
+require_once "./vendor_machine_quiz_function_05.php";
+
+$user_request = getUserRequest($_POST);
+
+$drink      = new DrinkVendorMachine($user_request);
+$ice        = new IceVendorMachine($user_request);
+$tabacco    = new TabaccoVendorMachine($user_request);
+$news_paper = new NewsPaperVendorMachine($user_request);
+
+$drink      = calcChange($drink);
+$ice        = calcChange($ice);
+$tabacco    = calcChange($tabacco);
+$news_paper = calcChange($news_paper);
+
+$drink      = switchReceiveChangeTag($drink);
+$ice        = switchReceiveChangeTag($ice);
+$tabacco    = switchReceiveChangeTag($tabacco);
+$news_paper = switchReceiveChangeTag($news_paper);
+
+$message = chooseMessage($drink, $ice, $tabacco, $news_paper);
 
 ?>
 
@@ -14,8 +34,8 @@
     </head>
     <body>
         <div class="container">
-            <h1>テンプレート</h1>
-            <form class="vendor-machine-form" action="vendor_machine_quiz_template_*.php" method="post">
+            <h1>問題 5</h1>
+            <form class="vendor-machine-form" action="vendor_machine_quiz_template_05.php" method="post">
                 <div class="row">
                     <div class="col vendor-machines">
                         <div class="container">
@@ -69,8 +89,9 @@
                                 </div>
                                 <input type="text" name="drink_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_drink_money" value="お金を入れる">
-                                <input class="change" type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <button type="submit" value="0" name="receive_drink_change" disabled>お釣り</button>
+                                <?php echo $drink->getChangeTag(); ?>
+                                <?php echo $drink->getHiddenChangeTag(); ?>
+                                <?php echo $drink->getRecieveChangeTag(); ?>
                             </div>
 
                             <h2>アイス</h2>
@@ -79,7 +100,7 @@
                                     <div class="vendor-machine-item">
                                         <p>F</p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price">140</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="F" name="ice_item_name" disabled></button>
                                     </div>
@@ -88,7 +109,7 @@
                                     <div class="vendor-machine-item">
                                         <p>G</p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price">140</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="G" name="ice_item_name" disabled></button>
                                     </div>
@@ -97,7 +118,7 @@
                                     <div class="vendor-machine-item">
                                         <p>H</p>
                                     </div>
-                                    <div class="vendor-machine-price">130</div>
+                                    <div class="vendor-machine-price">140</div>
                                     <div class="vendor-machine-item-btn">
                                         <button type="submit" value="H" name="ice_item_name" disabled></button>
                                     </div>
@@ -122,8 +143,9 @@
                                 </div>
                                 <input type="text" name="ice_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_ice_money" value="お金を入れる">
-                                <input class="change"type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <button type="submit" value="0" name="receive_ice_change" disabled>お釣り</button>
+                                <?php echo $ice->getChangeTag(); ?>
+                                <?php echo $ice->getHiddenChangeTag(); ?>
+                                <?php echo $ice->getRecieveChangeTag(); ?>
                             </div>
                         </div> <!-- .container -->
                     </div> <!-- .col .vendor-machines -->
@@ -180,8 +202,9 @@
                                 </div>
                                 <input type="text" name="tabacco_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_tabacco_money" value="お金を入れる">
-                                <input class="change" type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <button type="submit" value="0" name="receive_tabacco_change" disabled>お釣り</button>
+                                <?php echo $tabacco->getChangeTag(); ?>
+                                <?php echo $tabacco->getHiddenChangeTag(); ?>
+                                <?php echo $tabacco->getRecieveChangeTag(); ?>
                             </div>
 
                             <h2>新聞紙</h2>
@@ -233,15 +256,16 @@
                                 </div>
                                 <input type="text" name="news_paper_money" size="10" maxlength="5" placeholder="数値">
                                 <input type="submit" name="pay_news_paper_money" value="お金を入れる">
-                                <input class="change" type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>
-                                <button type="submit" value="0" name="receive_news_paper_change" disabled>お釣り</button>
+                                <?php echo $news_paper->getChangeTag(); ?>
+                                <?php echo $news_paper->getHiddenChangeTag(); ?>
+                                <?php echo $news_paper->getRecieveChangeTag(); ?>
                             </div>
                         </div>
                     </div>
 
                 </div>
                 <div class="row message">
-                    [メッセージ]
+                    [メッセージ] <?php echo $message; ?>
                 </div>
             </form>
         </div>
