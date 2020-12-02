@@ -12,6 +12,8 @@
 
 - [star_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/problems/star_quiz.md)
 - [table_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/problems/table_quiz.md)
+- [form_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/problems/form_quiz.md)
+- [vendor_machine_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/problems/vendor_machine_quiz.md)
 
 ## 解答方法
 
@@ -64,6 +66,8 @@ git push origin {あなたのブランチ名}
 
 - [star_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/tree/master/htdocs/answer/star_quiz)
 - [table_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/tree/master/htdocs/answer/table_quiz)
+- [form_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/tree/master/htdocs/answer/form_quiz)
+- [vendor_machine_quiz](https://github.com/Takuma-Ikeda/other-lampLessons/tree/master/htdocs/answer/vendor_machine_quiz)
 
 # 情報更新
 

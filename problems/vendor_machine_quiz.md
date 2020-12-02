@@ -7,9 +7,9 @@
 
 |種類|商品名|価格|
 |:--|:--|:--|
-|ドリンク|A|130円|
-|ドリンク|B|130円|
-|ドリンク|C|130円|
+|ドリンク|A|140円|
+|ドリンク|B|140円|
+|ドリンク|C|140円|
 |ドリンク|D|160円|
 |ドリンク|E|160円|
 |アイス|F|140円|
@@ -28,7 +28,7 @@
 |新聞紙|S|150円|
 |新聞紙|T|180円|
 
-テンプレートファイルを用意しているので、[こちら](https://google.com)を流用してください。
+テンプレートファイルを用意しているので、[こちら](https://github.com/Takuma-Ikeda/other-lampLessons/blob/master/htdocs/answer/vendor_machine_quiz/vendor_machine_quiz_template.php)を流用してください。
 
 ## 問題 1 - 自動販売機クラスの作成
 
@@ -41,21 +41,22 @@
 抽象クラス VendorMachine を作成してください。
 そして以下のプライベート変数を定義してください。
 
-- `private $item_name;`
-- `private $money;`
-- `private $change;`
-- `private $change_tag;`
+- `$item_name;`
+- `$money;`
+- `$change;`
+- `$change_tag;`
 
-以下の getter メソッド、および setter メソッドも定義してください。
+以下の Setter / Getter メソッドも定義してください。
 
-- `setItemName($item_name)`
-- `setMoney($money)`
-- `setChange($change)`
-- `setChangeTag($change_tag)`
-- `getItemName()`
-- `getMoney()`
-- `getChange()`
-- `getChangeTag()`
+- `setItemName`
+- `setMoney`
+- `setChange`
+- `setChangeTag`
+
+- `getItemName`
+- `getMoney`
+- `getChange`
+- `getChangeTag`
 
 ### 問題 1.2
 
@@ -66,16 +67,16 @@
 - TabaccoVendorMachine
 - NewsPaperVendorMachine
 
-それぞれのコンストラクタには以下 setter メソッドを定義してください。
+それぞれのコンストラクタで以下 Setter メソッドを呼び出してください。
 
 - DrinkVendorMachine
-    - `$this->setChangeTag('<input class="change" type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
+    - `parent::setChangeTag('<input class="change" type="text" name="drink_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
 - IceVendorMachine
-    - `$this->setChangeTag('<input class="change" type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
+    - `parent::setChangeTag('<input class="change" type="text" name="ice_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
 - TabaccoVendorMachine
-    - `$this->setChangeTag('<input class="change" type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
+    - `parent::setChangeTag('<input class="change" type="text" name="tabacco_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
 - NewsPaperVendorMachine
-    - `$this->setChangeTag('<input class="change" type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
+    - `parent::setChangeTag('<input class="change" type="text" name="news_paper_change" size="10" maxlength="5" placeholder="預り金" disabled>');`
 
 ### 問題 1.3
 
@@ -94,41 +95,51 @@
 UserRequest クラスを作成してください。
 そして以下のプライベート変数を定義してください。
 
-- `private $item_name;`
-- `private $drink_money;`
-- `private $drink_change;`
-- `private $ice_money;`
-- `private $ice_change;`
-- `private $tabacco_money;`
-- `private $tabacco_change;`
-- `private $news_paper_money;`
-- `private $news_paper_change;`
+- `$drink_item_name;`
+- `$drink_money;`
+- `$drink_change;`
+- `$ice_item_name;`
+- `$ice_money;`
+- `$ice_change;`
+- `$tabacco_item_name;`
+- `$tabacco_money;`
+- `$tabacco_change;`
+- `$news_paper_item_name;`
+- `$news_paper_money;`
+- `$news_paper_change;`
 
-以下の getter メソッド、および setter メソッドも定義してください。
+以下の Setter / Getter メソッドも定義してください。
 
-- `public function setItemName($item_name)`
-- `public function setDrinkMoney($drink_money)`
-- `public function setDrinkChange($drink_change)`
-- `public function setIceMoney($ice_money)`
-- `public function setIceChange($ice_change)`
-- `public function setTabaccoMoney($tabacco_money)`
-- `public function setTabaccoChange($tabacco_change)`
-- `public function setNewsPaperMoney($news_paper_money)`
-- `public function setNewsPaperChange($news_paper_change)`
-- `public function getItemName()`
-- `public function getDrinkMoney()`
-- `public function getDrinkChange()`
-- `public function getIceMoney()`
-- `public function getIceChange()`
-- `public function getTabaccoMoney()`
-- `public function getTabaccoChange()`
-- `public function getNewsPaperMoney()`
-- `public function getNewsPaperChange()`
+- `setDrinkItemName`
+- `setDrinkMoney`
+- `setDrinkChange`
+- `setIceItemName`
+- `setIceMoney`
+- `setIceChange`
+- `setTabaccoItemName`
+- `setTabaccoMoney`
+- `setTabaccoChange`
+- `setNewsPaperItemName`
+- `setNewsPaperMoney`
+- `setNewsPaperChange`
+
+- `getDrinkItemName`
+- `getDrinkMoney`
+- `getDrinkChange`
+- `getIceItemName`
+- `getIceMoney`
+- `getIceChange`
+- `getTabaccoItemName`
+- `getTabaccoMoney`
+- `getTabaccoChange`
+- `getNewsPaperItemName`
+- `getNewsPaperMoney`
+- `getNewsPaperChange`
 
 ### 問題 2.2
 
-POST されたリクエストを処理して、値がセットされた UserRequest オブジェクトを返却する `getUserRequest($_POST)` 関数を作成してください。
-この関数を実行しておき、常に UserRequest にリクエスト値をセットして、値をゲットできるようにしておいてください。
+リクエスト値がセットされた UserRequest オブジェクトを返却する `getUserRequest($_POST)` 関数を作成してください。
+この関数を最初に実行しておいて、常に UserRequest からリクエスト値を扱えるようにしてください。
 
 ### 問題 2.3
 
@@ -136,7 +147,29 @@ POST されたリクエストを処理して、値がセットされた UserRequ
 
 ### 問題 2.4
 
-問題 2.3 で渡されるインスタンスを利用して、プライベート変数 `$item_name`, `$money`, `$change` に値を設定してください。値を設定するときは抽象クラス内の setter / getter を利用してください。
+問題 2.3 で渡されるインスタンスを利用して、プライベート変数 `$item_name`, `$money`, `$change` に値を設定してください。値を設定するときは抽象クラス内の Setter / Getter メソッドを利用してください。
+
+### 問題 2.5
+
+各種自動販売機のクラスに定数 `ITEM_NAME` と `CHANGE` と `MONEY` を定義してください。
+
+- `ITEM_NAME` には以下の文字列を持たせてください。
+    - drink_item_name
+    - ice_item_name
+    - tabacco_item_name
+    - news_paper_item_name
+- `CHANGE` には以下の文字列を持たせてください。
+    - drink_money
+    - ice_money
+    - tabacco_money
+    - news_paper_money
+- `MONEY` には以下の文字列を持たせてください。
+    - drink_money
+    - ice_money
+    - tabacco_money
+    - news_paper_money
+
+今後、必要に応じてこの定数を参照するようにしてください。
 
 ## 問題 3 - 投入した金額を表示する
 
@@ -165,62 +198,178 @@ POST されたリクエストを処理して、値がセットされた UserRequ
 
 上記 input タグでは、現在の預り金を「数値」で表示します。
 
-抽象クラスに `createChangeTag` という関数を定義して、動的にこの input タグを作成します。
-一旦、最初のお金を投入したら (預り金として) 全額を表示する input タグでよいので生成・表示してください。
+動的にこの input タグを作成して、`setChangeTag` による保存も実行する `calcChange` 関数を定義してください。
+この input タグは `getChangeTag` 関数で表示してください。
 
-### 問題 4 - hidden
+※ 一旦、連続でお金を投入した場合のことは考慮しなくて大丈夫です
 
-複数の自動販売機の「お金を入れる」ボタンを押しても、それぞれの自動販売機が現在の預り金を保持できている状態にします。
+## 問題 4 - hidden
 
-hidden 属性で現在の預り金を仕込んでおいて、常にその値を受け取れるようにしてください。
+### 問題 4.1
 
-## 問題 5 - ボタンの活性・非活性
-
-### 問題 5.1
-
-- get_drink_change
-- get_ice_change
-- get_tabacco_change
-- get_news_paper_change
-
-お金を投入したあと、上記 input タグ「お釣り」ボタンを活性化してください。
-このボタンを押下した場合、預り金をリセットして、再び「お釣り」ボタンを非活性にしてください。
-
-### 問題 5.2
-
-各種自動販売機のクラスに定数として、各商品の値段を持たせておいてください。
-
-### 問題 5.3
-
-- item_name
-
-上記 button タグは商品購入するときに使います。
-もし商品の値段以上のお金を投入していれば、該当する button タグを活性化させてください。
-
-## 問題 6 - ボタンの活性・非活性
-
-### 問題 6.1
+複数の自動販売機の「お金を入れる」ボタンを押しても、それぞれの自動販売機が現在の預り金を保持できる状態にします。
 
 - drink_money
 - ice_money
 - tabacco_money
 - news_paper_money
 
-連続でお金を投入したら、上記 input タグの数値を足し算してください。
+disabled が付いたままのタグは POST されないので、disabled を取り除いた hidden 属性の付いたタグを埋め込むようにしてください。
+
+抽象クラスにプライベート変数 `$hidden_change_tag` を宣言して、Setter `setHiddenChangeTag`, Getter `getHiddenChangeTag` の定義をしてください。
+
+### 問題 4.2
+
+連続でお金を投入した場合、前回の預かり金と足し算して、最新の預り金を表示するようにしてください。
+
+## 問題 5 - ボタンの活性・非活性①
+
+### 問題 5.1
+
+- receive_drink_change
+- receive_ice_change
+- receive_tabacco_change
+- receive_news_paper_change
+
+お金を投入したあと、上記 button タグ「お釣り」ボタンを活性化してください。
+
+非活性のときは `value="0"` で、活性のときは `value="1"` としてください。
+
+### 問題 5.2
+
+「お釣り」ボタンを押下した場合、預り金を 0 円にして、「お釣り」ボタンを非活性にするようにします。
+
+UserRequest クラスに以下のプライベート変数 ( bool 型) を定義してください。
+
+- `$is_receive_drink_change;`
+- `$is_receive_ice_change;`
+- `$is_receive_tabacco_change;`
+- `$is_receive_news_paper_change;`
+
+まず、以下の Setter / Getter メソッドを定義してください。
+
+- `setIsReceiveDrinkChange`
+- `setIsReceiveIceChange`
+- `setIsReceiveTabaccoChange`
+- `setIsReceiveNewsPaperChange`
+
+- `getIsReceiveDrinkChange`
+- `getIsReceiveIceChange`
+- `getIsReceiveTabaccoChange`
+- `getIsReceiveNewsPaperChange`
+
+抽象クラス VendorMachine には、プライベート変数 `$is_receive_change` と Setter `setIsRecieveChange`, Getter `getIsRecieveChange` を定義してください。この Getter で取れる値が true の場合、預り金を 0 円にして、「お釣り」ボタンを非活性にしてください。
+
+### 問題 5.3
+
+以下、関数を定義してください。
+
+- isDrink
+- isIce
+- isTabacco
+- isNewsPaper
+
+この関数を実行すれば、オブジェクトがその自動販売機クラスに属しているのか真偽値で得られるものとします。
+
+### 問題 5.4
+
+抽象クラスにプライベート変数 `$message` を宣言して、Setter `setMessage`, Getter `getMessage` の定義をしてください。
+
+- お金を入れたときは `$message` に「■の自動販売機に●円を入れました」を設定します
+    - 「ドリンクの自動販売機に130円を入れました」
+- お釣りを返すときは `$message` に「■の自動販売機から●円のお釣りをもらいました」を設定します
+    - 「130円のお釣りを返しました」を設定します
+
+`chooseMessage($drink, $ice, $tabacco, $news_paper)` 関数を作成して、どれかひとつの自動販売機がメッセージを持っている場合、その値を return するようにしてください。
+
+## 問題 6 - ボタンの活性・非活性②
+
+### 問題 6.1
+
+各種自動販売機のクラスに定数で商品名、値段を持たせてください。
+
+抽象クラスにはプライベート変数 `$prices` を持たせてください。そして以下の Setter / Getter メソッドを定義してください。
+
+- setPrices
+    - 自動販売機の場合は `{A => 130, B => 130, C => 130, D => 160, E => 160 }` の連想配列を保存すること
+    - コンストラクタの初期値設定で使ってください
+
+- getPrices
+    - 自動販売機の場合は `{A => 130, B => 130, C => 130, D => 160, E => 160 }` の連想配列を返却すること
+- getPrice
+    - 引数に `A` などの商品名を受け取ること
+    - 自動販売機の場合は `130` という数値を返却すること
+
+各種自動販売機のクラスのコンストラクタでは setPrices を実行しておいてください。
 
 ### 問題 6.2
 
-- pay_drink_money
-- pay_ice_money
-- pay_tabacco_money
-- pay_news_paper_money
+テンプレートで使っている商品名・値段は定数を使うか、Getter 経由で表示するようにしてください。
 
-お金を投入したあと、上記 input タグは非活性にしてください。
+### 問題 6.2
 
+- drink_item_name
+- ice_item_name
+- tabacco_item_name
+- news_paper_item_name
 
+上記 button タグは商品購入するときに使います。
+もし商品の値段以上のお金を投入していれば、該当する button タグを活性化するようにします。
 
-### おまけ
+抽象クラスにはプライベート変数 `$item_name_tags` を持たせてください。そして以下の Setter / Getter メソッドを定義してください。
 
-- 数値以外で入力するとエラーを返すようにしてください
-- 一円玉・五円玉を受け付けないようにしてください
-    - つまり、預り金の一の位は切り捨ててください
+- `setItemNameTags`
+    - 連想配列をセットする
+       - キーは商品名
+       - 値は button タグの文字列
+    - コンストラクタの初期値設定で使ってください
+- `setItemNameTag`
+    - キーと値を渡して、連想配列に対して要素を 1 つセットする
+
+- `getItemNameTags`
+    - 連想配列をゲットする
+- `getItemNameTag`
+    - 引数に `A` などの商品名を受け取ること
+    - button タグの文字列をゲットする
+
+getPrices で取得した連想配列と setItemNameTag で取得した預り金を利用して、setItemNameTag で button タグをセットしてください。表示するときは getItemNameTag を利用してください。
+
+## 問題 7 - 商品の購入
+
+### 問題 7.1
+
+商品を購入してください。そのとき `$message` は「■の自動販売機の▲ (●円) を購入しました」を設定します。
+
+商品の金額だけ預り金を減らしてください。
+
+### 問題 7.2
+
+数値以外が入力されたときは `$message` に「お金は数値で入力してください」を設定してください。
+
+- 数値かどうかの判定を判定する `isInt` 関数を定義してください
+- 数値かどうかの判定は正規表現 `'/^[0-9]+$/'` を利用してください
+- 数値じゃない場合は NotIntgerException 例外を発生させてください
+    - NotIntgerException のエラーメッセージに「お金は数値で入力してください」を設定しておき、setMessage するときはそのエラーメッセージを利用してください
+
+### 問題 7.3
+
+一円玉・五円玉を使った入力受け付けないようにしてください。 ※ つまり、一の位は 0 しか認められません
+
+そのとき `$message` に「■の自動販売機に●円を入れましたが、一円玉・五円玉は使えないため▲円を返却します」を設定してください。
+
+## 問題 8 - 外部ファイル
+
+- class フォルダを作成して、すべての class を外部ファイルとして読み込んでください
+    - 外部ファイルは `dirname(__FILE__)` を使った絶対パスで読み込んでください
+    - 外部ファイル名はクラス名と一致させてください
+- template ファイルからビジネスロジックを排除してください
+- 各ファイルに PHP Doc による説明を付けてください (任意)
+
+## 問題 9 - リファクタリング (おまけ)
+
+- HTML タグの編集は 1 箇所の関数で行うようにしましょう
+    - 関数名は以下のようにしてください
+        - createChangeTag
+        - createRecieveChangeTag
+        - createItemNameTag
+
