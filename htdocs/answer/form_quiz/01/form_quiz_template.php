@@ -21,6 +21,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     $error_tags = createErrorTags($error_messages);
+    $value_tags = createValueTags($user_request);
+
+// 初期画面
+} else {
+    $error_tags = createErrorTags(null);
+    $value_tags = createValueTags(null);
 }
 
 ?>
@@ -42,43 +48,43 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 <div>
                     <div>
                         <label>氏名<span>必須</span></label>
-                        <input type="text" name="name" placeholder="例）山田太郎" value="">
+                        <?php echo $value_tags[UserRequest::NAME] ?>
                     </div>
                     <?php echo $error_tags[UserRequest::NAME] ?>
                     <div>
                         <label>ふりがな<span>必須</span></label>
-                        <input type="text" name="furigana" placeholder="例）やまだたろう" value="">
+                        <?php echo $value_tags[UserRequest::FURIGANA] ?>
                     </div>
                     <?php echo $error_tags[UserRequest::FURIGANA] ?>
                     <div>
                         <label>メールアドレス<span>必須</span></label>
-                        <input type="text" name="email" placeholder="例）guest@example.com" value="">
+                        <?php echo $value_tags[UserRequest::EMAIL] ?>
                     </div>
                     <?php echo $error_tags[UserRequest::EMAIL] ?>
                     <div>
                         <label>電話番号<span>必須</span></label>
-                        <input type="text" name="tel" placeholder="例）000-0000-0000" value="">
+                        <?php echo $value_tags[UserRequest::TEL] ?>
                     </div>
                     <?php echo $error_tags[UserRequest::TEL] ?>
                     <div>
                         <label>性別<span>必須</span></label>
-                        <input type="radio" name="sex" value="0" checked> 男性
-                        <input type="radio" name="sex" value="1"> 女性
-                        <input type="radio" name="sex" value="2"> 無回答
+                        <?php echo $value_tags[UserRequest::SEX][0] ?>
+                        <?php echo $value_tags[UserRequest::SEX][1] ?>
+                        <?php echo $value_tags[UserRequest::SEX][2] ?>
                     </div>
                     <?php echo $error_tags[UserRequest::SEX] ?>
                     <div>
                         <label>お問い合わせ項目<span>必須</span></label>
                         <select name="item">
-                            <option value="">お問い合わせ項目を選択してください</option>
-                            <option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>
-                            <option value="ご意見・ご感想">ご意見・ご感想</option>
+                            <?php echo $value_tags[UserRequest::ITEM][0] ?>
+                            <?php echo $value_tags[UserRequest::ITEM][1] ?>
+                            <?php echo $value_tags[UserRequest::ITEM][2] ?>
                         </select>
                         <?php echo $error_tags[UserRequest::ITEM] ?>
                     </div>
                     <div>
                         <label>お問い合わせ内容<span>必須</span></label>
-                        <textarea name="content" rows="5" placeholder="お問合せ内容を入力"></textarea>
+                        <?php echo $value_tags[UserRequest::CONTENT] ?>
                     </div>
                     <?php echo $error_tags[UserRequest::CONTENT] ?>
                 </div>
