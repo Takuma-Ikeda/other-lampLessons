@@ -5,10 +5,12 @@
  * http://localhost/answer/form_quiz/form_quiz_template_confirm.php
  */
 
-// require_once "./form_quiz_*.php";
-// もしPOSTがあれば
-if ($_POST) {
-    var_dump($_POST);
+require_once "./UserRequest.php";
+session_start();
+$user_request = $_SESSION['user_request'];
+if (is_null($user_request)) {
+    unset($_SESSION['user_request']);
+    header("Location: form_quiz_template.php");
 }
 ?>
 
@@ -24,13 +26,13 @@ if ($_POST) {
         <div><h2>お問い合わせ</h2></div>
         <div>
             <form action="form_quiz_template_thanks.php" method="post">
-            <?php echo '<input hidden type="text" name="name" placeholder="例）山田太郎" value="' . $_POST['name'].'">';?>
-            <?php echo '<input hidden type="text" name="furigana" placeholder="例）やまだたろう" value="' . $_POST['furigana'].'">';?>
-            <?php echo '<input hidden type="text" name="email" placeholder="例）guest@example.com" value="' .$_POST['email'].'">';?>       
-            <?php echo '<input hidden type="text" name="tel" placeholder="例）000-0000-0000" value="' .$_POST['tel'].'">';?>       
-            <?php echo '<input hidden type="radio" name="sex" value="' .$_POST['sex'].'">';?>       
-            <?php echo '<input hidden type="text" name="item" value="'.$_POST['item'].'">';?>       
-            <?php echo '<input hidden type="text" name="content" value="'.$_POST['content'].'">';?>
+            <?php echo '<input hidden type="text" name="name" placeholder="例）山田太郎" value="' . $user_request->getName().'">';?>
+            <?php echo '<input hidden type="text" name="furigana" placeholder="例）やまだたろう" value="' . $user_request->getFurigana().'">';?>
+            <?php echo '<input hidden type="text" name="email" placeholder="例）guest@example.com" value="' .$user_request->getEmail().'">';?>       
+            <?php echo '<input hidden type="text" name="tel" placeholder="例）000-0000-0000" value="' .$user_request->getTel().'">';?>       
+            <?php echo '<input hidden type="radio" name="sex" value="' .$user_request->getSex().'">';?>       
+            <?php echo '<input hidden type="text" name="item" value="'.$user_request->getItem().'">';?>       
+            <?php echo '<input hidden type="text" name="content" value="'.$user_request->getContent().'">';?>
                 <h1 class="contact-title">お問い合わせ 内容確認</h1>
                 <p>
                     お問い合わせ内容はこちらで宜しいでしょうか？<br>
@@ -40,26 +42,26 @@ if ($_POST) {
                 <div>
                     <div>
                         <label>氏名</label>
-                        <p><?php echo $_POST['name'] ?></p>
+                        <p><?php echo $user_request->getName() ?></p>
                     </div>
                     <div>
                         <label>ふりがな</label>
-                        <p><?php echo $_POST['furigana'] ?></p>
+                        <p><?php echo $user_request->getFurigana() ?></p>
                     </div>
                     <div>
                         <label>メールアドレス</label>
-                        <p><?php echo $_POST['email'] ?></p>
+                        <p><?php echo $user_request->getEmail() ?></p>
                     </div>
                     <div>
                         <label>電話番号</label>
-                        <p><?php echo $_POST['tel'] ?></p>
+                        <p><?php echo $user_request->getTel() ?></p>
                     </div>
                     <div>
                         <label>性別</label>
                         <p><?php 
-                        if ($_POST['sex']=='0'){
+                        if ($user_request->getSex()=='0'){
                             echo '男性';
-                        } else if ($_POST['sex']=='1'){
+                        } else if ($user_request->getSex()=='1'){
                             echo '女性';
                         } else {
                             echo '無回答';
@@ -68,11 +70,11 @@ if ($_POST) {
                     </div>
                     <div>
                         <label>お問い合わせ項目</label>
-                        <p><?php echo $_POST['item'] ?></p>
+                        <p><?php echo $user_request->getItem() ?></p>
                     </div>
                     <div>
                         <label>お問い合わせ内容</label>
-                        <p><?php echo $_POST['content'] ?></p>
+                        <p><?php echo $user_request->getContent() ?></p>
                     </div>
                 </div>
 
