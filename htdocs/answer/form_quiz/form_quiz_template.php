@@ -46,17 +46,17 @@
                     <div class="error"><?php // 電話番号エラー ?></div>
                     <div>
                         <label>性別<span>必須</span></label>
-                        <input type="radio" name="sex" value="0" checked> 男性
-                        <input type="radio" name="sex" value="1"> 女性
-                        <input type="radio" name="sex" value="2"> 無回答
+                        <input type="radio" name="sex" value="1" checked> 男性
+                        <input type="radio" name="sex" value="2"> 女性
+                        <input type="radio" name="sex" value="3"> 無回答
                     </div>
                     <div class="error"><?php // 性別エラー ?></div>
                     <div>
                         <label>お問い合わせ項目<span>必須</span></label>
                         <select name="item">
                             <option value="">お問い合わせ項目を選択してください</option>
-                            <option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>
-                            <option value="ご意見・ご感想">ご意見・ご感想</option>
+                            <option value="1">ご質問・お問い合わせ</option>
+                            <option value="2">ご意見・ご感想</option>
                         </select>
                         <div class="error"><?php // お問い合わせ項目エラー ?></div>
                     </div>

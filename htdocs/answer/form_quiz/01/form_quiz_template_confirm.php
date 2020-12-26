@@ -56,13 +56,14 @@ if (is_null($user_request)) {
                     </div>
                     <div>
                         <label>性別</label>
-                        <p><?php if ($user_request->getSex() == '0') echo '男性' ?></p>
-                        <p><?php if ($user_request->getSex() == '1') echo '女性' ?></p>
-                        <p><?php if ($user_request->getSex() == '2') echo '未回答' ?></p>
+                        <p><?php if ($user_request->getSex() == '1') echo '男性' ?></p>
+                        <p><?php if ($user_request->getSex() == '2') echo '女性' ?></p>
+                        <p><?php if ($user_request->getSex() == '3') echo '未回答' ?></p>
                     </div>
                     <div>
                         <label>お問い合わせ項目</label>
-                        <p><?php echo $user_request->getItem() ?></p>
+                        <p><?php if ($user_request->getItem() == '1') echo 'ご質問・お問い合わせ' ?></p>
+                        <p><?php if ($user_request->getItem() == '2') echo 'ご意見・ご感想' ?></p>
                     </div>
                     <div>
                         <label>お問い合わせ内容</label>

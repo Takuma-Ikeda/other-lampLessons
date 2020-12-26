@@ -44,4 +44,3 @@ unset($_SESSION['user_request']);
         </div>
     </body>
 </html>
-

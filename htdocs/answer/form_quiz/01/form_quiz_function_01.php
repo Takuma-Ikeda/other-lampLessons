@@ -68,7 +68,6 @@ function createErrorTags($msgs) {
         UserRequest::CONTENT  => '<div class="error"></div>',
     ];
 
-
     // $msgs が null だったら初期値を返す
     if (is_null($msgs)) {
         return $tags;
@@ -96,14 +95,14 @@ function createValueTags($user_request) {
         UserRequest::EMAIL    => '<input type="text" name="email" placeholder="例）guest@example.com" value="">',
         UserRequest::TEL      => '<input type="text" name="tel" placeholder="例）000-0000-0000" value="">',
         UserRequest::SEX      => [
-            0 => '<input type="radio" name="sex" value="0" checked> 男性',
-            1 => '<input type="radio" name="sex" value="1"> 女性',
-            2 => '<input type="radio" name="sex" value="2"> 無回答',
+            0 => '<input type="radio" name="sex" value="1" checked> 男性',
+            1 => '<input type="radio" name="sex" value="2"> 女性',
+            2 => '<input type="radio" name="sex" value="3"> 無回答',
         ],
         UserRequest::ITEM     => [
             0 => '<option value="" selected>お問い合わせ項目を選択してください</option>',
-            1 => '<option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>',
-            2 => '<option value="ご意見・ご感想">ご意見・ご感想</option>'
+            1 => '<option value="1">ご質問・お問い合わせ</option>',
+            2 => '<option value="2">ご意見・ご感想</option>'
         ],
         UserRequest::CONTENT  => '<textarea name="content" rows="5" placeholder="お問合せ内容を入力"></textarea>',
     ];
@@ -119,32 +118,32 @@ function createValueTags($user_request) {
         UserRequest::EMAIL    => '<input type="text" name="email" placeholder="例）guest@example.com" value="' . $user_request->getEmail() . '">',
         UserRequest::TEL      => '<input type="text" name="tel" placeholder="例）000-0000-0000" value="' . $user_request->getTel() . '">',
         UserRequest::SEX      => [
-            0 => '<input type="radio" name="sex" value="0" checked> 男性',
-            1 => '<input type="radio" name="sex" value="1"> 女性',
-            2 => '<input type="radio" name="sex" value="2"> 無回答',
+            0 => '<input type="radio" name="sex" value="1" checked> 男性',
+            1 => '<input type="radio" name="sex" value="2"> 女性',
+            2 => '<input type="radio" name="sex" value="3"> 無回答',
         ],
         UserRequest::ITEM     => [
             0 => '<option value="" selected>お問い合わせ項目を選択してください</option>',
-            1 => '<option value="ご質問・お問い合わせ">ご質問・お問い合わせ</option>',
-            2 => '<option value="ご意見・ご感想">ご意見・ご感想</option>'
+            1 => '<option value="1">ご質問・お問い合わせ</option>',
+            2 => '<option value="2">ご意見・ご感想</option>'
         ],
         UserRequest::CONTENT  => '<textarea name="content" rows="5" placeholder="お問合せ内容を入力">' . $user_request->getContent() . '</textarea>',
     ];
 
-    if ($user_request->getSex() == 0) {
-        $tags[UserRequest::SEX][0] = '<input type="radio" name="sex" value="0" checked> 男性';
-    } else if ($user_request->getSex() == 1) {
-        $tags[UserRequest::SEX][1] = '<input type="radio" name="sex" value="1" checked> 女性';
+    if ($user_request->getSex() == 1) {
+        $tags[UserRequest::SEX][0] = '<input type="radio" name="sex" value="1" checked> 男性';
     } else if ($user_request->getSex() == 2) {
-        $tags[UserRequest::SEX][2] = '<input type="radio" name="sex" value="2" checked> 無回答';
+        $tags[UserRequest::SEX][1] = '<input type="radio" name="sex" value="2" checked> 女性';
+    } else if ($user_request->getSex() == 3) {
+        $tags[UserRequest::SEX][2] = '<input type="radio" name="sex" value="3" checked> 無回答';
     }
 
     if ($user_request->getItem() == '') {
         $tags[UserRequest::ITEM][0] = '<option value="" selected>お問い合わせ項目を選択してください</option>';
-    } else if ($user_request->getItem() == 'ご質問・お問い合わせ') {
-        $tags[UserRequest::ITEM][1] = '<option value="ご質問・お問い合わせ" selected>ご質問・お問い合わせ</option>';
-    } else if ($user_request->getItem() == 'ご意見・ご感想') {
-        $tags[UserRequest::ITEM][2] = '<option value="ご意見・ご感想" selected>ご意見・ご感想</option>';
+    } else if ($user_request->getItem() == 1) {
+        $tags[UserRequest::ITEM][1] = '<option value="1" selected>ご質問・お問い合わせ</option>';
+    } else if ($user_request->getItem() == 2) {
+        $tags[UserRequest::ITEM][2] = '<option value="2" selected>ご意見・ご感想</option>';
     }
 
     return $tags;
