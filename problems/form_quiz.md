@@ -18,7 +18,9 @@
 
 「お問い合わせ 送信完了」画面にて、お問い合わせ内容を DB 保存してください。
 
-### details テーブル
+DB 名は `contact` にして、テーブル設計は以下を参照してください。また、SQL ファイルを作成するようにしてください。
+
+### detail テーブル
 
 |id|name|furigana|email|tel|sex_id|item_id|content|created|updated|
 |:--|:--|:--|:--|:--|:--|:--|:--|:--|:--|
@@ -39,10 +41,9 @@
     - VARCHAR(255)
     - NOT NULL 制約
 - `tel`
-    - CHAR(15)
+    - CHAR(20)
     - NOT NULL 制約
 - `sex_id`
-    - sex.id の外部キー制約 (FOREIGN KEY)
     - INT
     - NOT NULL 制約
 - `item_id`
@@ -71,6 +72,7 @@
     - AUTO_INCREMENT
     - INT
     - NOT NULL 制約
+    - `detail.sex_id` の外部キー制約 (FOREIGN KEY)
 - `sex`
     - CHAR(10)
     - NOT NULL 制約
@@ -93,6 +95,7 @@
     - AUTO_INCREMENT
     - INT
     - NOT NULL 制約
+    - `detail.item_id` の外部キー制約 (FOREIGN KEY)
 - `item`
     - VARCHAR(255)
     - NOT NULL 制約
