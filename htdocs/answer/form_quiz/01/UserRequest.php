@@ -59,11 +59,11 @@ class UserRequest {
         $this->tel = $tel;
     }
 
-    public function setSex($sex) {
+    public function setSexId($sex) {
         $this->sex = $sex;
     }
 
-    public function setItem($item) {
+    public function setItemId($item) {
         $this->item = $item;
     }
 
@@ -90,11 +90,11 @@ class UserRequest {
         return $this->tel;
     }
 
-    public function getSex() {
+    public function getSexId() {
         return $this->sex;
     }
 
-    public function getItem() {
+    public function getItemId() {
         return $this->item;
     }
 

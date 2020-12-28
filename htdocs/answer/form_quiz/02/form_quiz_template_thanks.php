@@ -7,12 +7,65 @@
 
 require_once "./UserRequest.php";
 
+// docker-compose ps で表示されるコンテナ名
+const HOST     = 'other-lamplessons_mysql_1';
+const DB       = 'contact';
+const USER     = 'root';
+const PASSWORD = 'password';
+const CHARSET  = 'utf8';
+const DSN      = 'mysql:dbname=' . DB . ';host=' . HOST .';charset=' . CHARSET;
+
 session_start();
 $user_request = $_SESSION['user_request'];
 
 if (is_null($user_request)) {
     unset($_SESSION['user_request']);
     header("Location: form_quiz_template.php");
+} else {
+    try {
+        $pdo = new PDO(DSN, USER, PASSWORD);
+        $sql = 'INSERT INTO detail (name, furigana, email, tel, sex_id, item_id, content) VALUE (:name, :furigana, :email, :tel, :sex_id, :item_id, :content)';
+        $prepare = $pdo->prepare($sql);
+        $prepare->bindValue(
+            ':name',
+            $user_request->getName(),
+            PDO::PARAM_STR
+        );
+        $prepare->bindValue(
+            ':furigana',
+            $user_request->getFurigana(),
+            PDO::PARAM_STR
+        );
+        $prepare->bindValue(
+            ':email',
+            $user_request->getEmail(),
+            PDO::PARAM_STR
+        );
+        $prepare->bindValue(
+            ':tel',
+            $user_request->getTel(),
+            PDO::PARAM_STR
+        );
+        $prepare->bindValue(
+            ':sex_id',
+            $user_request->getSexId(),
+            PDO::PARAM_INT
+        );
+        $prepare->bindValue(
+            ':item_id',
+            $user_request->getItemId(),
+            PDO::PARAM_INT
+        );
+        $prepare->bindValue(
+            ':content',
+            $user_request->getContent(),
+            PDO::PARAM_STR
+        );
+        $prepare->execute();
+    } catch (PDOException $e) {
+        echo "データベースエラー: " . $e->getMessage() . PHP_EOL;
+        exit();
+    }
 }
 
 unset($_SESSION['user_request']);

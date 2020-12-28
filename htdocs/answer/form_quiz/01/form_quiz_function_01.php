@@ -27,11 +27,11 @@ function validation($user_request) {
         $error_messages[UserRequest::TEL] = '電話番号を入力してください';
     }
 
-    if (is_null($user_request->getSex()) || $user_request->getSex() === '') {
+    if (is_null($user_request->getSexId()) || $user_request->getSexId() === '') {
         $error_messages[UserRequest::SEX] = '性別を入力してください';
     }
 
-    if (is_null($user_request->getItem()) || $user_request->getItem() === '') {
+    if (is_null($user_request->getItemId()) || $user_request->getItemId() === '') {
         $error_messages[UserRequest::ITEM] = 'お問い合わせ項目を選択してください';
     }
 
@@ -130,19 +130,19 @@ function createValueTags($user_request) {
         UserRequest::CONTENT  => '<textarea name="content" rows="5" placeholder="お問合せ内容を入力">' . $user_request->getContent() . '</textarea>',
     ];
 
-    if ($user_request->getSex() == 1) {
+    if ($user_request->getSexId() == 1) {
         $tags[UserRequest::SEX][0] = '<input type="radio" name="sex" value="1" checked> 男性';
-    } else if ($user_request->getSex() == 2) {
+    } else if ($user_request->getSexId() == 2) {
         $tags[UserRequest::SEX][1] = '<input type="radio" name="sex" value="2" checked> 女性';
-    } else if ($user_request->getSex() == 3) {
+    } else if ($user_request->getSexId() == 3) {
         $tags[UserRequest::SEX][2] = '<input type="radio" name="sex" value="3" checked> 無回答';
     }
 
-    if ($user_request->getItem() == '') {
+    if ($user_request->getItemId() == '') {
         $tags[UserRequest::ITEM][0] = '<option value="" selected>お問い合わせ項目を選択してください</option>';
-    } else if ($user_request->getItem() == 1) {
+    } else if ($user_request->getItemId() == 1) {
         $tags[UserRequest::ITEM][1] = '<option value="1" selected>ご質問・お問い合わせ</option>';
-    } else if ($user_request->getItem() == 2) {
+    } else if ($user_request->getItemId() == 2) {
         $tags[UserRequest::ITEM][2] = '<option value="2" selected>ご意見・ご感想</option>';
     }
 
