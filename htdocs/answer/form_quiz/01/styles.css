@@ -301,3 +301,34 @@ p {
     padding: 0 40px;
     height: 24px;
 }
+
+table {
+    border: solid 1px #ddd;
+    border-radius: 5px;
+    border-collapse:collapse;
+    width: 100%;
+    margin:0 auto;
+    background-color: #fff;
+}
+
+table th {
+    white-space: nowrap;
+    width: 100px;
+    color:#005ab3;
+}
+
+table td {
+    border-bottom:1px dashed #999;
+}
+
+th,tr:last-child td {
+    border-bottom:2px solid #005ab3;
+}
+
+td, th{
+    padding:10px;
+}
+
+body > div:first-child.admin {
+    background-color: red;
+}

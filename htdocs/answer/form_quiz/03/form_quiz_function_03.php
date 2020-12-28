@@ -208,3 +208,21 @@ function insertDetail($user_request) {
         exit();
     }
 }
+
+/**
+* detail テーブルのレコードを全件返却する
+* @param UserRequest $user_request
+* @return array
+*/
+function selectDetail() {
+    try {
+        $pdo = new PDO(DSN, USER, PASSWORD);
+        $sql = 'SELECT detail.id, detail.name, detail.furigana, detail.email, detail.tel, sex.sex, item.item, detail.content, detail.created, detail.updated FROM detail LEFT JOIN sex ON detail.sex_id = sex.id LEFT JOIN item ON detail.item_id = item.id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        echo "データベースエラー: " . $e->getMessage() . PHP_EOL;
+        exit();
+    }
+}

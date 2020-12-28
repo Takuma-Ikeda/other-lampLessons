@@ -125,3 +125,11 @@
     - DATETIME
     - NOT NULL 制約
     - DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+
+## 問題 3
+
+お問い合わせ内容をすべて表示する管理画面を作成してください。
+
+- テンプレートファイルは `form_quiz_template_admin.php` を使用してください
+- 性別は detail テーブルに sex テーブルを左結合して sex カラムの内容を表示してください
+- お問い合わせ項目は detail テーブルに item テーブルを左結合して item カラムの内容を表示してください
