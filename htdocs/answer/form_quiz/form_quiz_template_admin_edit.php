@@ -14,15 +14,15 @@
     <head>
         <meta charset="utf-8">
         <link rel="stylesheet" href="./styles.css">
-        <title>お問い合わせ 内容入力</title>
+        <title>お問い合わせ 内容編集</title>
     </head>
     <body>
-        <div><h1>EeeeG</h1></div>
-        <div><h2>お問い合わせ</h2></div>
+        <div><h1 class="admin">EeeeG</h1></div>
+        <div><h2>お問い合わせ 内容編集</h2></div>
         <div>
-            <form action="form_quiz_template_confirm.php" method="post" name="form" onsubmit="return validate()">
-                <h1 class="contact-title">お問い合わせ 内容入力</h1>
-                <p>お問い合わせ内容をご入力の上、「確認画面へ」ボタンをクリックしてください。</p>
+            <form action="form_quiz_template_admin_edit.php" method="post" name="form" onsubmit="return validate()">
+                <h1 class="contact-title">お問い合わせ 内容編集</h1>
+                <p>お問い合わせ内容をご入力の上、「編集完了」ボタンをクリックしてください。</p>
                 <div>
                     <div>
                         <label>氏名<span>必須</span></label>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="error"><?php // お問い合わせ内容エラー ?></div>
                 </div>
-                <button type="submit">確認画面へ</button>
+                <button type="submit">編集完了</button>
             </form>
         </div>
     </body>

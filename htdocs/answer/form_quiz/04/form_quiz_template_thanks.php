@@ -6,6 +6,7 @@
  */
 
 require_once "./UserRequest.php";
+require_once "./form_quiz_function_04.php";
 
 session_start();
 $user_request = $_SESSION['user_request'];
@@ -13,6 +14,8 @@ $user_request = $_SESSION['user_request'];
 if (is_null($user_request)) {
     unset($_SESSION['user_request']);
     header("Location: form_quiz_template.php");
+} else {
+    insertDetail($user_request);
 }
 
 unset($_SESSION['user_request']);

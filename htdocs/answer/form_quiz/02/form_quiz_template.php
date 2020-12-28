@@ -5,7 +5,7 @@
  * http://localhost/answer/form_quiz/01/form_quiz_template.php
  */
 
-require_once "./form_quiz_function_01.php";
+require_once "./form_quiz_function_02.php";
 require_once "./UserRequest.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {

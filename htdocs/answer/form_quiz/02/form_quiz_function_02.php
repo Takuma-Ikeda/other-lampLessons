@@ -2,6 +2,14 @@
 
 require_once "./UserRequest.php";
 
+// docker-compose ps で表示されるコンテナ名
+const HOST     = 'other-lamplessons_mysql_1';
+const DB       = 'contact';
+const USER     = 'root';
+const PASSWORD = 'password';
+const CHARSET  = 'utf8';
+const DSN      = 'mysql:dbname=' . DB . ';host=' . HOST .';charset=' . CHARSET;
+
 /**
 * バリデーションを行う。エラーが見つかれば、配列にエラーメッセージを設定して返却する
 * @param UserRequest $user_request
@@ -151,4 +159,56 @@ function createValueTags($user_request) {
     }
 
     return $tags;
+}
+
+/**
+* detail テーブルにレコード追加する
+* @param UserRequest $user_request
+* @return void
+*/
+function insertDetail($user_request) {
+    try {
+        $pdo = new PDO(DSN, USER, PASSWORD);
+        $sql = 'INSERT INTO detail (name, furigana, email, tel, sex_id, item_id, content) VALUE (:name, :furigana, :email, :tel, :sex_id, :item_id, :content)';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(
+            ':name',
+            $user_request->getName(),
+            PDO::PARAM_STR
+        );
+        $stmt->bindValue(
+            ':furigana',
+            $user_request->getFurigana(),
+            PDO::PARAM_STR
+        );
+        $stmt->bindValue(
+            ':email',
+            $user_request->getEmail(),
+            PDO::PARAM_STR
+        );
+        $stmt->bindValue(
+            ':tel',
+            $user_request->getTel(),
+            PDO::PARAM_STR
+        );
+        $stmt->bindValue(
+            ':sex_id',
+            $user_request->getSexId(),
+            PDO::PARAM_INT
+        );
+        $stmt->bindValue(
+            ':item_id',
+            $user_request->getItemId(),
+            PDO::PARAM_INT
+        );
+        $stmt->bindValue(
+            ':content',
+            $user_request->getContent(),
+            PDO::PARAM_STR
+        );
+        $stmt->execute();
+    } catch (PDOException $e) {
+        echo "データベースエラー: " . $e->getMessage() . PHP_EOL;
+        exit();
+    }
 }
