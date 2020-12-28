@@ -5,8 +5,15 @@
  * http://localhost/answer/form_quiz/form_quiz_template_thanks.php
  */
 
-require_once "./form_quiz_function_03.php";
+require_once "./form_quiz_function_04.php";
+
+// レコード削除処理
+if ($_GET["id"]) {
+    deleteDetailById($_GET["id"]);
+}
+
 $rows = selectDetails();
+
 ?>
 
 <!DOCTYPE html>
@@ -49,8 +56,8 @@ $rows = selectDetails();
                         <td><?php echo $row['content'] ?></td>
                         <td><?php echo $row['created'] ?></td>
                         <td><?php echo $row['updated'] ?></td>
-                        <td><a href="./form_quiz_template_admin.php">削除</a></td>
-                        <td><a href="./form_quiz_template_admin_edit.php">編集</a></td>
+                        <?php echo '<td><a href="./form_quiz_template_admin.php?id=' . $row['id'] . '">削除</a></td>' ?>
+                        <?php echo '<td><a href="./form_quiz_template_admin_edit.php?id=' . $row['id']  . '">編集</a></td>' ?>
                     </tr>
                 <?php } ?>
             </tbody>

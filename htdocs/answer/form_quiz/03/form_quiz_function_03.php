@@ -103,9 +103,9 @@ function createValueTags($user_request) {
         UserRequest::EMAIL    => '<input type="text" name="email" placeholder="例）guest@example.com" value="">',
         UserRequest::TEL      => '<input type="text" name="tel" placeholder="例）000-0000-0000" value="">',
         UserRequest::SEX      => [
-            0 => '<input type="radio" name="sex" value="1" checked> 男性',
-            1 => '<input type="radio" name="sex" value="2"> 女性',
-            2 => '<input type="radio" name="sex" value="3"> 無回答',
+            0 => '<input type="radio" name="sex_id" value="1" checked> 男性',
+            1 => '<input type="radio" name="sex_id" value="2"> 女性',
+            2 => '<input type="radio" name="sex_id" value="3"> 無回答',
         ],
         UserRequest::ITEM     => [
             0 => '<option value="" selected>お問い合わせ項目を選択してください</option>',
@@ -126,9 +126,9 @@ function createValueTags($user_request) {
         UserRequest::EMAIL    => '<input type="text" name="email" placeholder="例）guest@example.com" value="' . $user_request->getEmail() . '">',
         UserRequest::TEL      => '<input type="text" name="tel" placeholder="例）000-0000-0000" value="' . $user_request->getTel() . '">',
         UserRequest::SEX      => [
-            0 => '<input type="radio" name="sex" value="1" checked> 男性',
-            1 => '<input type="radio" name="sex" value="2"> 女性',
-            2 => '<input type="radio" name="sex" value="3"> 無回答',
+            0 => '<input type="radio" name="sex_id" value="1" checked> 男性',
+            1 => '<input type="radio" name="sex_id" value="2"> 女性',
+            2 => '<input type="radio" name="sex_id" value="3"> 無回答',
         ],
         UserRequest::ITEM     => [
             0 => '<option value="" selected>お問い合わせ項目を選択してください</option>',
@@ -139,11 +139,11 @@ function createValueTags($user_request) {
     ];
 
     if ($user_request->getSexId() == 1) {
-        $tags[UserRequest::SEX][0] = '<input type="radio" name="sex" value="1" checked> 男性';
+        $tags[UserRequest::SEX][0] = '<input type="radio" name="sex_id" value="1" checked> 男性';
     } else if ($user_request->getSexId() == 2) {
-        $tags[UserRequest::SEX][1] = '<input type="radio" name="sex" value="2" checked> 女性';
+        $tags[UserRequest::SEX][1] = '<input type="radio" name="sex_id" value="2" checked> 女性';
     } else if ($user_request->getSexId() == 3) {
-        $tags[UserRequest::SEX][2] = '<input type="radio" name="sex" value="3" checked> 無回答';
+        $tags[UserRequest::SEX][2] = '<input type="radio" name="sex_id" value="3" checked> 無回答';
     }
 
     if ($user_request->getItemId() == '') {
@@ -211,10 +211,9 @@ function insertDetail($user_request) {
 
 /**
 * detail テーブルのレコードを全件返却する
-* @param UserRequest $user_request
 * @return array
 */
-function selectDetail() {
+function selectDetails() {
     try {
         $pdo = new PDO(DSN, USER, PASSWORD);
         $sql = 'SELECT detail.id, detail.name, detail.furigana, detail.email, detail.tel, sex.sex, item.item, detail.content, detail.created, detail.updated FROM detail LEFT JOIN sex ON detail.sex_id = sex.id LEFT JOIN item ON detail.item_id = item.id';

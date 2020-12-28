@@ -13,16 +13,16 @@ class UserRequest {
     const FURIGANA = 'furigana';
     const EMAIL    = 'email';
     const TEL      = 'tel';
-    const SEX      = 'sex';
-    const ITEM     = 'item';
+    const SEX      = 'sex_id';
+    const ITEM     = 'item_id';
     const CONTENT  = 'content';
 
     private $name;
     private $furigana;
     private $email;
     private $tel;
-    private $sex;
-    private $item;
+    private $sex_id;
+    private $item_id;
     private $content;
 
     /**
@@ -35,8 +35,8 @@ class UserRequest {
         $this->furigana = $user_request[self::FURIGANA];
         $this->email    = $user_request[self::EMAIL];
         $this->tel      = $user_request[self::TEL];
-        $this->sex      = $user_request[self::SEX];
-        $this->item     = $user_request[self::ITEM];
+        $this->sex_id   = $user_request[self::SEX];
+        $this->item_id  = $user_request[self::ITEM];
         $this->content  = $user_request[self::CONTENT];
     }
 
@@ -59,12 +59,12 @@ class UserRequest {
         $this->tel = $tel;
     }
 
-    public function setSexId($sex) {
-        $this->sex = $sex;
+    public function setSexId($sex_id) {
+        $this->sex_id = $sex_id;
     }
 
-    public function setItemId($item) {
-        $this->item = $item;
+    public function setItemId($item_id) {
+        $this->item_id = $item_id;
     }
 
     public function setContent($content) {
@@ -91,11 +91,11 @@ class UserRequest {
     }
 
     public function getSexId() {
-        return $this->sex;
+        return $this->sex_id;
     }
 
     public function getItemId() {
-        return $this->item;
+        return $this->item_id;
     }
 
     public function getContent() {

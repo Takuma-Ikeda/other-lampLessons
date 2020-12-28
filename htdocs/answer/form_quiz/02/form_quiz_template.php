@@ -9,7 +9,6 @@ require_once "./form_quiz_function_02.php";
 require_once "./UserRequest.php";
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     $user_request = new UserRequest($_POST);
     $error_messages = validation($user_request);
 
@@ -75,7 +74,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                     <?php echo $error_tags[UserRequest::SEX] ?>
                     <div>
                         <label>お問い合わせ項目<span>必須</span></label>
-                        <select name="item">
+                        <select name="item_id">
                             <?php echo $value_tags[UserRequest::ITEM][0] ?>
                             <?php echo $value_tags[UserRequest::ITEM][1] ?>
                             <?php echo $value_tags[UserRequest::ITEM][2] ?>

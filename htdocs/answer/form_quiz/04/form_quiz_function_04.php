@@ -208,3 +208,123 @@ function insertDetail($user_request) {
         exit();
     }
 }
+
+/**
+* detail テーブルのレコードを全件返却する
+* @return array
+*/
+function selectDetails() {
+    try {
+        $pdo = new PDO(DSN, USER, PASSWORD);
+        $sql = 'SELECT detail.id, detail.name, detail.furigana, detail.email, detail.tel, sex.sex, item.item, detail.content, detail.created, detail.updated FROM detail LEFT JOIN sex ON detail.sex_id = sex.id LEFT JOIN item ON detail.item_id = item.id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
+    } catch (PDOException $e) {
+        echo "データベースエラー: " . $e->getMessage() . PHP_EOL;
+        exit();
+    }
+}
+
+/**
+* $id を指定して detail テーブルのレコードを 1 件返却する
+* @param int id
+* @return array
+*/
+function selectDetailById($id) {
+    try {
+        $pdo = new PDO(DSN, USER, PASSWORD);
+        $sql = 'SELECT * FROM detail WHERE id = :id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(
+            ':id',
+            $id,
+            PDO::PARAM_INT
+        );
+        $stmt->execute();
+        return $stmt->fetch();
+    } catch (PDOException $e) {
+        echo "データベースエラー: " . $e->getMessage() . PHP_EOL;
+        exit();
+    }
+}
+
+/**
+* detail テーブルのレコードを 1 件更新する
+* @param int $id
+* @param UserRequest $user_request
+* @return void
+*/
+function updateDetailById($id, $user_request) {
+    try {
+        $pdo = new PDO(DSN, USER, PASSWORD);
+        $sql = 'UPDATE detail SET name = :name, furigana = :furigana, email = :email, tel = :tel, sex_id = :sex_id, item_id = :item_id, content = :content WHERE id = :id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(
+            ':name',
+            $user_request->getName(),
+            PDO::PARAM_STR
+        );
+        $stmt->bindValue(
+            ':furigana',
+            $user_request->getFurigana(),
+            PDO::PARAM_STR
+        );
+        $stmt->bindValue(
+            ':email',
+            $user_request->getEmail(),
+            PDO::PARAM_STR
+        );
+        $stmt->bindValue(
+            ':tel',
+            $user_request->getTel(),
+            PDO::PARAM_STR
+        );
+        $stmt->bindValue(
+            ':sex_id',
+            $user_request->getSexId(),
+            PDO::PARAM_INT
+        );
+        $stmt->bindValue(
+            ':item_id',
+            $user_request->getItemId(),
+            PDO::PARAM_INT
+        );
+        $stmt->bindValue(
+            ':content',
+            $user_request->getContent(),
+            PDO::PARAM_STR
+        );
+        $stmt->bindValue(
+            ':id',
+            $id,
+            PDO::PARAM_INT
+        );
+        $stmt->execute();
+    } catch (PDOException $e) {
+        echo "データベースエラー: " . $e->getMessage() . PHP_EOL;
+        exit();
+    }
+}
+
+/**
+* detail テーブルのレコードを 1 件削除する
+* @param int $id
+* @return void
+*/
+function deleteDetailById($id) {
+    try {
+        $pdo = new PDO(DSN, USER, PASSWORD);
+        $sql = 'DELETE FROM detail WHERE id = :id';
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(
+            ':id',
+            $id,
+            PDO::PARAM_INT
+        );
+        $stmt->execute();
+    } catch (PDOException $e) {
+        echo "データベースエラー: " . $e->getMessage() . PHP_EOL;
+        exit();
+    }
+}
