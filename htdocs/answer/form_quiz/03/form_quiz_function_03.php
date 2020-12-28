@@ -141,16 +141,20 @@ function createValueTags($user_request) {
     if ($user_request->getSexId() == 1) {
         $tags[UserRequest::SEX][0] = '<input type="radio" name="sex_id" value="1" checked> 男性';
     } else if ($user_request->getSexId() == 2) {
+        $tags[UserRequest::SEX][0] = '<input type="radio" name="sex_id" value="1"> 男性';
         $tags[UserRequest::SEX][1] = '<input type="radio" name="sex_id" value="2" checked> 女性';
     } else if ($user_request->getSexId() == 3) {
+        $tags[UserRequest::SEX][0] = '<input type="radio" name="sex_id" value="1"> 男性';
         $tags[UserRequest::SEX][2] = '<input type="radio" name="sex_id" value="3" checked> 無回答';
     }
 
     if ($user_request->getItemId() == '') {
         $tags[UserRequest::ITEM][0] = '<option value="" selected>お問い合わせ項目を選択してください</option>';
     } else if ($user_request->getItemId() == 1) {
+        $tags[UserRequest::ITEM][0] = '<option value="">お問い合わせ項目を選択してください</option>';
         $tags[UserRequest::ITEM][1] = '<option value="1" selected>ご質問・お問い合わせ</option>';
     } else if ($user_request->getItemId() == 2) {
+        $tags[UserRequest::ITEM][0] = '<option value="">お問い合わせ項目を選択してください</option>';
         $tags[UserRequest::ITEM][2] = '<option value="2" selected>ご意見・ご感想</option>';
     }
 
