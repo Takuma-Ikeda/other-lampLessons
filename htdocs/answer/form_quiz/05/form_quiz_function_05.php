@@ -184,12 +184,12 @@ function createNavLinksTags($max_page, $current_page = 1) {
             $tags[] = createPageNumbersTag($current_page + 1);
             $tags[] = createPageNumbersTag($current_page + 2);
             $tags[] = createPageNumbersTag($current_page + 3);
-        } else if  ($max_page == 5) {
+        } else if ($max_page == 5) {
             $tags[] = createPageNumbersTag($current_page + 1);
             $tags[] = createPageNumbersTag($current_page + 2);
             $tags[] = createPageNumbersTag($current_page + 3);
             $tags[] = createPageNumbersTag($current_page + 4);
-        } else {
+        } else if ($max_page >= 6) {
             $tags[] = createPageNumbersTag($current_page + 1);
             $tags[] = createPageNumbersTag($current_page + 2);
             $tags[] = createPageNumbersDotsTag();
@@ -212,7 +212,7 @@ function createNavLinksTags($max_page, $current_page = 1) {
             $tags[] = createPageNumbersTag($current_page + 1);
             $tags[] = createPageNumbersTag($current_page + 2);
             $tags[] = createPageNumbersTag($current_page + 3);
-        } else {
+        } else if ($max_page >= 6) {
             $tags[] = createPageNumbersTag($current_page + 1);
             if (($current_page == 3) && ($max_page == 5)) {
                 array_splice($tags, 1, 0, createPageNumbersTag(1));

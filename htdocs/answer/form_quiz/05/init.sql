@@ -42,5 +42,3 @@ INSERT INTO item (item) VALUES ('ご意見・ご感想');
 
 -- ダミーデータ
 INSERT INTO detail (name, furigana, email, tel, sex_id, item_id, content) VALUES ('池田拓馬', 'いけだたくま', 'eeeeg.takuma.ikeda@gmail.com', '080-3178-3566', 1, 1, 'test');
-INSERT INTO detail (name, furigana, email, tel, sex_id, item_id, content) VALUES ('池田拓馬', 'いけだたくま', 'eeeeg.takuma.ikeda@gmail.com', '080-3178-3566', 1, 1, 'test');
-INSERT INTO detail (name, furigana, email, tel, sex_id, item_id, content) VALUES ('池田拓馬', 'いけだたくま', 'eeeeg.takuma.ikeda@gmail.com', '080-3178-3566', 1, 1, 'test');
