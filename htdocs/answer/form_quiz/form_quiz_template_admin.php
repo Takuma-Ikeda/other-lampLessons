@@ -54,5 +54,15 @@
             </tbody>
         </table>
 
+        <div class="nav-links">
+            <a class="prev page-numbers" href="./form_quiz_template_admin.php">«</a>
+            <a class="page-numbers" href="./form_quiz_template_admin.php">1</a>
+            <span class="page-numbers current">2</span>
+            <a class="page-numbers" href="./form_quiz_template_admin.php">3</a>
+            <span class="page-numbers dots">…</span>
+            <a class="page-numbers" href="./form_quiz_template_admin.php">10</a>
+            <a class="next page-numbers" href="./form_quiz_template_admin.php">»</a>
+        </div>
+
     </body>
 </html>
