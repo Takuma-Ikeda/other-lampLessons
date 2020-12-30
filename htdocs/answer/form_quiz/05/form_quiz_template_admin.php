@@ -5,8 +5,24 @@
  * http://localhost/answer/form_quiz/form_quiz_template_thanks.php
  */
 
-require_once "./form_quiz_function_03.php";
-$rows = selectDetails();
+require_once "./form_quiz_function_05.php";
+
+// レコード削除処理
+if ($_GET["id"]) {
+    deleteDetailById($_GET["id"]);
+}
+
+$rows_count = countDetail();
+$pagination_count = getpaginationCount($rows_count);
+
+if ($_GET["p"]) {
+    $rows = selectDetails($_GET["p"]);
+    $nav_links_tags = createNavLinksTags($pagination_count, $_GET["p"]);
+} else {
+    $rows = selectDetails();
+    $nav_links_tags = createNavLinksTags($pagination_count);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -49,21 +65,17 @@ $rows = selectDetails();
                         <td><?php echo $row['content'] ?></td>
                         <td><?php echo $row['created'] ?></td>
                         <td><?php echo $row['updated'] ?></td>
-                        <td><a href="./form_quiz_template_admin.php">削除</a></td>
-                        <td><a href="./form_quiz_template_admin_edit.php">編集</a></td>
+                        <?php echo '<td><a href="./form_quiz_template_admin.php?id=' . $row['id'] . '">削除</a></td>' ?>
+                        <?php echo '<td><a href="./form_quiz_template_admin_edit.php?id=' . $row['id']  . '">編集</a></td>' ?>
                     </tr>
                 <?php } ?>
             </tbody>
         </table>
 
         <div class="nav-links">
-            <a class="prev page-numbers" href="./form_quiz_template_admin.php">«</a>
-            <a class="page-numbers" href="./form_quiz_template_admin.php">1</a>
-            <span class="page-numbers current">2</span>
-            <a class="page-numbers" href="./form_quiz_template_admin.php">3</a>
-            <span class="page-numbers dots">…</span>
-            <a class="page-numbers" href="./form_quiz_template_admin.php">10</a>
-            <a class="next page-numbers" href="./form_quiz_template_admin.php">»</a>
+            <?php foreach ($nav_links_tags as $nav_links_tag) {
+                echo $nav_links_tag;
+            } ?>
         </div>
 
     </body>
